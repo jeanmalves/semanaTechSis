@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="342f60b3611448b88befe94dffc1d43b" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Administrador" Width="1.5" PointX="1" PointY="0.625" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Colaborador" Width="1.5" PointX="0.875" PointY="6.25" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Convidado" Width="1.5" PointX="0.5" PointY="3.5" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Evento" Width="1.5" PointX="12.125" PointY="3.875" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Local" Width="1.5" PointX="16.25" PointY="0.75" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Matricula" Width="1.5" PointX="8.875" PointY="2" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Minicurso" Width="1.5" PointX="17.125" PointY="5.25" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Palestra" Width="1.5" PointX="14.625" PointY="4.375" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Participacao" Width="1.5" PointX="8.875" PointY="5.875" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Participante" Width="1.5" PointX="6" PointY="3.625" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Pessoa" Width="1.5" PointX="3.375" PointY="3.125" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Visita" Width="1.5" PointX="14.125" PointY="6.875" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Administrador_Pessoa" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Colaborador_Pessoa" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Convidado_Pessoa" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Matricula_Evento" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Minicurso_Evento" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Palestra_Evento" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Participacao_Evento" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Visita_Evento" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Matricula_Participante" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Participacao_Participante" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Participante_Pessoa" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Horario" Width="1.5" PointX="13.875" PointY="0.875" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Horarioevento_Evento" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Horario_Local" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

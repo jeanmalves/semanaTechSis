@@ -1,0 +1,52 @@
+﻿@model SemanaAcademica.Areas.Admin.Models.CriarParticipacaoModel
+
+@{
+    ViewBag.Title = "Nova Participação";
+}
+
+<h2>Criar Participação</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Nova Participação</legend>
+
+        @Html.HiddenFor(model => model.idParticipante, new { value = Url.RequestContext.RouteData.Values["id"] })
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HoraInicio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HoraInicio)
+            @Html.ValidationMessageFor(model => model.HoraInicio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HoraFim)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HoraFim)
+            @Html.ValidationMessageFor(model => model.HoraFim)
+        </div>
+
+        <span class="editor-label">Evento
+        </span>
+        <span class="editor-field">
+            @Html.DropDownListFor(model => model.idEvento, ((IEnumerable<SemanaAcademica.Areas.Admin.Models.ListarEventoModel>)ViewBag.Eventos).Select(e => new SelectListItem { Text = e.Nome, Value = e.IdEvento.ToString() }))
+            @Html.ValidationMessageFor(model => model.idEvento)
+        </span>
+
+
+        <p>
+            <input type="submit" value="Criar" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @* @Scripts.Render("~/bundles/jqueryval")*@
+}

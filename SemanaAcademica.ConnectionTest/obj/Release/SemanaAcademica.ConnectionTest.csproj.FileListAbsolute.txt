@@ -1,0 +1,21 @@
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\SemanaAcademica.ConnectionTest.exe.config
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\SemanaAcademica.ConnectionTest.exe
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\SemanaAcademica.ConnectionTest.pdb
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\EntityFramework.dll
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\EntityFramework.xml
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.Form1.resources
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.Properties.Resources.resources
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.csproj.GenerateResource.Cache
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.exe
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.pdb
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\SemanaAcademica.ConnectionTest.exe.config
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\SemanaAcademica.ConnectionTest.exe
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\SemanaAcademica.ConnectionTest.pdb
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\EntityFramework.dll
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Release\EntityFramework.xml
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.csprojResolveAssemblyReference.cache
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.Form1.resources
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.Properties.Resources.resources
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.csproj.GenerateResource.Cache
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.exe
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Release\SemanaAcademica.ConnectionTest.pdb

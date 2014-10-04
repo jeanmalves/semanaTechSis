@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SemanaAcademicaModelStoreContainer" CdmEntityContainer="SemanaAcademicaEntities">
+    <EntitySetMapping Name="Administrador">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Administrador">
+        <MappingFragment StoreEntitySet="Administrador">
+          <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+          <ScalarProperty Name="id_administrador" ColumnName="id_administrador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colaborador">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Colaborador">
+        <MappingFragment StoreEntitySet="Colaborador">
+          <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+          <ScalarProperty Name="id_colaborador" ColumnName="id_colaborador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Convidado">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Convidado">
+        <MappingFragment StoreEntitySet="Convidado">
+          <ScalarProperty Name="resumo_curriculo" ColumnName="resumo_curriculo" />
+          <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+          <ScalarProperty Name="id_convidado" ColumnName="id_convidado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Evento">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Evento">
+        <MappingFragment StoreEntitySet="Evento">
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Local">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Local">
+        <MappingFragment StoreEntitySet="Local">
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id_local" ColumnName="id_local" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matricula">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Matricula">
+        <MappingFragment StoreEntitySet="Matricula">
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+          <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Minicurso">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Minicurso">
+        <MappingFragment StoreEntitySet="Minicurso">
+          <ScalarProperty Name="vagas" ColumnName="vagas" />
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="id_minicurso" ColumnName="id_minicurso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Palestra">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Palestra">
+        <MappingFragment StoreEntitySet="Palestra">
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="id_palestra" ColumnName="id_palestra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participacao">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Participacao">
+        <MappingFragment StoreEntitySet="Participacao">
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+          <ScalarProperty Name="hora_saida" ColumnName="hora_saida" />
+          <ScalarProperty Name="hora_entrada" ColumnName="hora_entrada" />
+          <ScalarProperty Name="id_participacao" ColumnName="id_participacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participante">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Participante">
+        <MappingFragment StoreEntitySet="Participante">
+          <ScalarProperty Name="contribuicao" ColumnName="contribuicao" />
+          <ScalarProperty Name="matricula" ColumnName="matricula" />
+          <ScalarProperty Name="registro" ColumnName="registro" />
+          <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+          <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pessoa">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Pessoa">
+        <MappingFragment StoreEntitySet="Pessoa">
+          <ScalarProperty Name="confirmado" ColumnName="confirmado" />
+          <ScalarProperty Name="chave" ColumnName="chave" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visita">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Visita">
+        <MappingFragment StoreEntitySet="Visita">
+          <ScalarProperty Name="vagas" ColumnName="vagas" />
+          <ScalarProperty Name="contribuicao" ColumnName="contribuicao" />
+          <ScalarProperty Name="locomocao" ColumnName="locomocao" />
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="id_visita" ColumnName="id_visita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Horario">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.Horario">
+        <MappingFragment StoreEntitySet="Horario">
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="id_local" ColumnName="id_local" />
+          <ScalarProperty Name="hora_fim" ColumnName="hora_fim" />
+          <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+          <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

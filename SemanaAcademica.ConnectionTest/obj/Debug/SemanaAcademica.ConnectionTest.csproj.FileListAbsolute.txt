@@ -1,0 +1,10 @@
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Debug\SemanaAcademica.ConnectionTest.exe.config
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Debug\SemanaAcademica.ConnectionTest.exe
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Debug\SemanaAcademica.ConnectionTest.pdb
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Debug\EntityFramework.dll
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\bin\Debug\EntityFramework.xml
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.Form1.resources
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.Properties.Resources.resources
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.csproj.GenerateResource.Cache
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.exe
+C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.pdb

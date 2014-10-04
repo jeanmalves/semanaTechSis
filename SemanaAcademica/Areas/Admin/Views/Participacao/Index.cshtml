@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SemanaAcademica.Areas.Admin.Models.ListarEventoModel>
+
+@{
+    ViewBag.Title = "Participação";
+}
+<center>
+    <h2>Selecione um evento</h2>
+    <br />
+    @Html.DropDownList("ddl", Model.Select(e => new SelectListItem { Text = e.Nome, Value = e.IdEvento.ToString() }))
+    <br />
+    <input type="button" value="Selecionar" onclick="Registrar()" />
+</center>
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function Registrar() {
+            var id = $("#ddl").val();
+            window.location.href = "/Admin/Participacao/Registrar/" + id;
+        }
+
+    </script>
+}
