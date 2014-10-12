@@ -181,6 +181,7 @@
     <Compile Include="Areas\Admin\Models\ParticipacaoModel.cs" />
     <Compile Include="Areas\Admin\Models\PessoaModel.cs" />
     <Compile Include="Controllers\CadastroController.cs" />
+    <Compile Include="Controllers\CertificadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformacoesController.cs" />
     <Compile Include="Controllers\ProgramacaoController.cs" />
@@ -244,6 +245,9 @@
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Pessoa.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\TrabalhoVoluntario.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Visita.cs">
@@ -446,6 +450,7 @@
     <Content Include="Views\Cadastro\RecuperarSenha.cshtml" />
     <Content Include="Views\Cadastro\RedefinirSenha.cshtml" />
     <Content Include="Views\Cadastro\RedefinirSenhaSucesso.cshtml" />
+    <Content Include="Views\Certificado\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

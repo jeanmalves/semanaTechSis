@@ -31,6 +31,8 @@
         <EntityTypeShape EntityType="SemanaAcademicaModel.Horario" Width="1.5" PointX="13.875" PointY="0.875" />
         <AssociationConnector Association="SemanaAcademicaModel.FK_Horarioevento_Evento" />
         <AssociationConnector Association="SemanaAcademicaModel.FK_Horario_Local" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.TrabalhoVoluntario" Width="1.5" PointX="8.25" PointY="9" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

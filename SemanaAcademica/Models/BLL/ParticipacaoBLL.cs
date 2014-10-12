@@ -9,8 +9,6 @@ namespace SemanaAcademica.Models.BLL
 {
     public class ParticipacaoBLL
     {
-
-
         static public bool RegistrarParticipacao(int id_participante, int id_evento, out ParticipacaoSentido sentido)
         {
             sentido = ParticipacaoSentido.Entrada;
@@ -150,24 +148,119 @@ namespace SemanaAcademica.Models.BLL
             }
         }
 
+        #region Selects
+
+        [Obsolete("Utiliza agora select por tipo de evento ou de todos os eventos por <b>GetAllByIdPessoa</b>", true)]
         public static List<ParticipacaoModel> SelectByIdPessoa(int idpessoa)
         {
             try
             {
                 var entities = new SemanaAcademicaEntities();
-                return entities.Participacao.Where(p => p.Participante.Pessoa.id_pessoa == idpessoa).Select(p => new ParticipacaoModel
-                {
-                    idParticipacao = p.id_participacao,
-                    HoraSaida = p.hora_saida,
-                    HoraEntrada = p.hora_entrada,
-                    idEvento = p.id_evento,
-                    NomeEvento = p.Evento.nome,
-                }).ToList();
+
+                return entities.Participacao
+                    .Where(p => p.Participante.Pessoa.id_pessoa == idpessoa)
+                    .Select(p => new ParticipacaoModel
+                    {
+                        idParticipacao = p.id_participacao,
+                        HoraSaida = p.hora_saida,
+                        HoraEntrada = p.hora_entrada,
+                        idEvento = p.id_evento,
+                        NomeEvento = p.Evento.nome,
+                    }).ToList();
             }
             catch
             {
                 return null;
             }
         }
+
+        /// <summary>
+        /// Retorna todas as participações de uma pessoa.
+        /// </summary>
+        /// <param name="idPessoa">Id Pessoa</param>
+        /// <returns>List of ParticipacaoModel</returns>
+        public static List<ParticipacaoModel> GetAllByIdPessoa(int idPessoa)
+        {
+            var entities = new SemanaAcademicaEntities();
+            try
+            {
+                return entities.Participacao
+                    .Where(p => p.Participante.Pessoa.id_pessoa == idPessoa)
+                    .Select(p => new ParticipacaoModel
+                    {
+                        idParticipacao = p.id_participacao,
+                        HoraSaida = p.hora_saida,
+                        HoraEntrada = p.hora_entrada,
+                        idEvento = p.id_evento,
+                        NomeEvento = p.Evento.nome,
+                    }).ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Retorna apenas as palestras que uma pessoa participou.
+        /// </summary>
+        /// <param name="idPessoa">Id da Pessoa</param>
+        /// <returns>Lista de participações em palestras</returns>
+        public static List<ParticipacaoModel> GetPalestrasByIdPessoa(int idPessoa)
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                var palestras = (from prt in entities.Participacao
+                                 join pl in entities.Palestra on prt.id_evento equals pl.id_evento
+                                 where prt.id_participante == idPessoa
+                                 select new ParticipacaoModel
+                                 {
+                                     idParticipacao = prt.id_participacao,
+                                     HoraSaida = prt.hora_saida,
+                                     HoraEntrada = prt.hora_entrada,
+                                     idEvento = prt.id_evento,
+                                     NomeEvento = prt.Evento.nome,
+                                 }).ToList();
+
+                return palestras;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Busca todos os Minicursos que o usuário participou.
+        /// </summary>
+        /// <param name="idPessoa">Id da Pessoa</param>
+        /// <returns>Lista de participações em Minicursos</returns>
+        public static List<ParticipacaoModel> GetMinicursosByIdPessoa(int idPessoa)
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                var minicursos = (from prt in entities.Participacao
+                                 join m in entities.Minicurso on prt.id_evento equals m.id_evento
+                                 where prt.id_participante == idPessoa
+                                 select new ParticipacaoModel
+                                 {
+                                     idParticipacao = prt.id_participacao,
+                                     HoraSaida = prt.hora_saida,
+                                     HoraEntrada = prt.hora_entrada,
+                                     idEvento = prt.id_evento,
+                                     NomeEvento = prt.Evento.nome,
+                                 }).ToList();
+
+                return minicursos;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        #endregion Selects
     }
 }

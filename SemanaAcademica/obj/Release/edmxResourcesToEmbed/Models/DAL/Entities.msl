@@ -126,5 +126,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TrabalhoVoluntario">
+      <EntityTypeMapping TypeName="SemanaAcademicaModel.TrabalhoVoluntario">
+        <MappingFragment StoreEntitySet="TrabalhoVoluntario">
+          <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+          <ScalarProperty Name="horas" ColumnName="horas" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id_trabalho" ColumnName="id_trabalho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

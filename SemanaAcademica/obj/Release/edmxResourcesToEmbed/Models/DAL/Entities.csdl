@@ -66,6 +66,11 @@
       <End Role="Local" EntitySet="Local" />
       <End Role="Horario" EntitySet="Horario" />
     </AssociationSet>
+    <EntitySet Name="TrabalhoVoluntario" EntityType="SemanaAcademicaModel.TrabalhoVoluntario" />
+    <AssociationSet Name="FK_TrabalhoVoluntario_Participante" Association="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante">
+      <End Role="Participante" EntitySet="Participante" />
+      <End Role="TrabalhoVoluntario" EntitySet="TrabalhoVoluntario" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Administrador">
     <Key>
@@ -165,6 +170,7 @@
     <NavigationProperty Name="Matricula1" Relationship="SemanaAcademicaModel.FK_Matricula_Participante" FromRole="Participante" ToRole="Matricula" />
     <NavigationProperty Name="Participacao" Relationship="SemanaAcademicaModel.FK_Participacao_Participante" FromRole="Participante" ToRole="Participacao" />
     <NavigationProperty Name="Pessoa" Relationship="SemanaAcademicaModel.FK_Participante_Pessoa" FromRole="Participante" ToRole="Pessoa" />
+    <NavigationProperty Name="TrabalhoVoluntario" Relationship="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante" FromRole="Participante" ToRole="TrabalhoVoluntario" />
   </EntityType>
   <EntityType Name="Pessoa">
     <Key>
@@ -358,6 +364,28 @@
       </Principal>
       <Dependent Role="Horario">
         <PropertyRef Name="id_local" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TrabalhoVoluntario">
+    <Key>
+      <PropertyRef Name="id_trabalho" />
+    </Key>
+    <Property Name="id_trabalho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descricao" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="horas" Type="Int32" Nullable="false" />
+    <Property Name="id_participante" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Participante" Relationship="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante" FromRole="TrabalhoVoluntario" ToRole="Participante" />
+  </EntityType>
+  <Association Name="FK_TrabalhoVoluntario_Participante">
+    <End Type="SemanaAcademicaModel.Participante" Role="Participante" Multiplicity="1" />
+    <End Type="SemanaAcademicaModel.TrabalhoVoluntario" Role="TrabalhoVoluntario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Participante">
+        <PropertyRef Name="id_participante" />
+      </Principal>
+      <Dependent Role="TrabalhoVoluntario">
+        <PropertyRef Name="id_participante" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

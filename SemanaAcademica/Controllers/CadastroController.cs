@@ -20,8 +20,8 @@ namespace SemanaAcademica.Controllers
         [Authorize]
         public void Certificado()
         {
-
-            var participacoes = ParticipacaoBLL.SelectByIdPessoa(Usuario.SessionPersist.IdPessoa);
+            // Certificado para participações
+            var participacoes = ParticipacaoBLL.GetMinicursosByIdPessoa(Usuario.SessionPersist.IdPessoa);
 
             var html = System.IO.File.ReadAllText(Server.MapPath("\\Content\\Templates\\Certificado.html"));
 
@@ -70,6 +70,7 @@ namespace SemanaAcademica.Controllers
 
             doc.Add(pdfImage);
 
+            // Certificado de colaborador
             if (Usuario.SessionPersist.IsColaborador)
             {
                 image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));

@@ -18,6 +18,7 @@ namespace SemanaAcademica.Models.DAL
         {
             this.Matricula1 = new HashSet<Matricula>();
             this.Participacao = new HashSet<Participacao>();
+            this.TrabalhoVoluntario = new HashSet<TrabalhoVoluntario>();
         }
     
         public int id_participante { get; set; }
@@ -29,5 +30,6 @@ namespace SemanaAcademica.Models.DAL
         public virtual ICollection<Matricula> Matricula1 { get; set; }
         public virtual ICollection<Participacao> Participacao { get; set; }
         public virtual Pessoa Pessoa { get; set; }
+        public virtual ICollection<TrabalhoVoluntario> TrabalhoVoluntario { get; set; }
     }
 }
