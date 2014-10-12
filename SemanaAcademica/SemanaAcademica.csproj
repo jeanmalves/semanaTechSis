@@ -181,7 +181,7 @@
     <Compile Include="Areas\Admin\Models\ParticipacaoModel.cs" />
     <Compile Include="Areas\Admin\Models\PessoaModel.cs" />
     <Compile Include="Controllers\CadastroController.cs" />
-    <Compile Include="Controllers\CertificadoController.cs" />
+    <Compile Include="Controllers\CertificadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformacoesController.cs" />
     <Compile Include="Controllers\ProgramacaoController.cs" />
@@ -194,6 +194,7 @@
     <Compile Include="Models\BLL\HorarioBLL.cs" />
     <Compile Include="Models\BLL\LocalBLL.cs" />
     <Compile Include="Models\BLL\EventoBLL.cs" />
+    <Compile Include="Models\BLL\TrabalhoVoluntarioBLL.cs" />
     <Compile Include="Models\DAL\Administrador.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -261,6 +262,7 @@
     <Compile Include="Models\ObjectModel\HorarioModel.cs" />
     <Compile Include="Models\ObjectModel\ParticipanteModel.cs" />
     <Compile Include="Models\ObjectModel\PessoaModel.cs" />
+    <Compile Include="Models\ObjectModel\TrabalhoVoluntarioModel.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\ViewModel\ProgramacaoModels.cs" />
     <Compile Include="Models\ViewModel\ParticipanteModels.cs" />
@@ -450,7 +452,7 @@
     <Content Include="Views\Cadastro\RecuperarSenha.cshtml" />
     <Content Include="Views\Cadastro\RedefinirSenha.cshtml" />
     <Content Include="Views\Cadastro\RedefinirSenhaSucesso.cshtml" />
-    <Content Include="Views\Certificado\Index.cshtml" />
+    <Content Include="Views\Certificados\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
