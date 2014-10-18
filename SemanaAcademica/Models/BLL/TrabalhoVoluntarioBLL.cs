@@ -13,9 +13,27 @@ namespace SemanaAcademica.Models.BLL
         /// Insere um novo trabalho voluntário
         /// </summary>
         /// <param name="model">trabalho voluntário a ser inserido</param>
-        public static void InsertTrabalhoVoluntario(TrabalhoVoluntarioModel model)
+        public static bool InsertTrabalhoVoluntario(TrabalhoVoluntarioModel model)
         {
-            // Não implementado
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+
+                entities.TrabalhoVoluntario.Add(new TrabalhoVoluntario{
+                    descricao = model.Descricao,
+                    horas = model.Horas,
+                    id_participante = model.IdParticipante
+                });
+
+                entities.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
 
         /// <summary>

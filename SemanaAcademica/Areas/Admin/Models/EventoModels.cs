@@ -21,6 +21,13 @@ namespace SemanaAcademica.Areas.Admin.Models
         public string Descricao { get; set; }
     }
 
+    public class CadastrarOficinaModel
+    {
+        public int Vagas { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+    }
+
     public class CadastrarVisitaModel
     {
         public int Vagas { get; set; }
@@ -51,6 +58,14 @@ namespace SemanaAcademica.Areas.Admin.Models
         public string Descricao { get; set; }
         public int Vagas { get; set; }
 
+    }
+
+    public class ListarOficinaModel
+    {
+        public int IdOficina { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public int Vagas { get; set; }
     }
 
     public class ListarVisitaModel
@@ -94,6 +109,14 @@ namespace SemanaAcademica.Areas.Admin.Models
     public class EditarMinicursoModel
     {
         public int IdMinicurso { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public int Vagas { get; set; }
+    }
+
+    public class EditarOficinaModel
+    {
+        public int IdOficina { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public int Vagas { get; set; }

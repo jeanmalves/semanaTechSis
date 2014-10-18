@@ -71,6 +71,7 @@
       <End Role="Participante" EntitySet="Participante" />
       <End Role="TrabalhoVoluntario" EntitySet="TrabalhoVoluntario" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="SemanaAcademicaModel.sysdiagrams" />
   </EntityContainer>
   <EntityType Name="Administrador">
     <Key>
@@ -135,7 +136,7 @@
     </Key>
     <Property Type="Int32" Name="id_minicurso" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int32" Name="id_evento" Nullable="false" />
-    <Property Type="Int32" Name="vagas" />
+    <Property Type="Int32" Name="vagas" Nullable="true" />
     <NavigationProperty Name="Evento" Relationship="SemanaAcademicaModel.FK_Minicurso_Evento" FromRole="Minicurso" ToRole="Evento" />
   </EntityType>
   <EntityType Name="Palestra">
@@ -389,4 +390,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>

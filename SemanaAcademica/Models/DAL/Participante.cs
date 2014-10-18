@@ -26,6 +26,8 @@ namespace SemanaAcademica.Models.DAL
         public string registro { get; set; }
         public bool matricula { get; set; }
         public bool contribuicao { get; set; }
+        public string universidade { get; set; }
+        public string curso { get; set; }
     
         public virtual ICollection<Matricula> Matricula1 { get; set; }
         public virtual ICollection<Participacao> Participacao { get; set; }

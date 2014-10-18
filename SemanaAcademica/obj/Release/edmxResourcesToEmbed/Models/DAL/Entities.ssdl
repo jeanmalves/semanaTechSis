@@ -102,6 +102,16 @@
     <Property Name="chave" Type="uniqueidentifier" Nullable="false" />
     <Property Name="confirmado" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="TrabalhoVoluntario">
     <Key>
       <PropertyRef Name="id_trabalho" />
@@ -302,6 +312,7 @@
     <EntitySet Name="Participacao" EntityType="Self.Participacao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Participante" EntityType="Self.Participante" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TrabalhoVoluntario" EntityType="Self.TrabalhoVoluntario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Visita" EntityType="Self.Visita" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Administrador_Pessoa" Association="Self.FK_Administrador_Pessoa">

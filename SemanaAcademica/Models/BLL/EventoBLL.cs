@@ -85,6 +85,25 @@ namespace SemanaAcademica.Models.BLL
             }
         }
 
+        static public IEnumerable<OficinaModel> SelectOficinas()
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                return entities.Oficina.Select(e => new OficinaModel
+                {
+                    IdOficina = e.id_oficina,
+                    Nome = e.Evento.nome,
+                    Descricao = e.Evento.descricao,
+                    Vagas = e.vagas ?? 0
+                });
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         static public IEnumerable<VisitaModel> SelectVisitas()
         {
             try

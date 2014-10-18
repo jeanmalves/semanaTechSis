@@ -39,5 +39,7 @@ namespace SemanaAcademica.Models.DAL
         public DbSet<Visita> Visita { get; set; }
         public DbSet<Horario> Horario { get; set; }
         public DbSet<TrabalhoVoluntario> TrabalhoVoluntario { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<Oficina> Oficina { get; set; }
     }
 }

@@ -22,6 +22,7 @@ namespace SemanaAcademica.Models.DAL
             this.Participacao = new HashSet<Participacao>();
             this.Visita = new HashSet<Visita>();
             this.Horario = new HashSet<Horario>();
+            this.Oficina = new HashSet<Oficina>();
         }
     
         public int id_evento { get; set; }
@@ -34,5 +35,6 @@ namespace SemanaAcademica.Models.DAL
         public virtual ICollection<Participacao> Participacao { get; set; }
         public virtual ICollection<Visita> Visita { get; set; }
         public virtual ICollection<Horario> Horario { get; set; }
+        public virtual ICollection<Oficina> Oficina { get; set; }
     }
 }

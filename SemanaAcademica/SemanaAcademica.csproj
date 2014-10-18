@@ -173,6 +173,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocalController.cs" />
     <Compile Include="Areas\Admin\Controllers\MinicursoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OficinaController.cs" />
     <Compile Include="Areas\Admin\Controllers\PalestraController.cs" />
     <Compile Include="Areas\Admin\Controllers\ParticipacaoController.cs" />
     <Compile Include="Areas\Admin\Controllers\ParticipanteController.cs" />
@@ -248,6 +249,9 @@
     <Compile Include="Models\DAL\Pessoa.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAL\sysdiagrams.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DAL\TrabalhoVoluntario.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -256,8 +260,8 @@
     </Compile>
     <Compile Include="Models\ObjectModel\AdministradorModel.cs" />
     <Compile Include="Models\ObjectModel\ColaboradorModel.cs" />
-    <Compile Include="Models\ObjectModel\ParticipacaoModel.cs" />
     <Compile Include="Models\ObjectModel\LocalModel.cs" />
+    <Compile Include="Models\ObjectModel\ParticipacaoModel.cs" />
     <Compile Include="Models\ObjectModel\EventoModel.cs" />
     <Compile Include="Models\ObjectModel\HorarioModel.cs" />
     <Compile Include="Models\ObjectModel\ParticipanteModel.cs" />
@@ -338,7 +342,9 @@
       <LastGenOutput>Entities.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Images\header.jpg" />
-    <Content Include="Images\logos_apoio.jpg" />
+    <Content Include="Images\certificado.jpg" />
+    <Content Include="Images\header_2013.jpg" />
+    <Content Include="Images\logos_apoio_2013.jpg" />
     <Content Include="Images\logo_daeln.jpg" />
     <Content Include="Images\logo_dainf.jpg" />
     <Content Include="Images\logo_fluke.jpg" />
@@ -348,6 +354,7 @@
     <Content Include="Images\logo_petcoce.jpg" />
     <Content Include="Images\logo_reymaster.jpg" />
     <Content Include="Images\logo_tektronix.jpg" />
+    <Content Include="Images\logos_apoio.jpg" />
     <Content Include="Models\DAL\Entities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Entities.edmx</DependentUpon>
@@ -387,6 +394,7 @@
     <Content Include="Areas\Admin\Views\Participante\Presenca.cshtml" />
     <Content Include="Areas\Admin\Views\Participacao\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Participacao\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Participacao\TrabalhoVoluntario.cshtml" />
     <None Include="Properties\PublishProfiles\Default.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -403,7 +411,9 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

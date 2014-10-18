@@ -151,5 +151,10 @@ namespace SemanaAcademica.Areas.Admin.Controllers
                 return View(model);
             }
         }
+
+        public ActionResult TrabalhoVoluntario()
+        {
+            return View();
+        }
     }
 }

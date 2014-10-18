@@ -28,4 +28,10 @@ namespace SemanaAcademica.Models.ObjectModel
         public int IdMinicurso { get; set; }
         public int Vagas { get; set; }
     }
+
+    public class OficinaModel : EventoModel
+    {
+        public int IdOficina { get; set; }
+        public int Vagas { get; set; }
+    }
 }
