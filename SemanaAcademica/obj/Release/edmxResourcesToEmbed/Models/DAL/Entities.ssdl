@@ -63,6 +63,14 @@
     <Property Name="id_evento" Type="int" Nullable="false" />
     <Property Name="vagas" Type="int" />
   </EntityType>
+  <EntityType Name="Oficina">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+    </Key>
+    <Property Name="id_oficina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_evento" Type="int" Nullable="false" />
+    <Property Name="vagas" Type="int" />
+  </EntityType>
   <EntityType Name="Palestra">
     <Key>
       <PropertyRef Name="id_palestra" />
@@ -89,6 +97,8 @@
     <Property Name="registro" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="matricula" Type="bit" Nullable="false" />
     <Property Name="contribuicao" Type="bit" Nullable="false" />
+    <Property Name="universidade" Type="varchar" MaxLength="100" />
+    <Property Name="curso" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Pessoa">
     <Key>
@@ -227,6 +237,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Oficina_Evento">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="id_evento" />
+      </Principal>
+      <Dependent Role="Oficina">
+        <PropertyRef Name="id_evento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Palestra_Evento">
     <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
     <End Role="Palestra" Type="Self.Palestra" Multiplicity="*" />
@@ -308,6 +330,7 @@
     <EntitySet Name="Local" EntityType="Self.Local" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Minicurso" EntityType="Self.Minicurso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oficina" EntityType="Self.Oficina" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Palestra" EntityType="Self.Palestra" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Participacao" EntityType="Self.Participacao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Participante" EntityType="Self.Participante" Schema="dbo" store:Type="Tables" />
@@ -346,6 +369,10 @@
     <AssociationSet Name="FK_Minicurso_Evento" Association="Self.FK_Minicurso_Evento">
       <End Role="Evento" EntitySet="Evento" />
       <End Role="Minicurso" EntitySet="Minicurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oficina_Evento" Association="Self.FK_Oficina_Evento">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="Oficina" EntitySet="Oficina" />
     </AssociationSet>
     <AssociationSet Name="FK_Palestra_Evento" Association="Self.FK_Palestra_Evento">
       <End Role="Evento" EntitySet="Evento" />

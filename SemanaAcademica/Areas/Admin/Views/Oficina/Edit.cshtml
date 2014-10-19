@@ -1,16 +1,17 @@
-﻿@model SemanaAcademica.Areas.Admin.Models.EditarPalestraModel
+﻿@model SemanaAcademica.Areas.Admin.Models.ListarOficinaModel
 
 @{
-    ViewBag.Title = "Editar Palestra";
+    ViewBag.Title = "Editar Oficina";
 }
 
-@using (Html.BeginForm()) 
-{
+<h2>Editar Oficina</h2>
+
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Editar Palestra</legend>
+        <legend>Editar Oficina</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Nome)
@@ -28,11 +29,23 @@
             @Html.ValidationMessageFor(model => model.Descricao)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Vagas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Vagas)
+            @Html.ValidationMessageFor(model => model.Vagas)
+        </div>
+
         <p>
             <input type="submit" value="Salvar" />
         </p>
     </fieldset>
 }
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -20,6 +20,7 @@ namespace SemanaAcademica.Areas.Admin.Controllers
         {
             var visita = EventoBLL.SelectVisitas().Select(p => new ListarVisitaModel
             {
+                IdEvento = p.IdEvento,
                 Descricao = p.Descricao,
                 IdVisita = p.IdVisita,
                 Vagas = p.Vagas,

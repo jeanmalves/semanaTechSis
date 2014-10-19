@@ -237,6 +237,9 @@
     <Compile Include="Models\DAL\Minicurso.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAL\Oficina.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DAL\Palestra.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -395,6 +398,9 @@
     <Content Include="Areas\Admin\Views\Participacao\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Participacao\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Participacao\TrabalhoVoluntario.cshtml" />
+    <Content Include="Areas\Admin\Views\Oficina\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Oficina\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Oficina\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\Default.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />

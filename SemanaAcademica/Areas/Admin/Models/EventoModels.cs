@@ -46,6 +46,7 @@ namespace SemanaAcademica.Areas.Admin.Models
 
     public class ListarPalestraModel
     {
+        public int IdEvento { get; set; }
         public int IdPalestra { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
@@ -53,6 +54,7 @@ namespace SemanaAcademica.Areas.Admin.Models
 
     public class ListarMinicursoModel
     {
+        public int IdEvento { get; set; }
         public int IdMinicurso { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
@@ -62,6 +64,7 @@ namespace SemanaAcademica.Areas.Admin.Models
 
     public class ListarOficinaModel
     {
+        public int IdEvento { get; set; }
         public int IdOficina { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
@@ -70,6 +73,7 @@ namespace SemanaAcademica.Areas.Admin.Models
 
     public class ListarVisitaModel
     {
+        public int IdEvento { get; set; }
         public int IdVisita { get; set; }
         public int Vagas { get; set; }
         public string Nome { get; set; }

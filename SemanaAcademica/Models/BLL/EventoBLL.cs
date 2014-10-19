@@ -55,6 +55,7 @@ namespace SemanaAcademica.Models.BLL
                 var entities = new SemanaAcademicaEntities();
                 return entities.Palestra.Select(e => new PalestraModel
                 {
+                    IdEvento = e.id_evento,
                     IdPalestra = e.id_palestra,
                     Nome = e.Evento.nome,
                     Descricao = e.Evento.descricao
@@ -73,6 +74,7 @@ namespace SemanaAcademica.Models.BLL
                 var entities = new SemanaAcademicaEntities();
                 return entities.Minicurso.Select(e => new MinicursoModel
                 {
+                    IdEvento = e.id_evento,
                     IdMinicurso = e.id_minicurso,
                     Nome = e.Evento.nome,
                     Descricao = e.Evento.descricao,
@@ -92,6 +94,7 @@ namespace SemanaAcademica.Models.BLL
                 var entities = new SemanaAcademicaEntities();
                 return entities.Oficina.Select(e => new OficinaModel
                 {
+                    IdEvento = e.id_evento,
                     IdOficina = e.id_oficina,
                     Nome = e.Evento.nome,
                     Descricao = e.Evento.descricao,
@@ -111,6 +114,7 @@ namespace SemanaAcademica.Models.BLL
                 var entities = new SemanaAcademicaEntities();
                 return entities.Visita.Select(e => new VisitaModel
                 {
+                    IdEvento = e.id_evento,
                     IdVisita = e.id_visita,
                     Nome = e.Evento.nome,
                     Descricao = e.Evento.descricao,
@@ -165,6 +169,31 @@ namespace SemanaAcademica.Models.BLL
                 };
 
                 entities.Minicurso.Add(minicurso);
+                entities.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        static public bool InsertOficina(OficinaModel model)
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                var oficina = new Oficina
+                {
+                    vagas = model.Vagas,
+                    Evento = new Evento
+                    {
+                        nome = model.Nome,
+                        descricao = model.Descricao
+                    }
+                };
+
+                entities.Oficina.Add(oficina);
                 entities.SaveChanges();
                 return true;
             }
@@ -277,6 +306,24 @@ namespace SemanaAcademica.Models.BLL
             }
         }
 
+        public static bool UpdateOficina(int id, OficinaModel model)
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                var oficina = entities.Oficina.FirstOrDefault(m => m.id_oficina == id);
+                oficina.Evento.descricao = model.Descricao;
+                oficina.Evento.nome = model.Nome;
+                oficina.vagas = model.Vagas;
+                entities.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static bool UpdateVisita(int id, VisitaModel model)
         {
             try
@@ -303,10 +350,14 @@ namespace SemanaAcademica.Models.BLL
             try
             {
                 var entities = new SemanaAcademicaEntities();
-                var palestra = entities.Palestra.FirstOrDefault(p => p.id_palestra == id);
+                var palestra = entities.Palestra.FirstOrDefault(p => p.id_evento == id);
                 entities.Palestra.Remove(palestra);
-                entities.Evento.Remove(palestra.Evento);
                 entities.SaveChanges();
+
+                var evento = entities.Evento.FirstOrDefault(e => e.id_evento == id);
+                entities.Evento.Remove(evento);
+                entities.SaveChanges();
+
                 return true;
             }
             catch
@@ -320,10 +371,39 @@ namespace SemanaAcademica.Models.BLL
             try
             {
                 var entities = new SemanaAcademicaEntities();
-                var minicurso = entities.Minicurso.FirstOrDefault(m => m.id_minicurso == id);
+                var minicurso = entities.Minicurso.FirstOrDefault(m => m.id_evento == id);
                 entities.Minicurso.Remove(minicurso);
-                entities.Evento.Remove(minicurso.Evento);
                 entities.SaveChanges();
+
+                var evento = entities.Evento.FirstOrDefault(e => e.id_evento == id);
+                entities.Evento.Remove(evento);
+                entities.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool DeleteOficina(int id)
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                
+                // Deleta oficina
+                var oficina = entities.Oficina.FirstOrDefault(m => m.id_evento == id);
+                entities.Oficina.Remove(oficina);
+                entities.SaveChanges();
+
+                // Deleta evento
+                var evento = entities.Evento.FirstOrDefault(e => e.id_evento == id);
+                entities.Evento.Remove(evento);
+
+                entities.SaveChanges();
+
                 return true;
             }
             catch
@@ -337,9 +417,12 @@ namespace SemanaAcademica.Models.BLL
             try
             {
                 var entities = new SemanaAcademicaEntities();
-                var visita = entities.Visita.FirstOrDefault(v => v.id_visita == id);
+                var visita = entities.Visita.FirstOrDefault(v => v.id_evento == id);
                 entities.Visita.Remove(visita);
-                entities.Evento.Remove(visita.Evento);
+                entities.SaveChanges();
+
+                var evento = entities.Evento.FirstOrDefault(e => e.id_evento == id);
+                entities.Evento.Remove(evento);
                 entities.SaveChanges();
                 return true;
             }

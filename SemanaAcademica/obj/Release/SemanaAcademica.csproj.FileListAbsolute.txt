@@ -64,10 +64,7 @@ C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaA
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\Microsoft.Web.WebPages.OAuth.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\Newtonsoft.Json.dll
-C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Net.Http.Formatting.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Helpers.dll
-C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.dll
-C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.WebHost.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Mvc.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Optimization.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Razor.dll
@@ -80,10 +77,7 @@ C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaA
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\itextsharp.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\EntityFramework.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\Newtonsoft.Json.xml
-C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Net.Http.Formatting.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Helpers.xml
-C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.xml
-C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.WebHost.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Mvc.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Razor.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.WebPages.xml

@@ -26,12 +26,11 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.IdPalestra }) |
-            @Html.ActionLink("Excluir", "Delete", new { id = item.IdPalestra }) |
-                    @Html.ActionLink("Horario(s)", "Index", "Horario", new { id = item.IdPalestra }, null)
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdEvento }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.IdEvento }) |
+                    @Html.ActionLink("Horario(s)", "Index", "Horario", new { id = item.IdEvento }, null)
                 </td>
             </tr>
         }
-
     </table>
 }

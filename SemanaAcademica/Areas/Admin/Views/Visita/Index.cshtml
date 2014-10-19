@@ -32,9 +32,9 @@
                     @Html.DisplayFor(modelItem => item.Vagas)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.IdVisita }) |
-            @Html.ActionLink("Excluir", "Delete", new { id = item.IdVisita }) |
-                    @Html.ActionLink("Horario(s)", "Index", "Horario", new { id = item.IdVisita }, null)
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdEvento }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.IdEvento }) |
+                    @Html.ActionLink("Horario(s)", "Index", "Horario", new { id = item.IdEvento }, null)
                 </td>
             </tr>
         }

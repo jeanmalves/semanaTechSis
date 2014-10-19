@@ -20,6 +20,7 @@ namespace SemanaAcademica.Areas.Admin.Controllers
         {
             var palestras = EventoBLL.SelectPalestras().Select(p => new ListarPalestraModel
             {
+                IdEvento = p.IdEvento,
                 Descricao = p.Descricao,
                 IdPalestra = p.IdPalestra,
                 Nome = p.Nome

@@ -20,6 +20,7 @@ namespace SemanaAcademica.Areas.Admin.Controllers
         {
             var minicursos = EventoBLL.SelectMinicursos().Select(p => new ListarMinicursoModel
             {
+                IdEvento = p.IdEvento,
                 Descricao = p.Descricao,
                 IdMinicurso = p.IdMinicurso,
                 Vagas = p.Vagas,
