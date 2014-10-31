@@ -7,34 +7,34 @@
 <h2>Programação Geral</h2>
 @Html.ActionLink("Auditório", "Index", new { id = "1" }) | @Html.ActionLink("Miniauditório", "Index", new { id = "2" })
 
-
 @{
-    var horarios = Model.Horarios.OrderBy(h => h.HoraInicio.Day).ThenBy(h => h.HoraInicio.Hour);
+    var horarios = Model.Horarios.Count() > 0 ? Model.Horarios.OrderBy(h => h.HoraInicio.Day).ThenBy(h => h.HoraInicio.Hour) : null;
+}
+
+@if (horarios != null)
+{
     var menorDt = horarios.OrderBy(h => h.HoraInicio).First().HoraInicio;
     var menorHora = horarios.OrderBy(h => h.HoraInicio.Hour).First().HoraInicio.Hour;
     var maiorDt = horarios.OrderBy(h => h.HoraInicio).Last().HoraInicio;
     var maiorHora = horarios.OrderBy(h => h.HoraInicio.Hour).Last().HoraInicio.Hour;
-}
-
-<table id="tableProgramacao">
-    <tr>
-        <td style="background-color: #EFEEEF; color: black"></td>
-        @for (var dt = menorDt.AddHours(-menorDt.Hour); dt <= maiorDt.AddHours(maiorDt.Hour); dt = dt.AddDays(1))
-        { 
-            <td style="background-color: #EFEEEF; color: black">@dt.Date.ToShortDateString()</td>
-        }
-
-    </tr>
-    @for (var hora = menorHora; hora <= maiorHora; hora++)
-    {
+    <table id="tableProgramacao">
         <tr>
-            <td style="background-color: #EFEEEF; color: black">
-                @hora:00
-            </td>
+            <td style="background-color: #EFEEEF; color: black"></td>
             @for (var dt = menorDt.AddHours(-menorDt.Hour); dt <= maiorDt.AddHours(maiorDt.Hour); dt = dt.AddDays(1))
-            { 
-                <td>
-                    @Html.Raw(
+            {
+                <td style="background-color: #EFEEEF; color: black">@dt.Date.ToShortDateString()</td>
+            }
+        </tr>
+        @for (var hora = menorHora; hora <= maiorHora; hora++)
+        {
+            <tr>
+                <td style="background-color: #EFEEEF; color: black">
+                    @hora:00
+                </td>
+                @for (var dt = menorDt.AddHours(-menorDt.Hour); dt <= maiorDt.AddHours(maiorDt.Hour); dt = dt.AddDays(1))
+                {
+                    <td>
+                        @Html.Raw(
                             String.Join(
                                 "<br /><br />",
                                 Model
@@ -51,11 +51,11 @@
                                     )
                                 )
                             )
-                </td>
-            }
-        </tr>
-    }
-
-
-
-</table>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+} else {
+    <div>Nenhum evento em aberto</div>
+}

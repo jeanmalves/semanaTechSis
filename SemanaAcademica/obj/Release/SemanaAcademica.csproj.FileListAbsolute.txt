@@ -64,7 +64,10 @@ C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaA
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\Microsoft.Web.WebPages.OAuth.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\Newtonsoft.Json.dll
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Net.Http.Formatting.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Helpers.dll
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.dll
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.WebHost.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Mvc.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Optimization.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Razor.dll
@@ -75,8 +78,11 @@ C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaA
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\WebMatrix.Data.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\WebMatrix.WebData.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\itextsharp.xml
-C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\EntityFramework.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\Newtonsoft.Json.xml
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Net.Http.Formatting.xml
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.xml
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.WebHost.xml
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\EntityFramework.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Helpers.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Mvc.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\System.Web.Razor.xml
@@ -92,6 +98,58 @@ C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaA
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OAuth.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OpenId.xml
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.csprojResolveAssemblyReference.cache
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.dll
 C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.pdb
+C:\Users\Guilherme\Documents\Visual Studio 2013\Projects\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.csprojResolveAssemblyReference.cache
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\SemanaAcademica.dll.config
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\SemanaAcademica.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\SemanaAcademica.pdb
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\Antlr3.Runtime.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.Core.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\EntityFramework.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\itextsharp.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\Newtonsoft.Json.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Net.Http.Formatting.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Helpers.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.WebHost.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Mvc.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Optimization.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Razor.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.WebPages.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.WebPages.Razor.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\WebGrease.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\WebMatrix.Data.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\WebMatrix.WebData.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\itextsharp.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\Newtonsoft.Json.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Net.Http.Formatting.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.WebHost.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\EntityFramework.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Helpers.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Mvc.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.Razor.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.WebPages.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\System.Web.WebPages.Razor.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\WebMatrix.Data.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\WebMatrix.WebData.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.Core.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.csprojResolveAssemblyReference.cache
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.dll
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.pdb
