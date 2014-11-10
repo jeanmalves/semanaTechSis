@@ -23,7 +23,9 @@ namespace SemanaAcademica.Models.BLL
                         id_pessoa = model.IdPessoa,
                         contribuicao = model.Contribuicao,
                         matricula = model.Matricula,
-                        registro = model.Registro
+                        registro = model.Registro,
+                        curso = model.Curso,
+                        universidade = model.Universidade
                     }
                 );
                 entities.SaveChanges();
@@ -67,7 +69,9 @@ namespace SemanaAcademica.Models.BLL
                     Matricula = p.matricula,
                     Registro = p.registro,
                     Telefone = p.Pessoa.telefone,
-                    Contribuicao = p.contribuicao
+                    Contribuicao = p.contribuicao,
+                    Curso = p.curso,
+                    Universidade = p.universidade
                 });
             }
             catch
@@ -103,6 +107,8 @@ namespace SemanaAcademica.Models.BLL
                 participante.Pessoa.email = model.Email;
                 participante.registro = model.Registro;
                 participante.matricula = model.Matricula;
+                participante.universidade = model.Universidade;
+                participante.curso = model.Curso;
                 entities.SaveChanges();
                 return true;
             }

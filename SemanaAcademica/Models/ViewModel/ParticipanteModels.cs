@@ -11,6 +11,7 @@ namespace SemanaAcademica.Models.ViewModel
     {
         [Required]
         [StringLength(200, MinimumLength = 10, ErrorMessage = "Tamanho de nome inválido!")]
+        [Display(Name = "Nome completo")]
         public override String Nome { get; set; }
         [Required(ErrorMessage = "Campo obrigatório.")]
         [EmailAddress]
@@ -32,11 +33,17 @@ namespace SemanaAcademica.Models.ViewModel
         [Phone]
         public override String Telefone { get; set; }
         [Required(ErrorMessage = "Campo obrigatório.")]
-        [Display(Name = "Matrícula/CPF")]
+        [Display(Name = "Matrícula (UTFPR) ou CPF (outras instituições) - apenas números!")]
         public override string Registro { get; set; }
         [Required(ErrorMessage = "Campo obrigatório.")]
         [Display(Name = "É matrícula?")]
         public override bool Matricula { get; set; }
+        [Required(ErrorMessage = "Campo obrigatório.")]
+        [Display(Name = "Curso")]
+        public override string Curso { get; set; }
+        [Required(ErrorMessage = "Campo obrigatório.")]
+        [Display(Name = "Universidade")]
+        public override string Universidade { get; set; }
     }
 
     public class EntrarViewModel {

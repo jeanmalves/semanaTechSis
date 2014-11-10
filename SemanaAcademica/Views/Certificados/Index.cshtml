@@ -1,5 +1,31 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model SemanaAcademica.Models.ViewModel.CertificadosViewModel
+
+@{
+    ViewBag.Title = "Certificados";
 }
 
-<h2>Certificados</h2>
+<h2><span class="glyphicon glyphicon-file"></span> Certificados</h2>
+<br />
+<p>Você possui os seguintes certificados:</p>
+<br />
+<div class="list-group col-md-4">
+    @if (Model.HasParticipacao)
+    {
+        <a href="/Certificados/Palestras" class="list-group-item">Certificado de Participação de Palestras</a>
+    }
+
+    @if (Model.HasMinicurso)
+    {
+        <a href="/Certificados/Minicurso" class="list-group-item">Certificado de Participação de Minicurso</a>
+    }
+
+    @if (Model.HasOrganizador)
+    {
+        <a href="/Certificados/Administrador" class="list-group-item">Certificado de Organizador</a>
+    }
+
+    @if (Model.HasColaborador)
+    {
+        <a href="/Certificados/Colaborador" class="list-group-item">Certificado de Colaborador</a>
+    }
+</div>

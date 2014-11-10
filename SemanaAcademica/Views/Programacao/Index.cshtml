@@ -1,11 +1,11 @@
 ﻿@model SemanaAcademica.Models.ViewModel.IndexProgramacaoViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Semana Acadêmica - Programação";
 }
 
 <h2>Programação Geral</h2>
-@Html.ActionLink("Auditório", "Index", new { id = "1" }) | @Html.ActionLink("Miniauditório", "Index", new { id = "2" })
+@*@Html.ActionLink("Auditório", "Index", new { id = "1" }) | @Html.ActionLink("Miniauditório", "Index", new { id = "2" })*@
 
 @{
     var horarios = Model.Horarios.Count() > 0 ? Model.Horarios.OrderBy(h => h.HoraInicio.Day).ThenBy(h => h.HoraInicio.Hour) : null;
@@ -20,7 +20,7 @@
     <table id="tableProgramacao">
         <tr>
             <td style="background-color: #EFEEEF; color: black"></td>
-            @for (var dt = menorDt.AddHours(-menorDt.Hour); dt <= maiorDt.AddHours(maiorDt.Hour); dt = dt.AddDays(1))
+            @for (var dt = menorDt.AddHours(-menorDt.Hour); dt <= maiorDt; dt = dt.AddDays(1))
             {
                 <td style="background-color: #EFEEEF; color: black">@dt.Date.ToShortDateString()</td>
             }
@@ -31,7 +31,7 @@
                 <td style="background-color: #EFEEEF; color: black">
                     @hora:00
                 </td>
-                @for (var dt = menorDt.AddHours(-menorDt.Hour); dt <= maiorDt.AddHours(maiorDt.Hour); dt = dt.AddDays(1))
+                @for (var dt = menorDt.AddHours(-menorDt.Hour); dt <= maiorDt; dt = dt.AddDays(1))
                 {
                     <td>
                         @Html.Raw(

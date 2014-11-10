@@ -116,7 +116,7 @@ namespace SemanaAcademica.Areas.Admin.Controllers
                 if (ParticipanteBLL.InsertParticipante(model))
                 {
                     new Utils.Email().Send(pessoa.Email, "Confirmação de cadastro", "Olá!\n\nVocê foi cadastrado no sistema da Semana Academica de Eletrônica e Informática por um administrador do sistema.\n\n Por favor, utilize este link para confirmar seu cadastro: http://" + Request.Url.Host + "/Cadastro/Confirmacao/" + pessoa.Chave.ToString() + "\n\nApós a confirmação, você poderá logar no sistema utilizando seu e-mail e a senha gerada automaticamente: " + model.Senha);
-                    return View("Index");
+                    return View("Success");
                 }
                 else
                 {
@@ -125,6 +125,11 @@ namespace SemanaAcademica.Areas.Admin.Controllers
                 }
             }
             else return View(model);
+        }
+
+        public ActionResult Success()
+        {
+            return View();
         }
 
         public JsonResult Contribuicao(int id, bool status)

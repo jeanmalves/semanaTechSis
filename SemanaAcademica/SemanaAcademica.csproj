@@ -193,6 +193,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BLL\CertificadosBLL.cs" />
     <Compile Include="Models\BLL\ColaboradorBLL.cs" />
     <Compile Include="Models\BLL\AdministradorBLL.cs" />
     <Compile Include="Models\BLL\ParticipacaoBLL.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="Models\ObjectModel\PessoaModel.cs" />
     <Compile Include="Models\ObjectModel\TrabalhoVoluntarioModel.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\ViewModel\CertificadosViewModel.cs" />
     <Compile Include="Models\ViewModel\ProgramacaoModels.cs" />
     <Compile Include="Models\ViewModel\ParticipanteModels.cs" />
     <Compile Include="Areas\Admin\Models\EventoModels.cs" />
@@ -286,9 +288,9 @@
     <Content Include="Assemblies\itextsharp.dll" />
     <Content Include="Assemblies\iTextSharp.xml" />
     <Content Include="Content\Templates\Certificado.html" />
-    <Content Include="Content\Templates\Fundo.jpg" />
+    <Content Include="Content\Templates\Fundo_2014.jpg" />
     <Content Include="Content\Templates\EmailConfirmacaoCadastro.html" />
-    <Content Include="Content\Templates\Fundo_2013.jpg" />
+    <Content Include="Content\Templates\Fundo.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -406,6 +408,7 @@
     <Content Include="Areas\Admin\Views\Oficina\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Oficina\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Oficina\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Participante\Success.cshtml" />
     <None Include="Properties\PublishProfiles\Default.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />

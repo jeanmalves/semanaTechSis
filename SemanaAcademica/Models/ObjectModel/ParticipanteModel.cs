@@ -11,5 +11,7 @@ namespace SemanaAcademica.Models.ObjectModel
         public virtual string Registro { get; set; }
         public virtual bool Matricula { get; set; }
         public virtual bool Contribuicao { get; set; }
+        public virtual string Curso { get; set; }
+        public virtual string Universidade { get; set; }
     }
 }

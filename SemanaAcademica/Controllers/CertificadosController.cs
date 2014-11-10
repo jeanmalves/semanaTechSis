@@ -2,12 +2,11 @@
 using iTextSharp.text.pdf;
 using SemanaAcademica.Models.BLL;
 using SemanaAcademica.Models.ObjectModel;
+using SemanaAcademica.Models.ViewModel;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SemanaAcademica.Controllers
@@ -19,7 +18,9 @@ namespace SemanaAcademica.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View();
+            CertificadosViewModel model = CertificadosBLL.CheckCertificados();
+
+            return View(model);
         }
 
         //
@@ -70,7 +71,6 @@ namespace SemanaAcademica.Controllers
                   new System.Drawing.Rectangle(140, 190, 730, 360),
                   new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                   );
-
             }
 
             var pdfImage = Image.GetInstance(image, new BaseColor(0, 0, 0));
@@ -97,7 +97,7 @@ namespace SemanaAcademica.Controllers
         public void Minicursos()
         {
             // Recupera participações em minicursos
-            var participacoes = ParticipacaoBLL.GetMinicursosByIdPessoa(Usuario.SessionPersist.IdPessoa);
+            var minicursos = ParticipacaoBLL.GetMinicursosByIdPessoa(Usuario.SessionPersist.IdPessoa);
 
             // Cria documento
             var html = System.IO.File.ReadAllText(Server.MapPath("\\Content\\Templates\\Certificado.html"));
@@ -114,7 +114,7 @@ namespace SemanaAcademica.Controllers
 
             // Edita imagem
 
-            foreach (ParticipacaoModel p in participacoes)
+            foreach (ParticipacaoModel p in minicursos)
             {
                 var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
 
@@ -138,7 +138,6 @@ namespace SemanaAcademica.Controllers
                       new System.Drawing.Rectangle(140, 190, 730, 360),
                       new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                       );
-
                 }
 
                 var pdfImage = Image.GetInstance(image, new BaseColor(0, 0, 0));
@@ -162,10 +161,120 @@ namespace SemanaAcademica.Controllers
         }
 
         [Authorize]
-        public ActionResult Organizacao()
+        public void Colaborador()
         {
-            // Não implementado
-            return View();
+            // Cria documento
+            var html = System.IO.File.ReadAllText(Server.MapPath("\\Content\\Templates\\Certificado.html"));
+            var doc = new Document(PageSize.A4_LANDSCAPE.Rotate(), 0, 0, 0, 0);
+            doc.AddAuthor("Semana Acadêmica de Eletrônica e Informática - UTFPR");
+            doc.AddTitle("Certificado de Colaborador");
+
+            var stream = new MemoryStream();
+
+            var writer = PdfWriter.GetInstance(doc, stream);
+            writer.CloseStream = false;
+
+            doc.Open();
+
+            var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
+
+            // Certificado de colaborador
+            if (Usuario.SessionPersist.IsColaborador)
+            {
+                using (var g = System.Drawing.Graphics.FromImage(image))
+                {
+                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 20),
+                    new System.Drawing.SolidBrush(System.Drawing.Color.Black),
+                    new System.Drawing.Rectangle(140, 120, 730, 360),
+                    new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
+                    );
+
+                    g.DrawString(
+                      String.Format(
+                      ConfigurationManager.AppSettings["Certificado.Colaborador"].ToString(),
+                      Usuario.SessionPersist.Nome),
+                      new System.Drawing.Font("Arial", 12),
+                      new System.Drawing.SolidBrush(System.Drawing.Color.Black),
+                      new System.Drawing.Rectangle(140, 190, 730, 360),
+                      new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
+                      );
+                }
+            }
+
+            var pdfImage = Image.GetInstance(image, new BaseColor(0, 0, 0));
+            pdfImage.ScaleToFit(PageSize.A4_LANDSCAPE.Rotate());
+            doc.Add(pdfImage);
+            doc.Close();
+
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.AddHeader("Content-Disposition", "inline;filename=CertificadoTrabalhoVoluntario.pdf");
+            Response.ContentType = "application/pdf";
+
+            stream.Seek(0, SeekOrigin.Begin);
+            stream.CopyTo(Response.OutputStream);
+
+            Response.Flush();
+            Response.Clear();
+        }
+
+        [Authorize]
+        public void Administrador()
+        {
+            // Cria documento
+            var html = System.IO.File.ReadAllText(Server.MapPath("\\Content\\Templates\\Certificado.html"));
+            var doc = new Document(PageSize.A4_LANDSCAPE.Rotate(), 0, 0, 0, 0);
+            doc.AddAuthor("Semana Acadêmica de Eletrônica e Informática - UTFPR");
+            doc.AddTitle("Certificado de Colaborador");
+
+            var stream = new MemoryStream();
+
+            var writer = PdfWriter.GetInstance(doc, stream);
+            writer.CloseStream = false;
+
+            doc.Open();
+
+            var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
+            if (Usuario.SessionPersist.IsAdministrador)
+            {
+
+                using (var g = System.Drawing.Graphics.FromImage(image))
+                {
+                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 20),
+                    new System.Drawing.SolidBrush(System.Drawing.Color.Black),
+                    new System.Drawing.Rectangle(140, 120, 730, 360),
+                    new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
+                    );
+
+                    g.DrawString(
+                      String.Format(
+                      ConfigurationManager.AppSettings["Certificado.Administrador"].ToString(),
+                      Usuario.SessionPersist.Nome),
+                      new System.Drawing.Font("Arial", 12),
+                      new System.Drawing.SolidBrush(System.Drawing.Color.Black),
+                      new System.Drawing.Rectangle(140, 190, 730, 360),
+                      new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
+                      );
+
+                }
+
+                var pdfImage = Image.GetInstance(image, new BaseColor(0, 0, 0));
+                pdfImage.ScaleToFit(PageSize.A4_LANDSCAPE.Rotate());
+                doc.Add(pdfImage);
+
+            }
+            doc.Close();
+
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.AddHeader("Content-Disposition", "inline;filename=CertificadoTrabalhoVoluntario.pdf");
+            Response.ContentType = "application/pdf";
+
+            stream.Seek(0, SeekOrigin.Begin);
+            stream.CopyTo(Response.OutputStream);
+
+            Response.Flush();
+            Response.Clear();
         }
 
         [Authorize]
@@ -213,7 +322,6 @@ namespace SemanaAcademica.Controllers
                       new System.Drawing.Rectangle(140, 190, 730, 360),
                       new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                       );
-
                 }
 
                 var pdfImage = Image.GetInstance(image, new BaseColor(0, 0, 0));
@@ -235,6 +343,5 @@ namespace SemanaAcademica.Controllers
             Response.Flush();
             Response.Clear();
         }
-
     }
 }
