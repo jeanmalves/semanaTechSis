@@ -288,9 +288,9 @@
     <Content Include="Assemblies\itextsharp.dll" />
     <Content Include="Assemblies\iTextSharp.xml" />
     <Content Include="Content\Templates\Certificado.html" />
-    <Content Include="Content\Templates\Fundo_2014.jpg" />
-    <Content Include="Content\Templates\EmailConfirmacaoCadastro.html" />
     <Content Include="Content\Templates\Fundo.jpg" />
+    <Content Include="Content\Templates\EmailConfirmacaoCadastro.html" />
+    <Content Include="Content\Templates\Fundo2013.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

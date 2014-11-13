@@ -127,9 +127,10 @@
       <PropertyRef Name="id_trabalho" />
     </Key>
     <Property Name="id_trabalho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descricao" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="horas" Type="int" Nullable="false" />
     <Property Name="id_participante" Type="int" Nullable="false" />
+    <Property Name="data_inicio" Type="date" Nullable="false" />
+    <Property Name="data_fim" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="Visita">
     <Key>

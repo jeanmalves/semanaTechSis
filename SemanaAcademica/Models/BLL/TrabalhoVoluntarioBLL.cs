@@ -20,9 +20,10 @@ namespace SemanaAcademica.Models.BLL
                 var entities = new SemanaAcademicaEntities();
 
                 entities.TrabalhoVoluntario.Add(new TrabalhoVoluntario{
-                    descricao = model.Descricao,
                     horas = model.Horas,
-                    id_participante = model.IdParticipante
+                    id_participante = model.IdParticipante,
+                    data_inicio = model.DataInicio,
+                    data_fim = model.DataFim
                 });
 
                 entities.SaveChanges();
@@ -51,9 +52,10 @@ namespace SemanaAcademica.Models.BLL
                                  select new TrabalhoVoluntarioModel
                                  {
                                      IdTrabalhoVoluntario = t.id_trabalho,
-                                     Descricao = t.descricao,
                                      IdParticipante = t.id_participante,
-                                     Horas = t.horas
+                                     Horas = t.horas,
+                                     DataInicio = t.data_inicio,
+                                     DataFim = t.data_fim
                                  }).ToList();
 
                 return trabalhos;

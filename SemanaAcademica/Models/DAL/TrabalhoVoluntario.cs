@@ -15,9 +15,10 @@ namespace SemanaAcademica.Models.DAL
     public partial class TrabalhoVoluntario
     {
         public int id_trabalho { get; set; }
-        public string descricao { get; set; }
         public int horas { get; set; }
         public int id_participante { get; set; }
+        public System.DateTime data_inicio { get; set; }
+        public System.DateTime data_fim { get; set; }
     
         public virtual Participante Participante { get; set; }
     }

@@ -152,3 +152,4 @@ C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.
 C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.dll
 C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.pdb
+C:\Users\Guilherme\Documents\SemanaAcademica\SemanaAcademica\obj\Release\SemanaAcademica.csprojResolveAssemblyReference.cache

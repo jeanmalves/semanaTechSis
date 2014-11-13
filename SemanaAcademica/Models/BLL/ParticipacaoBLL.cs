@@ -261,6 +261,36 @@ namespace SemanaAcademica.Models.BLL
             }
         }
 
+        /// <summary>
+        /// Busca todos as que Oficinas usuário participou.
+        /// </summary>
+        /// <param name="idPessoa">Id da Pessoa</param>
+        /// <returns>Lista de participações em Oficinas</returns>
+        public static List<ParticipacaoModel> GetOficinasByIdPessoa(int idPessoa)
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                var oficinas = (from prt in entities.Participacao
+                                  join m in entities.Oficina on prt.id_evento equals m.id_evento
+                                  where prt.id_participante == idPessoa
+                                  select new ParticipacaoModel
+                                  {
+                                      idParticipacao = prt.id_participacao,
+                                      HoraSaida = prt.hora_saida,
+                                      HoraEntrada = prt.hora_entrada,
+                                      idEvento = prt.id_evento,
+                                      NomeEvento = prt.Evento.nome,
+                                  }).ToList();
+
+                return oficinas;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         #endregion Selects
     }
 }

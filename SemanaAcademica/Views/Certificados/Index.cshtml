@@ -8,24 +8,31 @@
 <br />
 <p>Você possui os seguintes certificados:</p>
 <br />
-<div class="list-group col-md-4">
-    @if (Model.HasParticipacao)
-    {
-        <a href="/Certificados/Palestras" class="list-group-item">Certificado de Participação de Palestras</a>
-    }
+@if (Model.HasContribuicao)
+{
+    <div class="list-group col-md-4">
+        @if (Model.HasPalestras)
+        {
+            <a href="/Certificados/Palestras" class="list-group-item">Certificado de Participação de Palestras</a>
+        }
 
-    @if (Model.HasMinicurso)
-    {
-        <a href="/Certificados/Minicurso" class="list-group-item">Certificado de Participação de Minicurso</a>
-    }
+        @if (Model.HasMinicurso)
+        {
+            <a href="/Certificados/Minicurso" class="list-group-item">Certificado de Participação de Minicurso</a>
+        }
 
-    @if (Model.HasOrganizador)
-    {
-        <a href="/Certificados/Administrador" class="list-group-item">Certificado de Organizador</a>
-    }
+        @if (Model.HasOrganizador)
+        {
+            <a href="/Certificados/Administrador" class="list-group-item">Certificado de Organizador</a>
+        }
 
-    @if (Model.HasColaborador)
-    {
-        <a href="/Certificados/Colaborador" class="list-group-item">Certificado de Colaborador</a>
-    }
-</div>
+        @if (Model.HasTrabalhoVoluntario)
+        {
+            <a href="/Certificados/TrabalhoVoluntario" class="list-group-item">Certificado de Trabalho Voluntario</a>
+        }
+    </div>
+} 
+else 
+{
+    <div class="alert alert-danger" role="alert">Apenas participantes que realizaram a doação de alimentos têm direito ao certificado!</div>
+}

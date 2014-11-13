@@ -381,10 +381,11 @@
       <PropertyRef Name="id_trabalho" />
     </Key>
     <Property Name="id_trabalho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descricao" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="horas" Type="Int32" Nullable="false" />
     <Property Name="id_participante" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Participante" Relationship="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante" FromRole="TrabalhoVoluntario" ToRole="Participante" />
+    <Property Name="data_inicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="data_fim" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <Association Name="FK_TrabalhoVoluntario_Participante">
     <End Type="SemanaAcademicaModel.Participante" Role="Participante" Multiplicity="1" />

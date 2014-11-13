@@ -117,5 +117,27 @@ namespace SemanaAcademica.Models.BLL
                 return false;
             }
         }
+
+        public static bool HasContribuicao(int idPessoa)
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                var participante = (from t in entities.Participante
+                                    where t.id_participante == idPessoa
+                                    select new ParticipanteModel
+                                    {
+                                        IdParticipante = t.id_participante,
+                                        IdPessoa = t.id_pessoa,
+                                        Contribuicao = t.contribuicao
+                                    }).FirstOrDefault();
+
+                return participante.Contribuicao;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

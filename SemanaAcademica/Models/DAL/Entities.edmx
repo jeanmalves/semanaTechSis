@@ -132,9 +132,10 @@
             <PropertyRef Name="id_trabalho" />
           </Key>
           <Property Name="id_trabalho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="descricao" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="horas" Type="int" Nullable="false" />
           <Property Name="id_participante" Type="int" Nullable="false" />
+          <Property Name="data_inicio" Type="date" Nullable="false" />
+          <Property Name="data_fim" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Visita">
           <Key>
@@ -789,10 +790,11 @@
             <PropertyRef Name="id_trabalho" />
           </Key>
           <Property Name="id_trabalho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descricao" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="horas" Type="Int32" Nullable="false" />
           <Property Name="id_participante" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Participante" Relationship="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante" FromRole="TrabalhoVoluntario" ToRole="Participante" />
+          <Property Name="data_inicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="data_fim" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <Association Name="FK_TrabalhoVoluntario_Participante">
           <End Type="SemanaAcademicaModel.Participante" Role="Participante" Multiplicity="1" />
@@ -973,9 +975,10 @@
           <EntitySetMapping Name="TrabalhoVoluntario">
             <EntityTypeMapping TypeName="SemanaAcademicaModel.TrabalhoVoluntario">
               <MappingFragment StoreEntitySet="TrabalhoVoluntario">
+                <ScalarProperty Name="data_fim" ColumnName="data_fim" />
+                <ScalarProperty Name="data_inicio" ColumnName="data_inicio" />
                 <ScalarProperty Name="id_participante" ColumnName="id_participante" />
                 <ScalarProperty Name="horas" ColumnName="horas" />
-                <ScalarProperty Name="descricao" ColumnName="descricao" />
                 <ScalarProperty Name="id_trabalho" ColumnName="id_trabalho" />
               </MappingFragment>
             </EntityTypeMapping>

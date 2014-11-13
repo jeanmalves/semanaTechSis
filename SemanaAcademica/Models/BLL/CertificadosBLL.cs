@@ -12,13 +12,18 @@ namespace SemanaAcademica.Models.BLL
         {
             CertificadosViewModel model = new CertificadosViewModel();
 
-            var participacoes = ParticipacaoBLL.GetPalestrasByIdPessoa(Usuario.SessionPersist.IdPessoa);
+            var palestras = ParticipacaoBLL.GetPalestrasByIdPessoa(Usuario.SessionPersist.IdPessoa);
             var minicursos = ParticipacaoBLL.GetMinicursosByIdPessoa(Usuario.SessionPersist.IdPessoa);
 
-            model.HasParticipacao = (participacoes.Count != 0 && participacoes != null);
+            var trabalhoVoluntario = ParticipacaoBLL.GetAllByIdPessoa(Usuario.SessionPersist.IdPessoa);
+            
+            //Eventos
+            model.HasPalestras = (palestras.Count != 0 && palestras != null);
             model.HasMinicurso = (minicursos.Count != 0 && minicursos != null);
+
+            // Colaborador
+            model.HasTrabalhoVoluntario = (trabalhoVoluntario.Count != 0 && trabalhoVoluntario != null);
             model.HasOrganizador = Usuario.SessionPersist.IsAdministrador;
-            model.HasColaborador = Usuario.SessionPersist.IsColaborador;
 
             return model;
         }
