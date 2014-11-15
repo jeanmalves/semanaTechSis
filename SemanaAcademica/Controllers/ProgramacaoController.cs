@@ -1,9 +1,6 @@
 ﻿using SemanaAcademica.Models.BLL;
 using SemanaAcademica.Models.ViewModel;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SemanaAcademica.Controllers

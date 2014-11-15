@@ -1,9 +1,9 @@
 ﻿@if (Request.IsAuthenticated)
 {
-    <text>
+    <h2>
     Olá, @SemanaAcademica.Usuario.SessionPersist.Nome! @*Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!*@
     @Html.ActionLink("Sair", "Sair",  new { area = "", controller = "Cadastro" })
-    </text>
+    </h2>
 }
 else
 {

@@ -5,20 +5,32 @@
 }
 
 <h2><span class="glyphicon glyphicon-file"></span> Certificados</h2>
-<br />
-<p>Você possui os seguintes certificados:</p>
-<br />
+
 @if (Model.HasContribuicao)
 {
+    <br />
+    <p>Você possui os seguintes certificados:</p>
+    <br />
+    
     <div class="list-group col-md-4">
         @if (Model.HasPalestras)
         {
-            <a href="/Certificados/Palestras" class="list-group-item">Certificado de Participação de Palestras</a>
+            <a href="/Certificados/Palestras" class="list-group-item">Certificado de Participação em Palestras</a>
         }
 
         @if (Model.HasMinicurso)
         {
-            <a href="/Certificados/Minicurso" class="list-group-item">Certificado de Participação de Minicurso</a>
+            <a href="/Certificados/Minicursos" class="list-group-item">Certificado de Participação em Minicurso</a>
+        }
+
+        @if (Model.HasOficina)
+        {
+            <a href="/Certificados/Oficinas" class="list-group-item">Certificado de Participação em Oficina</a>
+        }
+
+        @if (Model.HasVisita)
+        {
+            <a href="/Certificados/Visitas" class="list-group-item">Certificado de Participação em Visita Técnica</a>
         }
 
         @if (Model.HasOrganizador)
@@ -31,8 +43,8 @@
             <a href="/Certificados/TrabalhoVoluntario" class="list-group-item">Certificado de Trabalho Voluntario</a>
         }
     </div>
-} 
-else 
+}
+else
 {
     <div class="alert alert-danger" role="alert">Apenas participantes que realizaram a doação de alimentos têm direito ao certificado!</div>
 }

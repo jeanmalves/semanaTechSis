@@ -19,7 +19,6 @@ namespace SemanaAcademica.Controllers
         public ActionResult Index()
         {
             CertificadosViewModel model = CertificadosBLL.CheckCertificados();
-            model.HasContribuicao = ParticipanteBLL.HasContribuicao(Usuario.SessionPersist.IdPessoa);
 
             return View(model);
         }
@@ -95,11 +94,11 @@ namespace SemanaAcademica.Controllers
         }
 
         //
-        // GET: /Certificado/Palestras
+        // GET: /Certificado/Minicursos
         [Authorize]
         public void Minicursos()
         {
-            // Recupera participações em oficinas
+            // Recupera participações em visitas
             var minicursos = ParticipacaoBLL.GetMinicursosByIdPessoa(Usuario.SessionPersist.IdPessoa);
 
             if (minicursos == null || minicursos.Count == 0) { return; }
@@ -166,11 +165,83 @@ namespace SemanaAcademica.Controllers
         }
 
         //
-        // GET: /Certificado/Palestras
+        // GET: /Certificado/Visitas
+        [Authorize]
+        public void Visitas()
+        {
+            // Recupera participações em visitas
+            var visitas = ParticipacaoBLL.GetVisitasIdPessoa(Usuario.SessionPersist.IdPessoa);
+
+            if (visitas == null || visitas.Count == 0) { return; }
+
+            // Cria documento
+            var html = System.IO.File.ReadAllText(Server.MapPath("\\Content\\Templates\\Certificado.html"));
+            var doc = new Document(PageSize.A4_LANDSCAPE.Rotate(), 0, 0, 0, 0);
+            doc.AddAuthor("Semana Acadêmica de Eletrônica e Informática - UTFPR");
+            doc.AddTitle("Certificado de Presença");
+
+            var stream = new MemoryStream();
+
+            var writer = PdfWriter.GetInstance(doc, stream);
+            writer.CloseStream = false;
+
+            doc.Open();
+
+            // Edita imagem
+
+            foreach (ParticipacaoModel p in visitas)
+            {
+                var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
+
+                using (var g = System.Drawing.Graphics.FromImage(image))
+                {
+                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 20),
+                    new System.Drawing.SolidBrush(System.Drawing.Color.Black),
+                    new System.Drawing.Rectangle(500, 300, 1000, 360),
+                    new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
+                    );
+
+                    // Adiciona parametros
+                    g.DrawString(
+                      String.Format(
+                      ConfigurationManager.AppSettings["Certificado.Visita"].ToString(),
+                      Usuario.SessionPersist.Nome,
+                      p.NomeEvento,
+                      String.Format("{0:dd/MM/yyyy}", p.HoraEntrada),
+                      Math.Ceiling((double)(p.HoraSaida.Value - p.HoraEntrada.Value).TotalMinutes / 60)),
+                      new System.Drawing.Font("Arial", 12),
+                      new System.Drawing.SolidBrush(System.Drawing.Color.Black),
+                      new System.Drawing.Rectangle(300, 460, 1400, 760),
+                      new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
+                      );
+                }
+
+                var pdfImage = Image.GetInstance(image, new BaseColor(0, 0, 0));
+                pdfImage.ScaleToFit(PageSize.A4_LANDSCAPE.Rotate());
+
+                doc.Add(pdfImage);
+            }
+
+            doc.Close();
+
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.AddHeader("Content-Disposition", "inline;filename=Certificado.pdf");
+            Response.ContentType = "application/pdf";
+
+            stream.Seek(0, SeekOrigin.Begin);
+            stream.CopyTo(Response.OutputStream);
+
+            Response.Flush();
+            Response.Clear();
+        }
+
+        //
+        // GET: /Certificado/Oficinas
         [Authorize]
         public void Oficinas()
         {
-            // Recupera participações em oficinas
+            // Recupera participações em visitas
             var oficinas = ParticipacaoBLL.GetOficinasByIdPessoa(Usuario.SessionPersist.IdPessoa);
 
             if (oficinas == null || oficinas.Count == 0) { return; }
@@ -356,7 +427,7 @@ namespace SemanaAcademica.Controllers
         [Authorize]
         public void TrabalhoVoluntario()
         {
-            // Recupera participações em oficinas
+            // Recupera participações em visitas
             var trabalhos = TrabalhoVoluntarioBLL.GetByIdPessoa(Usuario.SessionPersist.IdPessoa);
 
             // Cria documento
