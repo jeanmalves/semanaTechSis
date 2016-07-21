@@ -411,6 +411,7 @@
     <Content Include="Models\DAL\SemanaAcademicaModel.edmx.diagram">
       <DependentUpon>SemanaAcademicaModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Participacao\Listar.cshtml" />
     <None Include="Properties\PublishProfiles\Default.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Models\DAL\SemanaAcademicaModel.Context.tt">

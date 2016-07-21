@@ -29,6 +29,7 @@
                     @Html.ActionLink("Editar", "Edit", new { id = item.IdEvento }) |
                     @Html.ActionLink("Excluir", "Delete", new { id = item.IdEvento }) |
                     @Html.ActionLink("Horario(s)", "Index", "Horario", new { id = item.IdEvento }, null)
+                    @Html.ActionLink("Lista Presença", "Listar", "Participacao", new { id = item.IdEvento }, null)
                 </td>
             </tr>
         }
