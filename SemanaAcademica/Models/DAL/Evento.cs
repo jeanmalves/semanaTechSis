@@ -16,25 +16,25 @@ namespace SemanaAcademica.Models.DAL
     {
         public Evento()
         {
+            this.Horario = new HashSet<Horario>();
             this.Matricula = new HashSet<Matricula>();
             this.Minicurso = new HashSet<Minicurso>();
+            this.Oficina = new HashSet<Oficina>();
             this.Palestra = new HashSet<Palestra>();
             this.Participacao = new HashSet<Participacao>();
             this.Visita = new HashSet<Visita>();
-            this.Horario = new HashSet<Horario>();
-            this.Oficina = new HashSet<Oficina>();
         }
     
         public int id_evento { get; set; }
         public string nome { get; set; }
         public string descricao { get; set; }
     
+        public virtual ICollection<Horario> Horario { get; set; }
         public virtual ICollection<Matricula> Matricula { get; set; }
         public virtual ICollection<Minicurso> Minicurso { get; set; }
+        public virtual ICollection<Oficina> Oficina { get; set; }
         public virtual ICollection<Palestra> Palestra { get; set; }
         public virtual ICollection<Participacao> Participacao { get; set; }
         public virtual ICollection<Visita> Visita { get; set; }
-        public virtual ICollection<Horario> Horario { get; set; }
-        public virtual ICollection<Oficina> Oficina { get; set; }
     }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c10e5fe8fa4f4c819183009cc005490c" Name="Diagram1">
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Administrador" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Colaborador" Width="1.5" PointX="3.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Convidado" Width="1.5" PointX="3.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Evento" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Horario" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Local" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Matricula" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Minicurso" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Oficina" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Palestra" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Participacao" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Participante" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Pessoa" Width="1.5" PointX="1.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.TrabalhoVoluntario" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Visita" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Administrador_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Colaborador_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Convidado_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Horarioevento_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Matricula_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Minicurso_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Oficina_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Palestra_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Participacao_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Visita_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Horario_Local" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Matricula_Participante" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Participacao_Participante" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_Participante_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

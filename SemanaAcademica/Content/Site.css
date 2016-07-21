@@ -8,7 +8,7 @@ body {
     background-color: #fff;
     border-top: solid 10px #000;
     color: #333;
-    font-size: .85em;
+    font-size: 1.5em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
@@ -172,7 +172,7 @@ footer {
 ----------------------------------------------------------*/
 #login {
     display: block;
-    font-size: .85em;
+    font-size: 1.0em;
     margin: 0 0 10px;
     text-align: right;
 }
@@ -205,11 +205,11 @@ footer {
 /* menu
 ----------------------------------------------------------*/
 ul#menu {
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: 600;
     margin: 0 0 5px;
     padding: 0;
-    text-align: right;
+    text-align: left;
     background-color: #62BB46;
     width: 100%;
 }
@@ -271,6 +271,10 @@ section.feature {
     width: 300px;
     float: left;
     padding: 10px;
+}
+section .form{
+    font-size:0.85em;
+    margin-left:20px;
 }
 
 /* ordered list */

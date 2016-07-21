@@ -1,0 +1,110 @@
+﻿@model SemanaAcademica.Models.ViewModel.CadastroParticipanteViewModel
+
+@{
+    ViewBag.Title = "Participante";
+}
+
+<div style="width: 320px; margin: 0 auto;">
+    <h2>Participante</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>CadastroParticipanteViewModel</legend>
+
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Nome)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Nome)
+                @Html.ValidationMessageFor(model => model.Nome)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Registro)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Registro)
+                @Html.ValidationMessageFor(model => model.Registro)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Matricula)  @Html.EditorFor(model => model.Matricula)
+            </div>
+            <div class="editor-field">
+                @Html.ValidationMessageFor(model => model.Matricula)
+            </div>
+
+            <br />
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EmailConfirmacao)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EmailConfirmacao)
+                @Html.ValidationMessageFor(model => model.EmailConfirmacao)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Senha)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(model => model.Senha)
+                @Html.ValidationMessageFor(model => model.Senha)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SenhaConfirmacao)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(model => model.SenhaConfirmacao)
+                @Html.ValidationMessageFor(model => model.SenhaConfirmacao)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Telefone)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Telefone)
+                @Html.ValidationMessageFor(model => model.Telefone)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Universidade)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Universidade)
+                @Html.ValidationMessageFor(model => model.Universidade)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Curso)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Curso)
+                @Html.ValidationMessageFor(model => model.Curso)
+            </div>
+            <br />
+            <p style="text-align: right">
+                <input type="submit" value="Cadastrar" />
+            </p>
+        </fieldset>
+    }
+</div>
+<div>
+    @Html.ActionLink("Voltar", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

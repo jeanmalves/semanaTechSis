@@ -1,0 +1,16 @@
+﻿@model bool
+
+@{
+    ViewBag.Title = "Confirmação de Cadastro";
+}
+
+<h2>Confirmação de Cadastro</h2>
+
+@if (Model)
+{ 
+    <span>Cadastro confirmado com sucesso! Seu login está liberado.</span>
+}
+else
+{ 
+    <span>Erro confirmando cadastro. Verifique a URL digitada ou tente novamente mais tarde.</span>
+}

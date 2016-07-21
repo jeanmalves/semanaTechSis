@@ -4,7 +4,7 @@
     ViewBag.Title = "Participante";
 }
 
-<div style="width: 320px; margin: 0 auto;">
+<div class="form">
     <h2>Participante</h2>
     @using (Html.BeginForm())
     {
@@ -95,7 +95,7 @@
                 @Html.ValidationMessageFor(model => model.Curso)
             </div>
             <br />
-            <p style="text-align: right">
+            <p>
                 <input type="submit" value="Cadastrar" />
             </p>
         </fieldset>

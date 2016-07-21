@@ -8,7 +8,7 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A7A594B6-FE5B-46D2-AAD0-E91C3DF1A400}</ProjectGuid>
-    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SemanaAcademica</RootNamespace>
@@ -20,6 +20,13 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -202,69 +209,69 @@
     <Compile Include="Models\BLL\EventoBLL.cs" />
     <Compile Include="Models\BLL\TrabalhoVoluntarioBLL.cs" />
     <Compile Include="Models\DAL\Administrador.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Colaborador.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Convidado.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DAL\Entities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DAL\Entities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DAL\Entities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entities.edmx</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BLL\ParticipanteBLL.cs" />
     <Compile Include="Models\BLL\PessoaBLL.cs" />
     <Compile Include="Models\DAL\Evento.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Horario.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Local.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Matricula.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Minicurso.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Oficina.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Palestra.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Participacao.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Participante.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Pessoa.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\SemanaAcademicaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SemanaAcademicaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\SemanaAcademicaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\SemanaAcademicaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SemanaAcademicaModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\sysdiagrams.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\TrabalhoVoluntario.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Visita.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+      <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ObjectModel\AdministradorModel.cs" />
     <Compile Include="Models\ObjectModel\ColaboradorModel.cs" />
@@ -285,6 +292,10 @@
     <Compile Include="Utils\Email.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SemanaAcademica.mdf" />
+    <Content Include="App_Data\SemanaAcademica_log.ldf">
+      <DependentUpon>SemanaAcademica.mdf</DependentUpon>
+    </Content>
     <Content Include="Assemblies\itextsharp.dll" />
     <Content Include="Assemblies\iTextSharp.xml" />
     <Content Include="Content\Templates\Certificado.html" />
@@ -347,10 +358,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\DAL\Entities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Entities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Images\header.jpg" />
     <Content Include="Images\certificado.jpg" />
     <Content Include="Images\header_2013.jpg" />
@@ -365,19 +372,7 @@
     <Content Include="Images\logo_reymaster.jpg" />
     <Content Include="Images\logo_tektronix.jpg" />
     <Content Include="Images\logos_apoio.jpg" />
-    <Content Include="Models\DAL\Entities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Entities.edmx</DependentUpon>
-      <LastGenOutput>Entities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DAL\Entities.edmx.diagram">
-      <DependentUpon>Entities.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\DAL\Entities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Entities.edmx</DependentUpon>
-      <LastGenOutput>Entities.cs</LastGenOutput>
-    </Content>
+    <Content Include="Models\DAL\Entities.edmx.sql" />
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\Palestra\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Palestra\Index.cshtml" />
@@ -409,8 +404,25 @@
     <Content Include="Areas\Admin\Views\Oficina\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Oficina\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Participante\Success.cshtml" />
+    <EntityDeploy Include="Models\DAL\SemanaAcademicaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SemanaAcademicaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DAL\SemanaAcademicaModel.edmx.diagram">
+      <DependentUpon>SemanaAcademicaModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\Default.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Models\DAL\SemanaAcademicaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SemanaAcademicaModel.edmx</DependentUpon>
+      <LastGenOutput>SemanaAcademicaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DAL\SemanaAcademicaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SemanaAcademicaModel.edmx</DependentUpon>
+      <LastGenOutput>SemanaAcademicaModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -479,7 +491,6 @@
     <Content Include="Views\Certificados\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Filters\" />
   </ItemGroup>

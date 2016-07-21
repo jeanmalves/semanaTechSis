@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Admin</h2>
+
+<h3>Ações disponíveis para o seu usuário:</h3>
+
+<ul>
+    @if (SemanaAcademica.Usuario.SessionPersist.IsAdministrador)
+    { 
+        <li>@Html.ActionLink("Palestras", "Index", "Palestra")</li>
+        <li>@Html.ActionLink("Minicursos", "Index", "Minicurso")</li>
+        <li>@Html.ActionLink("Oficinas", "Index", "Oficina")</li>
+        <li>@Html.ActionLink("Visitas", "Index", "Visita")</li>
+        <li>@Html.ActionLink("Participação", "Index", "Participacao")</li>
+        <li>@Html.ActionLink("Participantes", "Index", "Participante")</li>
+    }
+    @if (SemanaAcademica.Usuario.SessionPersist.IsColaborador)
+    { 
+        <li>@Html.ActionLink("Participação", "Index", "Participacao")</li>
+        <li>@Html.ActionLink("Participantes", "Index", "Participante")</li>
+    }
+</ul>
+
+
+

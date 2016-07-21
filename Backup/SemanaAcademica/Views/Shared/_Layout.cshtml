@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left header">
+                <p class="site-title">@*@Html.ActionLink("Semana Academica", "Index", "Home")*@</p>
+            </div>
+            <div class="float-right content-wrapper">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Inicial", "Index", new { area = "", controller = "Home" })</li>
+                        <li>@Html.ActionLink("Inscrições", "Participante", new { area = "", controller = "Cadastro" })</li>
+                        <li>@Html.ActionLink("Certificados", "Index", new { area = "", controller = "Certificados" })</li>
+                        @*<li><a target="_blank" href=" https://www.facebook.com/semanaeletroinf?fref=ts">Programação</a></li>*@
+                        <li>@Html.ActionLink("Programação", "Index", new { area = "", controller = "Programacao" })</li>
+                        @*<li>@Html.ActionLink("Comissão Organizadora", "Comissao", "Sobre")</li>*@
+                        @*<li>@Html.ActionLink("Programação", "Programacao", new { area = "", controller = "Informacoes" })</li>*@
+                        @*<li>@Html.ActionLink("Parceiros", "Parceiros", new { area = "", controller = "Informacoes" })</li>*@
+                        @*<li>@Html.ActionLink("Contato", "Contato",  new { area="", controller="Informacoes" })</li>*@
+                    </ul>
+                </nav>
+                @if (SemanaAcademica.Usuario.SessionPersist.IsAdministrador)
+                { 
+                     
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Participantes", "Index", new { area = "Admin", controller = "Participante" })</li>
+                            <li>@Html.ActionLink("Participação", "Index", new { area = "Admin", controller = "Participacao" })</li>
+                            <li>@Html.ActionLink("Palestras", "Index", new { area = "Admin", controller = "Palestra" })</li>
+                            <li>@Html.ActionLink("Minicursos", "Index", new { area = "Admin", controller = "Minicurso" })</li>
+                            <li>@Html.ActionLink("Oficinas", "Index", new { area = "Admin", controller = "Oficina" })</li>
+                            <li>@Html.ActionLink("Visitas", "Index", new { area = "Admin", controller = "Visita" })</li>
+                            <li>@Html.ActionLink("Locais", "Index", new { area = "Admin", controller = "Local" })</li>
+                            <li>@Html.ActionLink("Grade", "Index", new { area = "Admin", controller = "Evento" })</li>
+                        </ul>
+                    </nav>
+                }
+
+                @if (SemanaAcademica.Usuario.SessionPersist.IsColaborador)
+                { 
+                     
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Participação", "Index", new { area = "Admin", controller = "Participacao" })</li>
+                            <li>@Html.ActionLink("Participantes", "Index", new { area = "Admin", controller = "Participante" })</li>
+                        </ul>
+                    </nav>
+                }
+
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <img src="~/Images/logos_apoio.jpg" />
+                <p>&copy; @DateTime.Now.Year - amansur.com</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

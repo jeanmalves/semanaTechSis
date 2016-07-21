@@ -1,0 +1,38 @@
+﻿@model SemanaAcademica.Areas.Admin.Models.CadastrarHorarioModel
+
+@using (Html.BeginForm("Create", "Horario"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Novo Horário</legend>
+
+        <span class="editor-label">
+            @Html.LabelFor(model => model.HoraInicio)
+        </span>
+        <span class="editor-field">
+            @Html.EditorFor(model => model.HoraInicio)
+            @Html.ValidationMessageFor(model => model.HoraInicio)
+        </span>
+        <br />
+        <span class="editor-label">
+            @Html.LabelFor(model => model.Horafim)
+        </span>
+        <span class="editor-field">
+            @Html.EditorFor(model => model.Horafim)
+            @Html.ValidationMessageFor(model => model.Horafim)
+        </span>
+        <br />
+        <span class="editor-label">
+            @Html.LabelFor(model => model.idLocal)
+        </span>
+        <span class="editor-field">
+            @Html.DropDownListFor(model => model.idLocal, ((IEnumerable<SemanaAcademica.Areas.Admin.Models.ListarLocalModel>)ViewBag.Locais).Select(l => new SelectListItem { Text = l.Descricao, Value = l.IdLocal.ToString() }))
+            @Html.ValidationMessageFor(model => model.Horafim)
+        </span>
+        <br />
+        @Html.HiddenFor(model => model.idEvento)
+        <input type="submit" value="Cadastrar" />
+    </fieldset>
+}

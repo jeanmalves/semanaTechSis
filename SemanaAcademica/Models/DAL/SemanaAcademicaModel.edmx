@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SemanaAcademicaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SemanaAcademicaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Administrador">
           <Key>
             <PropertyRef Name="id_administrador" />
@@ -25,7 +25,7 @@
           </Key>
           <Property Name="id_convidado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_pessoa" Type="int" Nullable="false" />
-          <Property Name="resumo_curriculo" Type="text" />
+          <Property Name="resumo_curriculo" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Evento">
           <Key>
@@ -33,7 +33,7 @@
           </Key>
           <Property Name="id_evento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nome" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="descricao" Type="text" />
+          <Property Name="descricao" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Horario">
           <Key>
@@ -50,7 +50,7 @@
             <PropertyRef Name="id_local" />
           </Key>
           <Property Name="id_local" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="descricao" Type="text" />
+          <Property Name="descricao" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Matricula">
           <Key>
@@ -134,8 +134,8 @@
           <Property Name="id_trabalho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="horas" Type="int" Nullable="false" />
           <Property Name="id_participante" Type="int" Nullable="false" />
-          <Property Name="data_inicio" Type="date" Nullable="false" />
-          <Property Name="data_fim" Type="date" Nullable="false" />
+          <Property Name="data_inicio" Type="datetime" Nullable="false" />
+          <Property Name="data_fim" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Visita">
           <Key>
@@ -143,8 +143,8 @@
           </Key>
           <Property Name="id_visita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_evento" Type="int" Nullable="false" />
-          <Property Name="locomocao" Type="text" />
-          <Property Name="contribuicao" Type="text" />
+          <Property Name="locomocao" Type="varchar(max)" />
+          <Property Name="contribuicao" Type="varchar(max)" />
           <Property Name="vagas" Type="int" />
         </EntityType>
         <Association Name="FK_Administrador_Pessoa">
@@ -405,221 +405,186 @@
             <End Role="Visita" EntitySet="Visita" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SemanaAcademicaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="SemanaAcademicaEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Administrador" EntityType="SemanaAcademicaModel.Administrador" />
-          <EntitySet Name="Colaborador" EntityType="SemanaAcademicaModel.Colaborador" />
-          <EntitySet Name="Convidado" EntityType="SemanaAcademicaModel.Convidado" />
-          <EntitySet Name="Evento" EntityType="SemanaAcademicaModel.Evento" />
-          <EntitySet Name="Local" EntityType="SemanaAcademicaModel.Local" />
-          <EntitySet Name="Matricula" EntityType="SemanaAcademicaModel.Matricula" />
-          <EntitySet Name="Minicurso" EntityType="SemanaAcademicaModel.Minicurso" />
-          <EntitySet Name="Palestra" EntityType="SemanaAcademicaModel.Palestra" />
-          <EntitySet Name="Participacao" EntityType="SemanaAcademicaModel.Participacao" />
-          <EntitySet Name="Participante" EntityType="SemanaAcademicaModel.Participante" />
-          <EntitySet Name="Pessoa" EntityType="SemanaAcademicaModel.Pessoa" />
-          <EntitySet Name="Visita" EntityType="SemanaAcademicaModel.Visita" />
-          <AssociationSet Name="FK_Administrador_Pessoa" Association="SemanaAcademicaModel.FK_Administrador_Pessoa">
-            <End Role="Pessoa" EntitySet="Pessoa" />
-            <End Role="Administrador" EntitySet="Administrador" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Colaborador_Pessoa" Association="SemanaAcademicaModel.FK_Colaborador_Pessoa">
-            <End Role="Pessoa" EntitySet="Pessoa" />
-            <End Role="Colaborador" EntitySet="Colaborador" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Convidado_Pessoa" Association="SemanaAcademicaModel.FK_Convidado_Pessoa">
-            <End Role="Pessoa" EntitySet="Pessoa" />
-            <End Role="Convidado" EntitySet="Convidado" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Matricula_Evento" Association="SemanaAcademicaModel.FK_Matricula_Evento">
-            <End Role="Evento" EntitySet="Evento" />
-            <End Role="Matricula" EntitySet="Matricula" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Minicurso_Evento" Association="SemanaAcademicaModel.FK_Minicurso_Evento">
-            <End Role="Evento" EntitySet="Evento" />
-            <End Role="Minicurso" EntitySet="Minicurso" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Palestra_Evento" Association="SemanaAcademicaModel.FK_Palestra_Evento">
-            <End Role="Evento" EntitySet="Evento" />
-            <End Role="Palestra" EntitySet="Palestra" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Participacao_Evento" Association="SemanaAcademicaModel.FK_Participacao_Evento">
-            <End Role="Evento" EntitySet="Evento" />
-            <End Role="Participacao" EntitySet="Participacao" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Visita_Evento" Association="SemanaAcademicaModel.FK_Visita_Evento">
-            <End Role="Evento" EntitySet="Evento" />
-            <End Role="Visita" EntitySet="Visita" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Matricula_Participante" Association="SemanaAcademicaModel.FK_Matricula_Participante">
-            <End Role="Participante" EntitySet="Participante" />
-            <End Role="Matricula" EntitySet="Matricula" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Participacao_Participante" Association="SemanaAcademicaModel.FK_Participacao_Participante">
-            <End Role="Participante" EntitySet="Participante" />
-            <End Role="Participacao" EntitySet="Participacao" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Participante_Pessoa" Association="SemanaAcademicaModel.FK_Participante_Pessoa">
-            <End Role="Pessoa" EntitySet="Pessoa" />
-            <End Role="Participante" EntitySet="Participante" />
-          </AssociationSet>
-          <EntitySet Name="Horario" EntityType="SemanaAcademicaModel.Horario" />
-          <AssociationSet Name="FK_Horarioevento_Evento" Association="SemanaAcademicaModel.FK_Horarioevento_Evento">
-            <End Role="Evento" EntitySet="Evento" />
-            <End Role="Horario" EntitySet="Horario" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Horario_Local" Association="SemanaAcademicaModel.FK_Horario_Local">
-            <End Role="Local" EntitySet="Local" />
-            <End Role="Horario" EntitySet="Horario" />
-          </AssociationSet>
-          <EntitySet Name="TrabalhoVoluntario" EntityType="SemanaAcademicaModel.TrabalhoVoluntario" />
-          <AssociationSet Name="FK_TrabalhoVoluntario_Participante" Association="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante">
-            <End Role="Participante" EntitySet="Participante" />
-            <End Role="TrabalhoVoluntario" EntitySet="TrabalhoVoluntario" />
-          </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="SemanaAcademicaModel.sysdiagrams" />
-          <EntitySet Name="Oficina" EntityType="SemanaAcademicaModel.Oficina" />
-          <AssociationSet Name="FK_Oficina_Evento" Association="SemanaAcademicaModel.FK_Oficina_Evento">
-            <End Role="Evento" EntitySet="Evento" />
-            <End Role="Oficina" EntitySet="Oficina" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="SemanaAcademicaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Administrador">
           <Key>
             <PropertyRef Name="id_administrador" />
           </Key>
-          <Property Type="Int32" Name="id_administrador" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="id_pessoa" Nullable="false" />
-          <NavigationProperty Name="Pessoa" Relationship="SemanaAcademicaModel.FK_Administrador_Pessoa" FromRole="Administrador" ToRole="Pessoa" />
+          <Property Name="id_administrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pessoa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.FK_Administrador_Pessoa" FromRole="Administrador" ToRole="Pessoa" />
         </EntityType>
         <EntityType Name="Colaborador">
           <Key>
             <PropertyRef Name="id_colaborador" />
           </Key>
-          <Property Type="Int32" Name="id_colaborador" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="id_pessoa" Nullable="false" />
-          <NavigationProperty Name="Pessoa" Relationship="SemanaAcademicaModel.FK_Colaborador_Pessoa" FromRole="Colaborador" ToRole="Pessoa" />
+          <Property Name="id_colaborador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pessoa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.FK_Colaborador_Pessoa" FromRole="Colaborador" ToRole="Pessoa" />
         </EntityType>
         <EntityType Name="Convidado">
           <Key>
             <PropertyRef Name="id_convidado" />
           </Key>
-          <Property Type="Int32" Name="id_convidado" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="id_pessoa" Nullable="false" />
-          <Property Type="String" Name="resumo_curriculo" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Pessoa" Relationship="SemanaAcademicaModel.FK_Convidado_Pessoa" FromRole="Convidado" ToRole="Pessoa" />
+          <Property Name="id_convidado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pessoa" Type="Int32" Nullable="false" />
+          <Property Name="resumo_curriculo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.FK_Convidado_Pessoa" FromRole="Convidado" ToRole="Pessoa" />
         </EntityType>
         <EntityType Name="Evento">
           <Key>
             <PropertyRef Name="id_evento" />
           </Key>
-          <Property Type="Int32" Name="id_evento" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="nome" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="descricao" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Matricula" Relationship="SemanaAcademicaModel.FK_Matricula_Evento" FromRole="Evento" ToRole="Matricula" />
-          <NavigationProperty Name="Minicurso" Relationship="SemanaAcademicaModel.FK_Minicurso_Evento" FromRole="Evento" ToRole="Minicurso" />
-          <NavigationProperty Name="Palestra" Relationship="SemanaAcademicaModel.FK_Palestra_Evento" FromRole="Evento" ToRole="Palestra" />
-          <NavigationProperty Name="Participacao" Relationship="SemanaAcademicaModel.FK_Participacao_Evento" FromRole="Evento" ToRole="Participacao" />
-          <NavigationProperty Name="Visita" Relationship="SemanaAcademicaModel.FK_Visita_Evento" FromRole="Evento" ToRole="Visita" />
-          <NavigationProperty Name="Horario" Relationship="SemanaAcademicaModel.FK_Horarioevento_Evento" FromRole="Evento" ToRole="Horario" />
-          <NavigationProperty Name="Oficina" Relationship="SemanaAcademicaModel.FK_Oficina_Evento" FromRole="Evento" ToRole="Oficina" />
+          <Property Name="id_evento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Horario" Relationship="Self.FK_Horarioevento_Evento" FromRole="Evento" ToRole="Horario" />
+          <NavigationProperty Name="Matricula" Relationship="Self.FK_Matricula_Evento" FromRole="Evento" ToRole="Matricula" />
+          <NavigationProperty Name="Minicurso" Relationship="Self.FK_Minicurso_Evento" FromRole="Evento" ToRole="Minicurso" />
+          <NavigationProperty Name="Oficina" Relationship="Self.FK_Oficina_Evento" FromRole="Evento" ToRole="Oficina" />
+          <NavigationProperty Name="Palestra" Relationship="Self.FK_Palestra_Evento" FromRole="Evento" ToRole="Palestra" />
+          <NavigationProperty Name="Participacao" Relationship="Self.FK_Participacao_Evento" FromRole="Evento" ToRole="Participacao" />
+          <NavigationProperty Name="Visita" Relationship="Self.FK_Visita_Evento" FromRole="Evento" ToRole="Visita" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="id_horario" />
+          </Key>
+          <Property Name="id_horario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hora_inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_fim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_local" Type="Int32" Nullable="false" />
+          <Property Name="id_evento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK_Horarioevento_Evento" FromRole="Horario" ToRole="Evento" />
+          <NavigationProperty Name="Local" Relationship="Self.FK_Horario_Local" FromRole="Horario" ToRole="Local" />
         </EntityType>
         <EntityType Name="Local">
           <Key>
             <PropertyRef Name="id_local" />
           </Key>
-          <Property Type="Int32" Name="id_local" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="descricao" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Horario" Relationship="SemanaAcademicaModel.FK_Horario_Local" FromRole="Local" ToRole="Horario" />
+          <Property Name="id_local" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Horario" Relationship="Self.FK_Horario_Local" FromRole="Local" ToRole="Horario" />
         </EntityType>
         <EntityType Name="Matricula">
           <Key>
             <PropertyRef Name="id_matricula" />
           </Key>
-          <Property Type="Int32" Name="id_matricula" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="id_participante" Nullable="false" />
-          <Property Type="Int32" Name="id_evento" Nullable="false" />
-          <NavigationProperty Name="Evento" Relationship="SemanaAcademicaModel.FK_Matricula_Evento" FromRole="Matricula" ToRole="Evento" />
-          <NavigationProperty Name="Participante" Relationship="SemanaAcademicaModel.FK_Matricula_Participante" FromRole="Matricula" ToRole="Participante" />
+          <Property Name="id_matricula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_participante" Type="Int32" Nullable="false" />
+          <Property Name="id_evento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK_Matricula_Evento" FromRole="Matricula" ToRole="Evento" />
+          <NavigationProperty Name="Participante" Relationship="Self.FK_Matricula_Participante" FromRole="Matricula" ToRole="Participante" />
         </EntityType>
         <EntityType Name="Minicurso">
           <Key>
             <PropertyRef Name="id_minicurso" />
           </Key>
-          <Property Type="Int32" Name="id_minicurso" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="id_evento" Nullable="false" />
-          <Property Type="Int32" Name="vagas" Nullable="true" />
-          <NavigationProperty Name="Evento" Relationship="SemanaAcademicaModel.FK_Minicurso_Evento" FromRole="Minicurso" ToRole="Evento" />
+          <Property Name="id_minicurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_evento" Type="Int32" Nullable="false" />
+          <Property Name="vagas" Type="Int32" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK_Minicurso_Evento" FromRole="Minicurso" ToRole="Evento" />
+        </EntityType>
+        <EntityType Name="Oficina">
+          <Key>
+            <PropertyRef Name="id_oficina" />
+          </Key>
+          <Property Name="id_oficina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_evento" Type="Int32" Nullable="false" />
+          <Property Name="vagas" Type="Int32" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK_Oficina_Evento" FromRole="Oficina" ToRole="Evento" />
         </EntityType>
         <EntityType Name="Palestra">
           <Key>
             <PropertyRef Name="id_palestra" />
           </Key>
-          <Property Type="Int32" Name="id_palestra" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="id_evento" Nullable="false" />
-          <NavigationProperty Name="Evento" Relationship="SemanaAcademicaModel.FK_Palestra_Evento" FromRole="Palestra" ToRole="Evento" />
+          <Property Name="id_palestra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_evento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK_Palestra_Evento" FromRole="Palestra" ToRole="Evento" />
         </EntityType>
         <EntityType Name="Participacao">
           <Key>
             <PropertyRef Name="id_participacao" />
           </Key>
-          <Property Type="Int32" Name="id_participacao" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="hora_entrada" Precision="3" />
-          <Property Type="DateTime" Name="hora_saida" Precision="3" />
-          <Property Type="Int32" Name="id_participante" Nullable="false" />
-          <Property Type="Int32" Name="id_evento" Nullable="false" />
-          <NavigationProperty Name="Evento" Relationship="SemanaAcademicaModel.FK_Participacao_Evento" FromRole="Participacao" ToRole="Evento" />
-          <NavigationProperty Name="Participante" Relationship="SemanaAcademicaModel.FK_Participacao_Participante" FromRole="Participacao" ToRole="Participante" />
+          <Property Name="id_participacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hora_entrada" Type="DateTime" Precision="3" />
+          <Property Name="hora_saida" Type="DateTime" Precision="3" />
+          <Property Name="id_participante" Type="Int32" Nullable="false" />
+          <Property Name="id_evento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK_Participacao_Evento" FromRole="Participacao" ToRole="Evento" />
+          <NavigationProperty Name="Participante" Relationship="Self.FK_Participacao_Participante" FromRole="Participacao" ToRole="Participante" />
         </EntityType>
         <EntityType Name="Participante">
           <Key>
             <PropertyRef Name="id_participante" />
           </Key>
-          <Property Type="Int32" Name="id_participante" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="id_pessoa" Nullable="false" />
-          <Property Type="String" Name="registro" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="matricula" Nullable="false" />
-          <Property Type="Boolean" Name="contribuicao" Nullable="false" />
-          <NavigationProperty Name="Matricula1" Relationship="SemanaAcademicaModel.FK_Matricula_Participante" FromRole="Participante" ToRole="Matricula" />
-          <NavigationProperty Name="Participacao" Relationship="SemanaAcademicaModel.FK_Participacao_Participante" FromRole="Participante" ToRole="Participacao" />
-          <NavigationProperty Name="Pessoa" Relationship="SemanaAcademicaModel.FK_Participante_Pessoa" FromRole="Participante" ToRole="Pessoa" />
-          <NavigationProperty Name="TrabalhoVoluntario" Relationship="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante" FromRole="Participante" ToRole="TrabalhoVoluntario" />
+          <Property Name="id_participante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pessoa" Type="Int32" Nullable="false" />
+          <Property Name="registro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="matricula" Type="Boolean" Nullable="false" />
+          <Property Name="contribuicao" Type="Boolean" Nullable="false" />
           <Property Name="universidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="curso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Matricula1" Relationship="Self.FK_Matricula_Participante" FromRole="Participante" ToRole="Matricula" />
+          <NavigationProperty Name="Participacao" Relationship="Self.FK_Participacao_Participante" FromRole="Participante" ToRole="Participacao" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.FK_Participante_Pessoa" FromRole="Participante" ToRole="Pessoa" />
+          <NavigationProperty Name="TrabalhoVoluntario" Relationship="Self.FK_TrabalhoVoluntario_Participante" FromRole="Participante" ToRole="TrabalhoVoluntario" />
         </EntityType>
         <EntityType Name="Pessoa">
           <Key>
             <PropertyRef Name="id_pessoa" />
           </Key>
-          <Property Type="Int32" Name="id_pessoa" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="nome" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="email" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="telefone" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="senha" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Guid" Name="chave" Nullable="false" />
-          <Property Type="Boolean" Name="confirmado" Nullable="false" />
-          <NavigationProperty Name="Administrador" Relationship="SemanaAcademicaModel.FK_Administrador_Pessoa" FromRole="Pessoa" ToRole="Administrador" />
-          <NavigationProperty Name="Colaborador" Relationship="SemanaAcademicaModel.FK_Colaborador_Pessoa" FromRole="Pessoa" ToRole="Colaborador" />
-          <NavigationProperty Name="Convidado" Relationship="SemanaAcademicaModel.FK_Convidado_Pessoa" FromRole="Pessoa" ToRole="Convidado" />
-          <NavigationProperty Name="Participante" Relationship="SemanaAcademicaModel.FK_Participante_Pessoa" FromRole="Pessoa" ToRole="Participante" />
+          <Property Name="id_pessoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="chave" Type="Guid" Nullable="false" />
+          <Property Name="confirmado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Administrador" Relationship="Self.FK_Administrador_Pessoa" FromRole="Pessoa" ToRole="Administrador" />
+          <NavigationProperty Name="Colaborador" Relationship="Self.FK_Colaborador_Pessoa" FromRole="Pessoa" ToRole="Colaborador" />
+          <NavigationProperty Name="Convidado" Relationship="Self.FK_Convidado_Pessoa" FromRole="Pessoa" ToRole="Convidado" />
+          <NavigationProperty Name="Participante" Relationship="Self.FK_Participante_Pessoa" FromRole="Pessoa" ToRole="Participante" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TrabalhoVoluntario">
+          <Key>
+            <PropertyRef Name="id_trabalho" />
+          </Key>
+          <Property Name="id_trabalho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="horas" Type="Int32" Nullable="false" />
+          <Property Name="id_participante" Type="Int32" Nullable="false" />
+          <Property Name="data_inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_fim" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Participante" Relationship="Self.FK_TrabalhoVoluntario_Participante" FromRole="TrabalhoVoluntario" ToRole="Participante" />
         </EntityType>
         <EntityType Name="Visita">
           <Key>
             <PropertyRef Name="id_visita" />
           </Key>
-          <Property Type="Int32" Name="id_visita" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="id_evento" Nullable="false" />
-          <Property Type="String" Name="locomocao" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="contribuicao" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="vagas" />
-          <NavigationProperty Name="Evento" Relationship="SemanaAcademicaModel.FK_Visita_Evento" FromRole="Visita" ToRole="Evento" />
+          <Property Name="id_visita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_evento" Type="Int32" Nullable="false" />
+          <Property Name="locomocao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="contribuicao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="vagas" Type="Int32" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK_Visita_Evento" FromRole="Visita" ToRole="Evento" />
         </EntityType>
         <Association Name="FK_Administrador_Pessoa">
-          <End Type="SemanaAcademicaModel.Pessoa" Role="Pessoa" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Administrador" Role="Administrador" Multiplicity="*" />
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pessoa">
               <PropertyRef Name="id_pessoa" />
@@ -630,8 +595,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Colaborador_Pessoa">
-          <End Type="SemanaAcademicaModel.Pessoa" Role="Pessoa" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Colaborador" Role="Colaborador" Multiplicity="*" />
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Colaborador" Type="Self.Colaborador" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pessoa">
               <PropertyRef Name="id_pessoa" />
@@ -642,8 +607,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Convidado_Pessoa">
-          <End Type="SemanaAcademicaModel.Pessoa" Role="Pessoa" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Convidado" Role="Convidado" Multiplicity="*" />
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Convidado" Type="Self.Convidado" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pessoa">
               <PropertyRef Name="id_pessoa" />
@@ -653,9 +618,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Horarioevento_Evento">
+          <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="id_evento" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="id_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Matricula_Evento">
-          <End Type="SemanaAcademicaModel.Evento" Role="Evento" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Matricula" Role="Matricula" Multiplicity="*" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Evento">
               <PropertyRef Name="id_evento" />
@@ -666,8 +643,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Minicurso_Evento">
-          <End Type="SemanaAcademicaModel.Evento" Role="Evento" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Minicurso" Role="Minicurso" Multiplicity="*" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+          <End Role="Minicurso" Type="Self.Minicurso" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Evento">
               <PropertyRef Name="id_evento" />
@@ -677,9 +654,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Oficina_Evento">
+          <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="id_evento" />
+            </Principal>
+            <Dependent Role="Oficina">
+              <PropertyRef Name="id_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Palestra_Evento">
-          <End Type="SemanaAcademicaModel.Evento" Role="Evento" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Palestra" Role="Palestra" Multiplicity="*" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+          <End Role="Palestra" Type="Self.Palestra" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Evento">
               <PropertyRef Name="id_evento" />
@@ -690,8 +679,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Participacao_Evento">
-          <End Type="SemanaAcademicaModel.Evento" Role="Evento" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Participacao" Role="Participacao" Multiplicity="*" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+          <End Role="Participacao" Type="Self.Participacao" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Evento">
               <PropertyRef Name="id_evento" />
@@ -702,8 +691,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Visita_Evento">
-          <End Type="SemanaAcademicaModel.Evento" Role="Evento" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Visita" Role="Visita" Multiplicity="*" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+          <End Role="Visita" Type="Self.Visita" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Evento">
               <PropertyRef Name="id_evento" />
@@ -713,9 +702,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Horario_Local">
+          <End Role="Local" Type="Self.Local" Multiplicity="1" />
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Local">
+              <PropertyRef Name="id_local" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="id_local" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Matricula_Participante">
-          <End Type="SemanaAcademicaModel.Participante" Role="Participante" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Matricula" Role="Matricula" Multiplicity="*" />
+          <End Role="Participante" Type="Self.Participante" Multiplicity="1" />
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Participante">
               <PropertyRef Name="id_participante" />
@@ -726,8 +727,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Participacao_Participante">
-          <End Type="SemanaAcademicaModel.Participante" Role="Participante" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Participacao" Role="Participacao" Multiplicity="*" />
+          <End Role="Participante" Type="Self.Participante" Multiplicity="1" />
+          <End Role="Participacao" Type="Self.Participacao" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Participante">
               <PropertyRef Name="id_participante" />
@@ -738,8 +739,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Participante_Pessoa">
-          <End Type="SemanaAcademicaModel.Pessoa" Role="Pessoa" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Participante" Role="Participante" Multiplicity="*" />
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Participante" Type="Self.Participante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pessoa">
               <PropertyRef Name="id_pessoa" />
@@ -749,56 +750,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Horario">
-          <Key>
-            <PropertyRef Name="id_horario" />
-          </Key>
-          <Property Type="Int32" Name="id_horario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="hora_inicio" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="hora_fim" Nullable="false" Precision="3" />
-          <Property Type="Int32" Name="id_local" Nullable="false" />
-          <Property Type="Int32" Name="id_evento" Nullable="false" />
-          <NavigationProperty Name="Evento" Relationship="SemanaAcademicaModel.FK_Horarioevento_Evento" FromRole="Horario" ToRole="Evento" />
-          <NavigationProperty Name="Local" Relationship="SemanaAcademicaModel.FK_Horario_Local" FromRole="Horario" ToRole="Local" />
-        </EntityType>
-        <Association Name="FK_Horarioevento_Evento">
-          <End Type="SemanaAcademicaModel.Evento" Role="Evento" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Horario" Role="Horario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Evento">
-              <PropertyRef Name="id_evento" />
-            </Principal>
-            <Dependent Role="Horario">
-              <PropertyRef Name="id_evento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Horario_Local">
-          <End Type="SemanaAcademicaModel.Local" Role="Local" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Horario" Role="Horario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Local">
-              <PropertyRef Name="id_local" />
-            </Principal>
-            <Dependent Role="Horario">
-              <PropertyRef Name="id_local" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="TrabalhoVoluntario">
-          <Key>
-            <PropertyRef Name="id_trabalho" />
-          </Key>
-          <Property Name="id_trabalho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="horas" Type="Int32" Nullable="false" />
-          <Property Name="id_participante" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Participante" Relationship="SemanaAcademicaModel.FK_TrabalhoVoluntario_Participante" FromRole="TrabalhoVoluntario" ToRole="Participante" />
-          <Property Name="data_inicio" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="data_fim" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
         <Association Name="FK_TrabalhoVoluntario_Participante">
-          <End Type="SemanaAcademicaModel.Participante" Role="Participante" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.TrabalhoVoluntario" Role="TrabalhoVoluntario" Multiplicity="*" />
+          <End Role="Participante" Type="Self.Participante" Multiplicity="1" />
+          <End Role="TrabalhoVoluntario" Type="Self.TrabalhoVoluntario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Participante">
               <PropertyRef Name="id_participante" />
@@ -808,38 +762,85 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Oficina">
-          <Key>
-            <PropertyRef Name="id_oficina" />
-          </Key>
-          <Property Name="id_oficina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_evento" Type="Int32" Nullable="false" />
-          <Property Name="vagas" Type="Int32" />
-          <NavigationProperty Name="Evento" Relationship="SemanaAcademicaModel.FK_Oficina_Evento" FromRole="Oficina" ToRole="Evento" />
-        </EntityType>
-        <Association Name="FK_Oficina_Evento">
-          <End Type="SemanaAcademicaModel.Evento" Role="Evento" Multiplicity="1" />
-          <End Type="SemanaAcademicaModel.Oficina" Role="Oficina" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Evento">
-              <PropertyRef Name="id_evento" />
-            </Principal>
-            <Dependent Role="Oficina">
-              <PropertyRef Name="id_evento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        </Schema>
+        <EntityContainer Name="SemanaAcademicaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+          <EntitySet Name="Colaborador" EntityType="Self.Colaborador" />
+          <EntitySet Name="Convidado" EntityType="Self.Convidado" />
+          <EntitySet Name="Evento" EntityType="Self.Evento" />
+          <EntitySet Name="Horario" EntityType="Self.Horario" />
+          <EntitySet Name="Local" EntityType="Self.Local" />
+          <EntitySet Name="Matricula" EntityType="Self.Matricula" />
+          <EntitySet Name="Minicurso" EntityType="Self.Minicurso" />
+          <EntitySet Name="Oficina" EntityType="Self.Oficina" />
+          <EntitySet Name="Palestra" EntityType="Self.Palestra" />
+          <EntitySet Name="Participacao" EntityType="Self.Participacao" />
+          <EntitySet Name="Participante" EntityType="Self.Participante" />
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TrabalhoVoluntario" EntityType="Self.TrabalhoVoluntario" />
+          <EntitySet Name="Visita" EntityType="Self.Visita" />
+          <AssociationSet Name="FK_Administrador_Pessoa" Association="Self.FK_Administrador_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Administrador" EntitySet="Administrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Colaborador_Pessoa" Association="Self.FK_Colaborador_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Colaborador" EntitySet="Colaborador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Convidado_Pessoa" Association="Self.FK_Convidado_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Convidado" EntitySet="Convidado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horarioevento_Evento" Association="Self.FK_Horarioevento_Evento">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Matricula_Evento" Association="Self.FK_Matricula_Evento">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Matricula" EntitySet="Matricula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Minicurso_Evento" Association="Self.FK_Minicurso_Evento">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Minicurso" EntitySet="Minicurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficina_Evento" Association="Self.FK_Oficina_Evento">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Oficina" EntitySet="Oficina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Palestra_Evento" Association="Self.FK_Palestra_Evento">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Palestra" EntitySet="Palestra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participacao_Evento" Association="Self.FK_Participacao_Evento">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Participacao" EntitySet="Participacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visita_Evento" Association="Self.FK_Visita_Evento">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Visita" EntitySet="Visita" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horario_Local" Association="Self.FK_Horario_Local">
+            <End Role="Local" EntitySet="Local" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Matricula_Participante" Association="Self.FK_Matricula_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="Matricula" EntitySet="Matricula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participacao_Participante" Association="Self.FK_Participacao_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="Participacao" EntitySet="Participacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Pessoa" Association="Self.FK_Participante_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Participante" EntitySet="Participante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabalhoVoluntario_Participante" Association="Self.FK_TrabalhoVoluntario_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="TrabalhoVoluntario" EntitySet="TrabalhoVoluntario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -848,33 +849,44 @@
           <EntitySetMapping Name="Administrador">
             <EntityTypeMapping TypeName="SemanaAcademicaModel.Administrador">
               <MappingFragment StoreEntitySet="Administrador">
-                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
                 <ScalarProperty Name="id_administrador" ColumnName="id_administrador" />
+                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Colaborador">
             <EntityTypeMapping TypeName="SemanaAcademicaModel.Colaborador">
               <MappingFragment StoreEntitySet="Colaborador">
-                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
                 <ScalarProperty Name="id_colaborador" ColumnName="id_colaborador" />
+                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Convidado">
             <EntityTypeMapping TypeName="SemanaAcademicaModel.Convidado">
               <MappingFragment StoreEntitySet="Convidado">
-                <ScalarProperty Name="resumo_curriculo" ColumnName="resumo_curriculo" />
-                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
                 <ScalarProperty Name="id_convidado" ColumnName="id_convidado" />
+                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+                <ScalarProperty Name="resumo_curriculo" ColumnName="resumo_curriculo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Evento">
             <EntityTypeMapping TypeName="SemanaAcademicaModel.Evento">
               <MappingFragment StoreEntitySet="Evento">
-                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
                 <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horario">
+            <EntityTypeMapping TypeName="SemanaAcademicaModel.Horario">
+              <MappingFragment StoreEntitySet="Horario">
+                <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+                <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+                <ScalarProperty Name="hora_fim" ColumnName="hora_fim" />
+                <ScalarProperty Name="id_local" ColumnName="id_local" />
                 <ScalarProperty Name="id_evento" ColumnName="id_evento" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -882,124 +894,113 @@
           <EntitySetMapping Name="Local">
             <EntityTypeMapping TypeName="SemanaAcademicaModel.Local">
               <MappingFragment StoreEntitySet="Local">
-                <ScalarProperty Name="descricao" ColumnName="descricao" />
                 <ScalarProperty Name="id_local" ColumnName="id_local" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Matricula">
             <EntityTypeMapping TypeName="SemanaAcademicaModel.Matricula">
               <MappingFragment StoreEntitySet="Matricula">
-                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
-                <ScalarProperty Name="id_participante" ColumnName="id_participante" />
                 <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
+                <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Minicurso">
             <EntityTypeMapping TypeName="SemanaAcademicaModel.Minicurso">
               <MappingFragment StoreEntitySet="Minicurso">
-                <ScalarProperty Name="vagas" ColumnName="vagas" />
-                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
                 <ScalarProperty Name="id_minicurso" ColumnName="id_minicurso" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Palestra">
-            <EntityTypeMapping TypeName="SemanaAcademicaModel.Palestra">
-              <MappingFragment StoreEntitySet="Palestra">
                 <ScalarProperty Name="id_evento" ColumnName="id_evento" />
-                <ScalarProperty Name="id_palestra" ColumnName="id_palestra" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Participacao">
-            <EntityTypeMapping TypeName="SemanaAcademicaModel.Participacao">
-              <MappingFragment StoreEntitySet="Participacao">
-                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
-                <ScalarProperty Name="id_participante" ColumnName="id_participante" />
-                <ScalarProperty Name="hora_saida" ColumnName="hora_saida" />
-                <ScalarProperty Name="hora_entrada" ColumnName="hora_entrada" />
-                <ScalarProperty Name="id_participacao" ColumnName="id_participacao" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Participante">
-            <EntityTypeMapping TypeName="SemanaAcademicaModel.Participante">
-              <MappingFragment StoreEntitySet="Participante">
-                <ScalarProperty Name="curso" ColumnName="curso" />
-                <ScalarProperty Name="universidade" ColumnName="universidade" />
-                <ScalarProperty Name="contribuicao" ColumnName="contribuicao" />
-                <ScalarProperty Name="matricula" ColumnName="matricula" />
-                <ScalarProperty Name="registro" ColumnName="registro" />
-                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
-                <ScalarProperty Name="id_participante" ColumnName="id_participante" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Pessoa">
-            <EntityTypeMapping TypeName="SemanaAcademicaModel.Pessoa">
-              <MappingFragment StoreEntitySet="Pessoa">
-                <ScalarProperty Name="confirmado" ColumnName="confirmado" />
-                <ScalarProperty Name="chave" ColumnName="chave" />
-                <ScalarProperty Name="senha" ColumnName="senha" />
-                <ScalarProperty Name="telefone" ColumnName="telefone" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="nome" ColumnName="nome" />
-                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Visita">
-            <EntityTypeMapping TypeName="SemanaAcademicaModel.Visita">
-              <MappingFragment StoreEntitySet="Visita">
                 <ScalarProperty Name="vagas" ColumnName="vagas" />
-                <ScalarProperty Name="contribuicao" ColumnName="contribuicao" />
-                <ScalarProperty Name="locomocao" ColumnName="locomocao" />
-                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
-                <ScalarProperty Name="id_visita" ColumnName="id_visita" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Horario">
-            <EntityTypeMapping TypeName="SemanaAcademicaModel.Horario">
-              <MappingFragment StoreEntitySet="Horario">
-                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
-                <ScalarProperty Name="id_local" ColumnName="id_local" />
-                <ScalarProperty Name="hora_fim" ColumnName="hora_fim" />
-                <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
-                <ScalarProperty Name="id_horario" ColumnName="id_horario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TrabalhoVoluntario">
-            <EntityTypeMapping TypeName="SemanaAcademicaModel.TrabalhoVoluntario">
-              <MappingFragment StoreEntitySet="TrabalhoVoluntario">
-                <ScalarProperty Name="data_fim" ColumnName="data_fim" />
-                <ScalarProperty Name="data_inicio" ColumnName="data_inicio" />
-                <ScalarProperty Name="id_participante" ColumnName="id_participante" />
-                <ScalarProperty Name="horas" ColumnName="horas" />
-                <ScalarProperty Name="id_trabalho" ColumnName="id_trabalho" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SemanaAcademicaModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Oficina">
             <EntityTypeMapping TypeName="SemanaAcademicaModel.Oficina">
               <MappingFragment StoreEntitySet="Oficina">
-                <ScalarProperty Name="vagas" ColumnName="vagas" />
-                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
                 <ScalarProperty Name="id_oficina" ColumnName="id_oficina" />
+                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+                <ScalarProperty Name="vagas" ColumnName="vagas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Palestra">
+            <EntityTypeMapping TypeName="SemanaAcademicaModel.Palestra">
+              <MappingFragment StoreEntitySet="Palestra">
+                <ScalarProperty Name="id_palestra" ColumnName="id_palestra" />
+                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participacao">
+            <EntityTypeMapping TypeName="SemanaAcademicaModel.Participacao">
+              <MappingFragment StoreEntitySet="Participacao">
+                <ScalarProperty Name="id_participacao" ColumnName="id_participacao" />
+                <ScalarProperty Name="hora_entrada" ColumnName="hora_entrada" />
+                <ScalarProperty Name="hora_saida" ColumnName="hora_saida" />
+                <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participante">
+            <EntityTypeMapping TypeName="SemanaAcademicaModel.Participante">
+              <MappingFragment StoreEntitySet="Participante">
+                <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+                <ScalarProperty Name="registro" ColumnName="registro" />
+                <ScalarProperty Name="matricula" ColumnName="matricula" />
+                <ScalarProperty Name="contribuicao" ColumnName="contribuicao" />
+                <ScalarProperty Name="universidade" ColumnName="universidade" />
+                <ScalarProperty Name="curso" ColumnName="curso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pessoa">
+            <EntityTypeMapping TypeName="SemanaAcademicaModel.Pessoa">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="chave" ColumnName="chave" />
+                <ScalarProperty Name="confirmado" ColumnName="confirmado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SemanaAcademicaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrabalhoVoluntario">
+            <EntityTypeMapping TypeName="SemanaAcademicaModel.TrabalhoVoluntario">
+              <MappingFragment StoreEntitySet="TrabalhoVoluntario">
+                <ScalarProperty Name="id_trabalho" ColumnName="id_trabalho" />
+                <ScalarProperty Name="horas" ColumnName="horas" />
+                <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+                <ScalarProperty Name="data_inicio" ColumnName="data_inicio" />
+                <ScalarProperty Name="data_fim" ColumnName="data_fim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visita">
+            <EntityTypeMapping TypeName="SemanaAcademicaModel.Visita">
+              <MappingFragment StoreEntitySet="Visita">
+                <ScalarProperty Name="id_visita" ColumnName="id_visita" />
+                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+                <ScalarProperty Name="locomocao" ColumnName="locomocao" />
+                <ScalarProperty Name="contribuicao" ColumnName="contribuicao" />
+                <ScalarProperty Name="vagas" ColumnName="vagas" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1017,10 +1018,10 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
