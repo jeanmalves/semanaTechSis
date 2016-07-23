@@ -159,16 +159,11 @@ namespace SemanaAcademica.Areas.Admin.Controllers
 
         public ActionResult Listar(int id)
         {
-            var evento = EventoBLL.SelectEventos().FirstOrDefault(e => e.IdEvento == id);
-            var horarios = HorarioBLL.SelectHorarios().Where(h => h.IdEvento == id);
-            var model = new RegistrarParticipacaoModel
-            {
-                idEvento = id,
-                NomeEvento = evento.Nome,
-                HoraInicio = horarios.Select(h => h.HoraInicio).ToArray(),
-                HoraFim = horarios.Select(h => h.HoraFim).ToArray(),
-            };
-            return View(model);
+            var evento = EventoBLL.SelectEvento(id);
+            ViewBag.nomeEvento = evento.Nome;
+            var listaPresenca = ParticipacaoBLL.listarParticipacao(id);
+            
+            return View(listaPresenca);
         }
     }
 }

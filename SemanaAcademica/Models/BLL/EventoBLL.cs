@@ -27,6 +27,24 @@ namespace SemanaAcademica.Models.BLL
             }
         }
 
+        static public EventoModel SelectEvento(int id)
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                var evento = entities.Evento.FirstOrDefault(e => e.id_evento == id);
+                EventoModel ev = new EventoModel();
+                ev.IdEvento = evento.id_evento;
+                ev.Nome = evento.nome;
+
+                return ev;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         static public IEnumerable<HorarioModel> SelectHorarios(int idEvento)
         {
             try

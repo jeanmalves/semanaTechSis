@@ -1,4 +1,4 @@
-﻿@model SemanaAcademica.Areas.Admin.Models.RegistrarParticipacaoModel
+﻿@model IEnumerable<SemanaAcademica.Models.ObjectModel.ParticipacaoModel>
 @{
     ViewBag.Title = "Lista de Presença";
 }
@@ -8,7 +8,47 @@
     <h2>Lista de Participação</h2>
     <p>
         <h3>
-            @Html.DisplayFor(model => model.NomeEvento)
+            Palestra: @ViewBag.nomeEvento
         </h3>
 
+    </p>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Nome Participante
+            </th>
+            <th>
+                Universidade
+            </th>
+            <th>
+                Curso
+            </th>
+            <th>
+                Data/Hora Entrada
+            </th>
+            <th>
+                Data/Hora Saída
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeParticipante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.universidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.curso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraEntrada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraSaida)
+                </td>
+            </tr>
+        }
+    </table>
 </center>

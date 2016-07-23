@@ -44,9 +44,7 @@ namespace SemanaAcademica.Models.BLL
                 return false;
             }
         }
-
-
-
+        
         public static List<ParticipacaoModel> SelectByIdParticipante(int idParticipante)
         {
             try
@@ -60,6 +58,38 @@ namespace SemanaAcademica.Models.BLL
                     idEvento = p.id_evento,
                     NomeEvento = p.Evento.nome,
                 }).ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static List<ParticipacaoModel> listarParticipacao(int idEvento)
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                if(idEvento > 0)
+                {
+                    return entities.Participacao
+                    .Where(p => p.id_evento == idEvento)
+                    .Select(p => new ParticipacaoModel
+                    {
+                        idParticipacao = p.id_participacao,
+                        NomeParticipante = p.Participante.Pessoa.nome,
+                        universidade = p.Participante.universidade,
+                        curso = p.Participante.curso,
+                        HoraSaida = p.hora_saida,
+                        HoraEntrada = p.hora_entrada,
+                        idEvento = p.id_evento,
+                        NomeEvento = p.Evento.nome,
+                    }).ToList();
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch
             {
