@@ -62,6 +62,9 @@ C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\itextsharp.dll
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\Microsoft.Web.WebPages.OAuth.dll
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\Newtonsoft.Json.dll
+C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\PagedList.dll
+C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\PagedList.Mvc.dll
+C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\Rotativa.dll
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\System.Net.Http.Formatting.dll
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\System.Web.Helpers.dll
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.dll
@@ -77,6 +80,8 @@ C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\WebMatrix.Data.dl
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\WebMatrix.WebData.dll
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\itextsharp.xml
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\Newtonsoft.Json.xml
+C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\PagedList.xml
+C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\PagedList.Mvc.xml
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\System.Net.Http.Formatting.xml
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.xml
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\System.Web.Http.WebHost.xml
@@ -96,6 +101,5 @@ C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OA
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OAuth.xml
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OpenId.xml
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\obj\Debug\SemanaAcademica.csprojResolveAssemblyReference.cache
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\obj\Debug\SemanaAcademica.dll
 C:\Users\jeam\Source\Repos\SemanaAcademica\SemanaAcademica\obj\Debug\SemanaAcademica.pdb

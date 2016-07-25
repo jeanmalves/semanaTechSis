@@ -74,6 +74,7 @@ namespace SemanaAcademica.Models.BLL
                 {
                     return entities.Participacao
                     .Where(p => p.id_evento == idEvento)
+                    .OrderBy(p => p.Participante.universidade)
                     .Select(p => new ParticipacaoModel
                     {
                         idParticipacao = p.id_participacao,
@@ -84,6 +85,9 @@ namespace SemanaAcademica.Models.BLL
                         HoraEntrada = p.hora_entrada,
                         idEvento = p.id_evento,
                         NomeEvento = p.Evento.nome,
+                        Matricula = p.Participante.matricula,
+                        Registro = p.Participante.registro
+                        
                     }).ToList();
                 }
                 else

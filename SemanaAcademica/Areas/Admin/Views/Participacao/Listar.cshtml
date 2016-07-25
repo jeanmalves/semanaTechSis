@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SemanaAcademica.Models.ObjectModel.ParticipacaoModel>
+﻿@model PagedList.IPagedList<SemanaAcademica.Models.ObjectModel.ParticipacaoModel>
 @{
     ViewBag.Title = "Lista de Presença";
 }
@@ -8,12 +8,18 @@
     <h2>Lista de Participação</h2>
     <p>
         <h3>
-            Palestra: @ViewBag.nomeEvento
+            Palestra: @ViewBag.nomeEvento   
         </h3>
-
     </p>
+    <p>@Html.ActionLink("Gerar Relatório em PDF", "ListarPresenca", "Relatorio", new { id = @ViewBag.IdEvento }, null)</p>
     <table class="table table-bordered">
         <tr>
+            <th>
+                Registro
+            </th>
+            <th>
+                Matrícula UTFPR?
+            </th>
             <th>
                 Nome Participante
             </th>
@@ -34,6 +40,17 @@
         {
             <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Registro)
+                </td>
+                @if (item.Matricula == true)
+                {
+                <td>Sim</td>
+                }
+                else
+                {
+                <td>Não</td>
+                }
+                <td>
                     @Html.DisplayFor(modelItem => item.NomeParticipante)
                 </td>
                 <td>
@@ -51,4 +68,35 @@
             </tr>
         }
     </table>
+
+    <div>
+        Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount
+
+        @if (Model.HasPreviousPage)
+        {
+            @Html.ActionLink("<<", "Index", new { pagina = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+            @Html.Raw(" ");
+            @Html.ActionLink("< Anterior", "Index", new { pagina = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        }
+        else
+        {
+            @:<<
+            @Html.Raw(" ");
+            @:< Anterior
+        }
+
+        @if (Model.HasNextPage)
+        {
+            @Html.ActionLink("Próxima >", "Index", new { pagina = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+            @Html.Raw(" ");
+            @Html.ActionLink(">>", "Index", new { pagina = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        }
+        else
+        {
+            @:Próxima >
+            @Html.Raw(" ")
+            @:>>
+        }
+    </div>
 </center>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SemanaAcademica.Models.ObjectModel.ParticipacaoModel>
+
+<div class="col-md-12">
+    <table class="table table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Registro
+                </th>
+                <th>
+                    Matrícula UTFPR?
+                </th>
+                <th>
+                    Nome Participante
+                </th>
+                <th>
+                    Universidade
+                </th>
+                <th>
+                    Curso
+                </th>
+                <th>
+                    Data/Hora Entrada
+                </th>
+                <th>
+                    Data/Hora Saída
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+           @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Registro)
+                </td>
+                @if (item.Matricula == true)
+                {
+                    <td>Sim</td>
+                }
+                else
+                {
+                    <td>Não</td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeParticipante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.universidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.curso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraEntrada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraSaida)
+                </td>
+            </tr>
+           }
+        </tbody>
+    </table>
+</div>

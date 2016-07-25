@@ -18,5 +18,7 @@ namespace SemanaAcademica.Models.ObjectModel
         public DateTime? HoraSaida { get; set; }
         public string universidade { get; set; }
         public string curso { get; set; }
+        public bool Matricula { get; set; }
+        public string Registro { get; set; }
     }
 }

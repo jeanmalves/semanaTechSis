@@ -1,4 +1,6 @@
-﻿using SemanaAcademica.Areas.Admin.Models;
+﻿using PagedList;
+using Rotativa;
+using SemanaAcademica.Areas.Admin.Models;
 using SemanaAcademica.Models.BLL;
 using SemanaAcademica.Models.ObjectModel;
 using SemanaAcademica.Utils;
@@ -157,13 +159,17 @@ namespace SemanaAcademica.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Listar(int id)
+        public ActionResult Listar(int id, int? pagina)
         {
             var evento = EventoBLL.SelectEvento(id);
             ViewBag.nomeEvento = evento.Nome;
+            ViewBag.idEvento = evento.IdEvento;
             var listaPresenca = ParticipacaoBLL.listarParticipacao(id);
-            
-            return View(listaPresenca);
+
+            int paginaTamanho = 4;
+            int paginaNumero = (pagina ?? 1);
+
+            return View(listaPresenca.ToPagedList(paginaNumero, paginaTamanho));
         }
     }
 }
