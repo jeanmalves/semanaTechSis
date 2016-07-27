@@ -5,34 +5,35 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Novo Horário</legend>
-
-        <span class="editor-label">
-            @Html.LabelFor(model => model.HoraInicio)
-        </span>
-        <span class="editor-field">
-            @Html.EditorFor(model => model.HoraInicio)
-            @Html.ValidationMessageFor(model => model.HoraInicio)
-        </span>
-        <br />
-        <span class="editor-label">
-            @Html.LabelFor(model => model.Horafim)
-        </span>
-        <span class="editor-field">
-            @Html.EditorFor(model => model.Horafim)
-            @Html.ValidationMessageFor(model => model.Horafim)
-        </span>
-        <br />
-        <span class="editor-label">
-            @Html.LabelFor(model => model.idLocal)
-        </span>
-        <span class="editor-field">
-            @Html.DropDownListFor(model => model.idLocal, ((IEnumerable<SemanaAcademica.Areas.Admin.Models.ListarLocalModel>)ViewBag.Locais).Select(l => new SelectListItem { Text = l.Descricao, Value = l.IdLocal.ToString() }))
-            @Html.ValidationMessageFor(model => model.Horafim)
-        </span>
-        <br />
-        @Html.HiddenFor(model => model.idEvento)
-        <input type="submit" value="Cadastrar" />
-    </fieldset>
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoraInicio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoraInicio, new { htmlAttributes = new { @class = "form-control col-md-4" } })
+                @Html.ValidationMessageFor(model => model.HoraInicio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Horafim, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Horafim, new { htmlAttributes = new { @class = "form-control col-md-4" } })
+                @Html.ValidationMessageFor(model => model.Horafim, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idLocal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.idLocal,
+                    ((IEnumerable<SemanaAcademica.Areas.Admin.Models.ListarLocalModel>)ViewBag.Locais).Select(l => new SelectListItem { Text = l.Descricao, Value = l.IdLocal.ToString() }),
+                    htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idLocal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.HiddenFor(model => model.idEvento)
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }

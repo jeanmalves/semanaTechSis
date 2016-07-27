@@ -68,7 +68,7 @@ namespace SemanaAcademica.Areas.Admin.Controllers
             {
                 int idEvento = 0;
                 if (EventoBLL.DeleteHorario(id, out idEvento))
-                    return RedirectToAction("Horario", new { id = idEvento });
+                    return RedirectToAction("Index", new { id = idEvento });
             }
             catch
             {
