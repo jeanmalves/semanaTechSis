@@ -8,3 +8,14 @@ C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.Connect
 C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.csproj.GenerateResource.Cache
 C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.exe
 C:\Users\Andre\SkyDrive\Workspace\VS2012\SemanaAcademica\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.pdb
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\bin\Debug\SemanaAcademica.ConnectionTest.exe.config
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\bin\Debug\SemanaAcademica.ConnectionTest.exe
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\bin\Debug\SemanaAcademica.ConnectionTest.pdb
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\bin\Debug\EntityFramework.dll
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\bin\Debug\EntityFramework.xml
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.csprojResolveAssemblyReference.cache
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.Form1.resources
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.Properties.Resources.resources
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.csproj.GenerateResource.Cache
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.exe
+C:\Users\Gabriel\Documents\GitHub\semanaTechSis\SemanaAcademica.ConnectionTest\obj\Debug\SemanaAcademica.ConnectionTest.pdb

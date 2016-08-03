@@ -1,4 +1,5 @@
-﻿using SemanaAcademica.Models.ObjectModel;
+﻿using SemanaAcademica.Models.Collections;
+using SemanaAcademica.Models.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -41,6 +42,13 @@ namespace SemanaAcademica.Models.ViewModel
         [Required(ErrorMessage = "Campo obrigatório.")]
         [Display(Name = "Curso")]
         public override string Curso { get; set; }
+        [Required(ErrorMessage = "Campo obrigatório.")]
+        [Display(Name = "Curso")]
+        public Dictionary<int, string> ListaCurso
+        {
+            get { return CursosDictionary.ListaCurso; }
+            set { }
+        }
         [Required(ErrorMessage = "Campo obrigatório.")]
         [Display(Name = "Universidade")]
         public override string Universidade { get; set; }

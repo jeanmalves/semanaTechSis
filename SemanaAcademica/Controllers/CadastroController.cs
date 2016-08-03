@@ -3,6 +3,7 @@ using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using SemanaAcademica.Models;
 using SemanaAcademica.Models.BLL;
+using SemanaAcademica.Models.Collections;
 using SemanaAcademica.Models.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -306,6 +307,8 @@ namespace SemanaAcademica.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.Curso = model.ListaCurso[Convert.ToInt32(model.Curso)];
+
                 var pessoa = PessoaBLL.SelectPessoaByEmail(model.Email);
                 if (pessoa == null)
                 {

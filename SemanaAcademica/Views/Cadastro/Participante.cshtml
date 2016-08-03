@@ -91,9 +91,12 @@
                 @Html.LabelFor(model => model.Curso)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Curso)
+                @Html.DropDownListFor(model => model.Curso, 
+                    new SelectList(Model.ListaCurso, "Key", "Value"),
+                    "- Selecione o curso -",
+                    new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Curso)
-            </div>
+</div>
             <br />
             <p>
                 <input type="submit" value="Cadastrar" />

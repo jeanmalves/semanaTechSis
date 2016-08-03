@@ -15,8 +15,8 @@
         <EntityTypeShape EntityType="SemanaAcademicaModel.Minicurso" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SemanaAcademicaModel.Oficina" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SemanaAcademicaModel.Palestra" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SemanaAcademicaModel.Participacao" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SemanaAcademicaModel.Participante" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Participacao" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SemanaAcademicaModel.Participante" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="false" />
         <EntityTypeShape EntityType="SemanaAcademicaModel.Pessoa" Width="1.5" PointX="1.5" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SemanaAcademicaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SemanaAcademicaModel.TrabalhoVoluntario" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />

@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SemanaAcademicaModelStoreContainer" CdmEntityContainer="SemanaAcademicaEntities">
     <EntitySetMapping Name="Administrador">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Administrador">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Administrador)">
         <MappingFragment StoreEntitySet="Administrador">
           <ScalarProperty Name="id_administrador" ColumnName="id_administrador" />
           <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Colaborador">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Colaborador">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Colaborador)">
         <MappingFragment StoreEntitySet="Colaborador">
           <ScalarProperty Name="id_colaborador" ColumnName="id_colaborador" />
           <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
@@ -18,7 +18,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Convidado">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Convidado">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Convidado)">
         <MappingFragment StoreEntitySet="Convidado">
           <ScalarProperty Name="id_convidado" ColumnName="id_convidado" />
           <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
@@ -27,7 +27,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Evento">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Evento">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Evento)">
         <MappingFragment StoreEntitySet="Evento">
           <ScalarProperty Name="id_evento" ColumnName="id_evento" />
           <ScalarProperty Name="nome" ColumnName="nome" />
@@ -36,7 +36,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Horario">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Horario">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Horario)">
         <MappingFragment StoreEntitySet="Horario">
           <ScalarProperty Name="id_horario" ColumnName="id_horario" />
           <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
@@ -47,7 +47,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Local">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Local">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Local)">
         <MappingFragment StoreEntitySet="Local">
           <ScalarProperty Name="id_local" ColumnName="id_local" />
           <ScalarProperty Name="descricao" ColumnName="descricao" />
@@ -55,7 +55,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Matricula">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Matricula">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Matricula)">
         <MappingFragment StoreEntitySet="Matricula">
           <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
           <ScalarProperty Name="id_participante" ColumnName="id_participante" />
@@ -64,7 +64,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Minicurso">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Minicurso">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Minicurso)">
         <MappingFragment StoreEntitySet="Minicurso">
           <ScalarProperty Name="id_minicurso" ColumnName="id_minicurso" />
           <ScalarProperty Name="id_evento" ColumnName="id_evento" />
@@ -73,7 +73,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Oficina">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Oficina">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Oficina)">
         <MappingFragment StoreEntitySet="Oficina">
           <ScalarProperty Name="id_oficina" ColumnName="id_oficina" />
           <ScalarProperty Name="id_evento" ColumnName="id_evento" />
@@ -82,7 +82,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Palestra">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Palestra">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Palestra)">
         <MappingFragment StoreEntitySet="Palestra">
           <ScalarProperty Name="id_palestra" ColumnName="id_palestra" />
           <ScalarProperty Name="id_evento" ColumnName="id_evento" />
@@ -90,7 +90,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Participacao">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Participacao">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Participacao)">
         <MappingFragment StoreEntitySet="Participacao">
           <ScalarProperty Name="id_participacao" ColumnName="id_participacao" />
           <ScalarProperty Name="hora_entrada" ColumnName="hora_entrada" />
@@ -101,7 +101,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Participante">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Participante">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Participante)">
         <MappingFragment StoreEntitySet="Participante">
           <ScalarProperty Name="id_participante" ColumnName="id_participante" />
           <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
@@ -114,7 +114,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pessoa">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Pessoa">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Pessoa)">
         <MappingFragment StoreEntitySet="Pessoa">
           <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
           <ScalarProperty Name="nome" ColumnName="nome" />
@@ -127,18 +127,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.sysdiagrams)">
         <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TrabalhoVoluntario">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.TrabalhoVoluntario">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.TrabalhoVoluntario)">
         <MappingFragment StoreEntitySet="TrabalhoVoluntario">
           <ScalarProperty Name="id_trabalho" ColumnName="id_trabalho" />
           <ScalarProperty Name="horas" ColumnName="horas" />
@@ -149,7 +149,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Visita">
-      <EntityTypeMapping TypeName="SemanaAcademicaModel.Visita">
+      <EntityTypeMapping TypeName="IsTypeOf(SemanaAcademicaModel.Visita)">
         <MappingFragment StoreEntitySet="Visita">
           <ScalarProperty Name="id_visita" ColumnName="id_visita" />
           <ScalarProperty Name="id_evento" ColumnName="id_evento" />
