@@ -306,6 +306,17 @@ namespace SemanaAcademica.Controllers
         {
             if (ModelState.IsValid)
             {
+<<<<<<< HEAD
+=======
+                if (model.Curso != null)
+                {
+                    if (model.Matricula == true)
+                    {
+                        model.Curso = model.ListaCurso[Convert.ToInt32(model.Curso)];
+                    }
+                }
+
+>>>>>>> 8f24a3c... Adicionei jquery pra habilitar e desabilitar campo quando matricula habilitada
                 var pessoa = PessoaBLL.SelectPessoaByEmail(model.Email);
                 if (pessoa == null)
                 {

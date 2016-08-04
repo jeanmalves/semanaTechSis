@@ -32,7 +32,8 @@
             </div>
 
             <div class="editor-label">
-                @Html.LabelFor(model => model.Matricula)  @Html.EditorFor(model => model.Matricula)
+                @Html.LabelFor(model => model.Matricula)  
+                @Html.CheckBoxFor(model => model.Matricula, new { id = "checkBoxMatricula" })
             </div>
             <div class="editor-field">
                 @Html.ValidationMessageFor(model => model.Matricula)
@@ -90,10 +91,26 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.Curso)
             </div>
+            
             <div class="editor-field">
+<<<<<<< HEAD
                 @Html.EditorFor(model => model.Curso)
                 @Html.ValidationMessageFor(model => model.Curso)
             </div>
+=======
+                @Html.DropDownListFor(model => model.Curso,
+                new SelectList(Model.ListaCurso, "Key", "Value"),
+                "- Selecione o curso -",
+                new { @class = "form-control", id = "dropDownCursos" })
+                @Html.ValidationMessageFor(model => model.Curso)
+            </div>
+            
+            <div class="editor-field" id="divTextCurso">
+                @Html.EditorFor(model => model.Curso)
+                @Html.ValidationMessageFor(model => model.Curso)
+            </div>
+
+>>>>>>> 8f24a3c... Adicionei jquery pra habilitar e desabilitar campo quando matricula habilitada
             <br />
             <p>
                 <input type="submit" value="Cadastrar" />
@@ -108,3 +125,29 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(function () {
+        verificaCheckboxMatricula();
+    });
+
+    $('#checkBoxMatricula').click(function () {
+        verificaCheckboxMatricula();
+    });
+
+    function verificaCheckboxMatricula() {
+        if ($('#checkBoxMatricula').is(':checked')) {
+            escondePrimeiroMostraSegundo("#divTextCurso", "#dropDownCursos");
+        } else {
+            escondePrimeiroMostraSegundo("#dropDownCursos", "#divTextCurso");
+        }
+    }
+
+    function escondePrimeiroMostraSegundo(esconde, mostra) {
+        $(esconde).attr('disabled', 'disabled');
+        $(esconde).hide();
+        $(mostra).removeAttr('disabled');
+        $(mostra).show();
+    }
+</script>
