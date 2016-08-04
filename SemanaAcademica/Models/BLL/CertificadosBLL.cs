@@ -13,16 +13,16 @@ namespace SemanaAcademica.Models.BLL
             var oficinas = ParticipacaoBLL.GetOficinasByIdPessoa(Usuario.SessionPersist.IdPessoa);
             var visitas = ParticipacaoBLL.GetVisitasIdPessoa(Usuario.SessionPersist.IdPessoa);
 
-            var trabalhoVoluntario = ParticipacaoBLL.GetAllByIdPessoa(Usuario.SessionPersist.IdPessoa);
+            var trabalhoVoluntario = TrabalhoVoluntarioBLL.GetByIdPessoa(Usuario.SessionPersist.IdPessoa);
             
             //Eventos
-            model.HasPalestras = (palestras.Count != 0 && palestras != null);
-            model.HasMinicurso = (minicursos.Count != 0 && minicursos != null);
-            model.HasOficina = (oficinas.Count != 0 && oficinas != null);
-            model.HasVisita = (visitas.Count != 0 && visitas != null);
+            model.HasPalestras = (palestras.Count > 0 && palestras != null);
+            model.HasMinicurso = (minicursos.Count > 0 && minicursos != null);
+            model.HasOficina = (oficinas.Count > 0 && oficinas != null);
+            model.HasVisita = (visitas.Count > 0 && visitas != null);
 
             // Colaborador
-            model.HasTrabalhoVoluntario = (trabalhoVoluntario.Count != 0 && trabalhoVoluntario != null);
+            model.HasTrabalhoVoluntario = (trabalhoVoluntario.Count > 0 && trabalhoVoluntario != null);
             model.HasOrganizador = Usuario.SessionPersist.IsAdministrador;
 
             // Verifica se o participante fez a doação de alimento

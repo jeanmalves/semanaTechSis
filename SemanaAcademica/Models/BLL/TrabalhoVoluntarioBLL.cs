@@ -47,8 +47,9 @@ namespace SemanaAcademica.Models.BLL
             try
             {
                 var entities = new SemanaAcademicaEntities();
+                var participante = entities.Participante.FirstOrDefault(p => p.id_pessoa == IdPessoa);
                 var trabalhos = (from t in entities.TrabalhoVoluntario
-                                 where t.id_participante == IdPessoa
+                                 where t.id_participante == participante.id_participante
                                  select new TrabalhoVoluntarioModel
                                  {
                                      IdTrabalhoVoluntario = t.id_trabalho,
