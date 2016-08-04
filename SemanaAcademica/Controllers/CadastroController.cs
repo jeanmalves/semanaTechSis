@@ -307,7 +307,13 @@ namespace SemanaAcademica.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.Curso = model.ListaCurso[Convert.ToInt32(model.Curso)];
+                if (model.Curso != null)
+                {
+                    if (model.Matricula == true)
+                    {
+                        model.Curso = model.ListaCurso[Convert.ToInt32(model.Curso)];
+                    }
+                }
 
                 var pessoa = PessoaBLL.SelectPessoaByEmail(model.Email);
                 if (pessoa == null)

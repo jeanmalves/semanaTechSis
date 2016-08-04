@@ -39,7 +39,6 @@ namespace SemanaAcademica.Models.ViewModel
         [Required(ErrorMessage = "Campo obrigatório.")]
         [Display(Name = "É matrícula?")]
         public override bool Matricula { get; set; }
-        [Required(ErrorMessage = "Campo obrigatório.")]
         [Display(Name = "Curso")]
         public override string Curso { get; set; }
         [Required(ErrorMessage = "Campo obrigatório.")]
