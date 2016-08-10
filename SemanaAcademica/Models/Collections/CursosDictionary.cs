@@ -9,7 +9,7 @@ namespace SemanaAcademica.Models.Collections
     {
         private static CursosDictionary objetoCursosDictionary;
         private static Dictionary<int, string> cursosDictionary;
-        
+
         public CursosDictionary()
         {
             //Cursos atualmente ofertados nos processos de seleção à UTFPR

@@ -93,6 +93,7 @@
             </div>
             
             <div class="editor-field">
+<<<<<<< HEAD
                 @Html.DropDownListFor(model => model.Curso,
                 new SelectList(Model.ListaCurso, "Key", "Value"),
                 "- Selecione o curso -",
@@ -105,6 +106,11 @@
                 @Html.ValidationMessageFor(model => model.Curso)
             </div>
 
+=======
+                @Html.EditorFor(model => model.Curso)
+                @Html.ValidationMessageFor(model => model.Curso)
+            </div>
+>>>>>>> parent of 8a0859d... Cursos pre-definidos adicionados ao formulário de cadastro do participante
             <br />
             <p>
                 <input type="submit" value="Cadastrar" />

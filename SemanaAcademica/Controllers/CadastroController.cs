@@ -3,7 +3,6 @@ using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using SemanaAcademica.Models;
 using SemanaAcademica.Models.BLL;
-using SemanaAcademica.Models.Collections;
 using SemanaAcademica.Models.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -307,6 +306,7 @@ namespace SemanaAcademica.Controllers
         {
             if (ModelState.IsValid)
             {
+<<<<<<< HEAD
                 if (model.Curso != null)
                 {
                     if (model.Matricula == true)
@@ -315,6 +315,8 @@ namespace SemanaAcademica.Controllers
                     }
                 }
 
+=======
+>>>>>>> parent of 8a0859d... Cursos pre-definidos adicionados ao formulário de cadastro do participante
                 var pessoa = PessoaBLL.SelectPessoaByEmail(model.Email);
                 if (pessoa == null)
                 {

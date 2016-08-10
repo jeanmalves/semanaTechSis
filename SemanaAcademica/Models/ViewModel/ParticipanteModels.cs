@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿using SemanaAcademica.Models.Collections;
 using SemanaAcademica.Models.ObjectModel;
 using SemanaAcademica.Models.Validations;
+=======
+﻿using SemanaAcademica.Models.ObjectModel;
+>>>>>>> parent of 8a0859d... Cursos pre-definidos adicionados ao formulário de cadastro do participante
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -44,12 +48,16 @@ namespace SemanaAcademica.Models.ViewModel
         [CustomValidation(typeof(CadastroParticipanteValidation), "ValidaCurso")]
         [Display(Name = "Curso")]
         public override string Curso { get; set; }
+<<<<<<< HEAD
         public Dictionary<int, string> ListaCurso
         {
             get { return CursosDictionary.ListaCurso; }
             set { }
         }
         [CustomValidation(typeof(CadastroParticipanteValidation), "ValidaCampoUniversidadeMatricula")]
+=======
+        [Required(ErrorMessage = "Campo obrigatório.")]
+>>>>>>> parent of 8a0859d... Cursos pre-definidos adicionados ao formulário de cadastro do participante
         [Display(Name = "Universidade")]
         public override string Universidade { get; set; }
     }
