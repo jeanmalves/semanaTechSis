@@ -245,9 +245,11 @@ namespace SemanaAcademica.Models.BLL
             try
             {
                 var entities = new SemanaAcademicaEntities();
+                var participante = entities.Participante.FirstOrDefault(p => p.id_pessoa == idPessoa);
+                
                 var palestras = (from prt in entities.Participacao
                                  join pl in entities.Palestra on prt.id_evento equals pl.id_evento
-                                 where prt.id_participante == idPessoa
+                                 where prt.id_participante == participante.id_participante
                                  select new ParticipacaoModel
                                  {
                                      idParticipacao = prt.id_participacao,
@@ -275,10 +277,11 @@ namespace SemanaAcademica.Models.BLL
             try
             {
                 var entities = new SemanaAcademicaEntities();
+                var participante = entities.Participante.FirstOrDefault(p => p.id_pessoa == idPessoa);
                 var minicursos = (from prt in entities.Participacao
                                  join m in entities.Minicurso on prt.id_evento equals m.id_evento
-                                 where prt.id_participante == idPessoa
-                                 select new ParticipacaoModel
+                                 where prt.id_participante == participante.id_participante
+                                  select new ParticipacaoModel
                                  {
                                      idParticipacao = prt.id_participacao,
                                      HoraSaida = prt.hora_saida,
@@ -305,10 +308,11 @@ namespace SemanaAcademica.Models.BLL
             try
             {
                 var entities = new SemanaAcademicaEntities();
+                var participante = entities.Participante.FirstOrDefault(p => p.id_pessoa == idPessoa);
                 var oficinas = (from prt in entities.Participacao
                                   join m in entities.Oficina on prt.id_evento equals m.id_evento
-                                  where prt.id_participante == idPessoa
-                                  select new ParticipacaoModel
+                                  where prt.id_participante == participante.id_participante
+                                select new ParticipacaoModel
                                   {
                                       idParticipacao = prt.id_participacao,
                                       HoraSaida = prt.hora_saida,
@@ -335,9 +339,10 @@ namespace SemanaAcademica.Models.BLL
             try
             {
                 var entities = new SemanaAcademicaEntities();
+                var participante = entities.Participante.FirstOrDefault(p => p.id_pessoa == idPessoa);
                 var visitas = (from prt in entities.Participacao
                                 join v in entities.Visita on prt.id_evento equals v.id_evento
-                                where prt.id_participante == idPessoa
+                                where prt.id_participante == participante.id_participante
                                 select new ParticipacaoModel
                                 {
                                     idParticipacao = prt.id_participacao,

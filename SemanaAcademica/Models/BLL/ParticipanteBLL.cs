@@ -124,7 +124,7 @@ namespace SemanaAcademica.Models.BLL
             {
                 var entities = new SemanaAcademicaEntities();
                 var participante = (from t in entities.Participante
-                                    where t.id_participante == idPessoa
+                                    where t.id_pessoa == idPessoa
                                     select new ParticipanteModel
                                     {
                                         IdParticipante = t.id_participante,
