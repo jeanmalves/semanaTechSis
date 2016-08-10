@@ -92,12 +92,7 @@
                 @Html.LabelFor(model => model.Curso)
             </div>
             
-            <div class="editor-field">
-<<<<<<< HEAD
-                @Html.EditorFor(model => model.Curso)
-                @Html.ValidationMessageFor(model => model.Curso)
-            </div>
-=======
+            <div>
                 @Html.DropDownListFor(model => model.Curso,
                 new SelectList(Model.ListaCurso, "Key", "Value"),
                 "- Selecione o curso -",
@@ -109,8 +104,6 @@
                 @Html.EditorFor(model => model.Curso)
                 @Html.ValidationMessageFor(model => model.Curso)
             </div>
-
->>>>>>> 8f24a3c... Adicionei jquery pra habilitar e desabilitar campo quando matricula habilitada
             <br />
             <p>
                 <input type="submit" value="Cadastrar" />

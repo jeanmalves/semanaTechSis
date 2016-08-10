@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-﻿using SemanaAcademica.Models.ObjectModel;
-=======
-﻿using SemanaAcademica.Models.Collections;
+﻿﻿using SemanaAcademica.Models.Collections;
 using SemanaAcademica.Models.ObjectModel;
 using SemanaAcademica.Models.Validations;
->>>>>>> a6fb993... Ajuste de validação do campo curso e universidade
+﻿using SemanaAcademica.Models.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -48,16 +45,12 @@ namespace SemanaAcademica.Models.ViewModel
         [CustomValidation(typeof(CadastroParticipanteValidation), "ValidaCurso")]
         [Display(Name = "Curso")]
         public override string Curso { get; set; }
-<<<<<<< HEAD
-        [Required(ErrorMessage = "Campo obrigatório.")]
-=======
         public Dictionary<int, string> ListaCurso
         {
             get { return CursosDictionary.ListaCurso; }
             set { }
         }
         [CustomValidation(typeof(CadastroParticipanteValidation), "ValidaCampoUniversidadeMatricula")]
->>>>>>> a6fb993... Ajuste de validação do campo curso e universidade
         [Display(Name = "Universidade")]
         public override string Universidade { get; set; }
     }
