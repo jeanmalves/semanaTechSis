@@ -1,5 +1,6 @@
 ﻿using SemanaAcademica.Models.Collections;
 using SemanaAcademica.Models.ObjectModel;
+using SemanaAcademica.Models.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -36,19 +37,19 @@ namespace SemanaAcademica.Models.ViewModel
         [Required(ErrorMessage = "Campo obrigatório.")]
         [Display(Name = "Matrícula (UTFPR) ou CPF (outras instituições) - apenas números!")]
         public override string Registro { get; set; }
+
         [Required(ErrorMessage = "Campo obrigatório.")]
         [Display(Name = "É matrícula?")]
         public override bool Matricula { get; set; }
+        [CustomValidation(typeof(CadastroParticipanteValidation), "ValidaCurso")]
         [Display(Name = "Curso")]
         public override string Curso { get; set; }
-        [Required(ErrorMessage = "Campo obrigatório.")]
-        [Display(Name = "Curso")]
         public Dictionary<int, string> ListaCurso
         {
             get { return CursosDictionary.ListaCurso; }
             set { }
         }
-        [Required(ErrorMessage = "Campo obrigatório.")]
+        [CustomValidation(typeof(CadastroParticipanteValidation), "ValidaCampoUniversidadeMatricula")]
         [Display(Name = "Universidade")]
         public override string Universidade { get; set; }
     }
