@@ -221,6 +221,7 @@
     <Compile Include="Models\BLL\LocalBLL.cs" />
     <Compile Include="Models\BLL\EventoBLL.cs" />
     <Compile Include="Models\BLL\TrabalhoVoluntarioBLL.cs" />
+    <Compile Include="Models\Collections\CursosDictionary.cs" />
     <Compile Include="Models\DAL\Administrador.cs">
       <DependentUpon>SemanaAcademicaModel.tt</DependentUpon>
     </Compile>
@@ -296,6 +297,7 @@
     <Compile Include="Models\ObjectModel\PessoaModel.cs" />
     <Compile Include="Models\ObjectModel\TrabalhoVoluntarioModel.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Validations\CadastroParticipanteValidation.cs" />
     <Compile Include="Models\ViewModel\CertificadosViewModel.cs" />
     <Compile Include="Models\ViewModel\ProgramacaoModels.cs" />
     <Compile Include="Models\ViewModel\ParticipanteModels.cs" />
@@ -526,6 +528,7 @@
       <DependentUpon>SemanaAcademicaModel.edmx</DependentUpon>
       <LastGenOutput>SemanaAcademicaModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\DAL\SemanaAcademicaModel.edmx.sql" />
     <Content Include="Models\DAL\SemanaAcademicaModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SemanaAcademicaModel.edmx</DependentUpon>
