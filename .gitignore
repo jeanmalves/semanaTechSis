@@ -243,6 +243,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-Database/SemanaAcademica_log.ldf
-Database/SemanaAcademica.mdf
-.vs/SemanaAcademica/v14/.suo
+.vs/*
