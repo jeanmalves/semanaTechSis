@@ -1,14 +1,17 @@
 ﻿@if (Request.IsAuthenticated)
 {
-    <h2>
-    Olá, @SemanaAcademica.Usuario.SessionPersist.Nome! @*Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!*@
-    @Html.ActionLink("Sair", "Sair",  new { area = "", controller = "Cadastro" })
-    </h2>
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="#">Olá, @SemanaAcademica.Usuario.SessionPersist.Nome!</a> @*Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!*@
+        </li>
+        <li>@Html.ActionLink("Sair", "Sair", new { area = "", controller = "Cadastro" })</li>
+    </ul>
+
 }
 else
 {
-    <ul>
-        <li>@Html.ActionLink("Inscrever", "Participante", new { area = "", controller = "Cadastro" })</li>
-        <li>@Html.ActionLink("Entrar", "Entrar", new { area = "", controller = "Cadastro" })</li>
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Entrar", "Entrar", new { area = "", controller = "Cadastro" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Inscrever-se", "Participante", new { area = "", controller = "Cadastro" }, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
