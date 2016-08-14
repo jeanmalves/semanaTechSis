@@ -231,7 +231,13 @@ ul#menu {
                 text-decoration: none;
             }
 
-
+.navbar-inverse {
+    background-color:#62BB46;
+    border-color: #62BB46;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
 /* page elements
 ----------------------------------------------------------*/
 /* featured */
@@ -780,4 +786,7 @@ tr.pager td {
         footer p {
             margin: 0;
         }
+}
+a {
+    text-decoration: none;
 }
