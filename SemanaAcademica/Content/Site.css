@@ -459,6 +459,21 @@ input, textarea {
     width: 300px;
 }
 
+.dropdown #dropDownCursos {
+    border: 1px solid #e2e2e2;
+    background: #fff;
+    color: #333;
+    font-size: 1.2em;
+    margin: 5px 0 6px 0;
+    padding: 5px;
+    width: 300px;
+}
+
+#width_tmp_select{
+  display : none;
+  font-size: 1.2em;
+} 
+
 textarea {
     font-family: inherit;
     width: 500px;
@@ -742,6 +757,10 @@ tr.pager td {
 
     /* forms */
     input {
+        width: 90%;
+    }
+
+    .dropdown #dropDownCursos {
         width: 90%;
     }
 
