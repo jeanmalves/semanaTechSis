@@ -9,6 +9,28 @@ namespace SemanaAcademica.Models.BLL
 {
     public static class EventoBLL
     {
+        static public IEnumerable<EventoModel> SelectEventosComHorario()
+        {
+            try
+            {
+                var entities = new SemanaAcademicaEntities();
+                var query = (from e in entities.Evento
+                             join h in entities.Horario on e.id_evento equals h.id_evento
+                             orderby e.nome
+                             select new EventoModel
+                             {
+                                 IdEvento = e.id_evento,
+                                 Nome = e.nome,
+                                 Descricao = e.descricao,
+                             });
+                return query;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         static public IEnumerable<EventoModel> SelectEventos()
         {
             try

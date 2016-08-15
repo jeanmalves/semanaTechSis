@@ -20,7 +20,7 @@ namespace SemanaAcademica.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var eventos = EventoBLL.SelectEventos().Select(e => new ListarEventoModel
+            var eventos = EventoBLL.SelectEventosComHorario().Select(e => new ListarEventoModel
             {
                 Descricao = e.Descricao,
                 IdEvento = e.IdEvento,
