@@ -13,66 +13,72 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Semana Technológica", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicial", "Index", new { area = "", controller = "Home" })</li>
+                    @*<li>@Html.ActionLink("Inscrições", "Participante", new { area = "", controller = "Cadastro" })</li>*@
+                    @*<li>@Html.ActionLink("Certificados", "Index", new { area = "", controller = "Certificados" })</li>*@
+                    @*<li><a target="_blank" href=" https://www.facebook.com/semanaeletroinf?fref=ts">Programação</a></li>*@
+                    <li>@Html.ActionLink("Programação", "Index", new { area = "", controller = "Programacao" })</li>
+                    @*<li>@Html.ActionLink("Comissão Organizadora", "Comissao", "Sobre")</li>*@
+                    @*<li>@Html.ActionLink("Programação", "Programacao", new { area = "", controller = "Informacoes" })</li>*@
+                    @*<li>@Html.ActionLink("Parceiros", "Parceiros", new { area = "", controller = "Informacoes" })</li>*@
+                    @*<li>@Html.ActionLink("Contato", "Contato",  new { area="", controller="Informacoes" })</li>*@
 
-    <header>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Inicial", "Index", new { area = "", controller = "Home" })</li>
-                        @*<li>@Html.ActionLink("Inscrições", "Participante", new { area = "", controller = "Cadastro" })</li>*@
-                        @*<li>@Html.ActionLink("Certificados", "Index", new { area = "", controller = "Certificados" })</li>*@
-                        @*<li><a target="_blank" href=" https://www.facebook.com/semanaeletroinf?fref=ts">Programação</a></li>*@
-                        <li>@Html.ActionLink("Programação", "Index", new { area = "", controller = "Programacao" })</li>
-                        @*<li>@Html.ActionLink("Comissão Organizadora", "Comissao", "Sobre")</li>*@
-                        @*<li>@Html.ActionLink("Programação", "Programacao", new { area = "", controller = "Informacoes" })</li>*@
-                        @*<li>@Html.ActionLink("Parceiros", "Parceiros", new { area = "", controller = "Informacoes" })</li>*@
-                        @*<li>@Html.ActionLink("Contato", "Contato",  new { area="", controller="Informacoes" })</li>*@
-
-                        @if (SemanaAcademica.Usuario.SessionPersist.IsAdministrador)
-                        {
-                            <li>@Html.ActionLink("Participantes", "Index", new { area = "Admin", controller = "Participante" })</li>
-                            <li>@Html.ActionLink("Participação", "Index", new { area = "Admin", controller = "Participacao" })</li>
-                            <li>@Html.ActionLink("Palestras", "Index", new { area = "Admin", controller = "Palestra" })</li>
-                            <li>@Html.ActionLink("Minicursos", "Index", new { area = "Admin", controller = "Minicurso" })</li>
-                            @*@<li>@Html.ActionLink("Oficinas", "Index", new { area = "Admin", controller = "Oficina" })</li>
+                    @if (SemanaAcademica.Usuario.SessionPersist.IsAdministrador)
+                    {
+                        <li>@Html.ActionLink("Participantes", "Index", new { area = "Admin", controller = "Participante" })</li>
+                        <li>@Html.ActionLink("Participação", "Index", new { area = "Admin", controller = "Participacao" })</li>
+                        <li>@Html.ActionLink("Palestras", "Index", new { area = "Admin", controller = "Palestra" })</li>
+                        <li>@Html.ActionLink("Minicursos", "Index", new { area = "Admin", controller = "Minicurso" })</li>
+                        @*@<li>@Html.ActionLink("Oficinas", "Index", new { area = "Admin", controller = "Oficina" })</li>
     <li>@Html.ActionLink("Visitas", "Index", new { area = "Admin", controller = "Visita" })</li>*@
-                            <li>@Html.ActionLink("Locais", "Index", new { area = "Admin", controller = "Local" })</li>
-                            <li>@Html.ActionLink("Grade", "Index", new { area = "Admin", controller = "Evento" })</li>
-                        }
+                        <li>@Html.ActionLink("Locais", "Index", new { area = "Admin", controller = "Local" })</li>
+                        <li>@Html.ActionLink("Grade", "Index", new { area = "Admin", controller = "Evento" })</li>
+                    }
 
-                        @if (SemanaAcademica.Usuario.SessionPersist.IsColaborador)
-                        {
-                            <li>@Html.ActionLink("Participação", "Index", new { area = "Admin", controller = "Participacao" })</li>
-                            <li>@Html.ActionLink("Participantes", "Index", new { area = "Admin", controller = "Participante" })</li>
-                        }
+                    @if (SemanaAcademica.Usuario.SessionPersist.IsColaborador)
+                    {
+                        <li>@Html.ActionLink("Participação", "Index", new { area = "Admin", controller = "Participacao" })</li>
+                        <li>@Html.ActionLink("Participantes", "Index", new { area = "Admin", controller = "Participante" })</li>
+                    }
 
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
+                </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
-            <div class="container body-content">
-                <div class="jumbotron">
-                    <img src="~/Images/header.png" class="img-responsive" alt="Semana Technológica" />
-                </div>
-            </div>
-</header>
+    </div>
+
     <div id="body">
         @RenderSection("featured", required: false)
 
-        <section class="content-wrapper main-content clear-fix">
+        <div class="container body-content">
             @RenderBody()
-        </section>
-    </div>
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <img src="~/Images/logos_apoio.jpg" />
-                <p>&copy; @DateTime.Now.Year - amansur.com</p>
-            </div>
+            <hr />
+            <footer>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="~/Images/logos_apoio.jpg" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">&copy; @DateTime.Now.Year - amansur.com e Equipe Semana Technológica</p>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </footer>
+    
     <!-- Latest compiled and minified JavaScript -->
     @Scripts.Render("~/bundles/jquery")
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
@@ -81,7 +87,7 @@
     <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
    <script type="text/javascript">
        $(function () {
-      
+           $('input').not('input[type=checkbox], input[type=submit] ').addClass("form-control");
            $('#HoraInicio, #Horafim').datetimepicker({
                useCurrent: true,
                locale: 'pt-BR',

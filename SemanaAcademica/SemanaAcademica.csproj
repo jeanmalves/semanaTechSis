@@ -382,6 +382,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\header.png" />
     <Content Include="Images\header.jpg" />
     <Content Include="Images\certificado.jpg" />
     <Content Include="Images\header_2013.jpg" />
@@ -535,6 +536,7 @@
       <LastGenOutput>SemanaAcademicaModel.cs</LastGenOutput>
     </Content>
     <Content Include="Rotativa\wkhtmltopdf.exe" />
+    <None Include="Properties\PublishProfiles\SemanaTech.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />

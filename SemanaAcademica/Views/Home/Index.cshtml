@@ -1,19 +1,52 @@
 ﻿@{
-    ViewBag.Title = "Semana Acadêmica de Informática";
+    ViewBag.Title = "Semana Technológica 2016";
 }
-@section featured {
+<div class="jumbotron">
+    <img src="~/Images/header.png" class="img-responsive" alt="Semana Technológica" />
+</div>
+<div class="row">
+    <div class="container">
+        <h2>@ViewBag.Title</h2>
+        <h3></h3>
+        <div class="wrapper">
+            <p>
+                A Semana Acadêmica de Informática é um evento organizado pelos grupos acadêmicos do departamento de Eletrônica e Informática da UTFPR Curitiba.
+            </p>
+            <p>
+                Essa edição ocorrerá dos dias 29, 30 e 31 de Agosto de 2016, com a participação de colaboradores de grandes empresas e acadêmicos externos e internos a UTFPR.
+
+                Serão realizadas palestras, minicursos e mesas redondas de discussão de temas relevantes as áreas da informática e afins.
+            </p>
+            <p>
+                O evento é aberto para a participação de estudantes, profissionais e acadêmicos internos ou externos a UTFPR.
+            </p>
+            <p>
+                Quaisquer dúvidas entre em contato com a equipe do evento através da <a target="_blank" href=" https//www.facebook.com/semanaInformaticaUTFPR">fan page do evento</a>.
+            </p>
+            <p>
+                Organização: DAINF, DAELN
+            </p>
+            <p>
+                Realização: UTFPR, Ministério da Educação.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+@*@section featured {
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
                 @*<h2>@ViewBag.Message</h2>*@
-                <h1>@ViewBag.Title.</h1>
+                @*<h1>@ViewBag.Title.</h1>
             </hgroup>
         </div>
-    </section>
+    </section>*@
     <!--<section class="content-wrapper clear-fix">
         <div class="alert alert-success col-md-3" role="alert"><a class="alert-link" href="/Certificados">Certificados disponíveis!</a></div>
     </section>-->
-}
+@*}*@
 @*<br />
     <div style="margin-left: auto; margin-right: auto; background-color: white; font-weight: bolder; border: 1px solid green; width: 300px; height: 100px; text-align: center; cursor: pointer" onclick="window.location.href= '/Cadastro/Certificado'">
         ATENÇÃO : CERTIFICADOS DISPONÍVEIS!<br>
@@ -22,26 +55,3 @@
     </div>
     <br />*@
 
-<p>
-    A Semana Acadêmica de Informática é um evento organizado pelos grupos acadêmicos do departamento de Eletrônica e Informática da UTFPR Curitiba. 
-<p>
-    Essa edição ocorrerá dos dias 14, 15 e 16 de Setembro, com a participação de colaboradores de grandes empresas e acadêmicos externos e internos a UTFPR.
-</p>
-<p>
-    Serão realizadas palestras, minicursos e mesas redondas de discussão de temas relevantes as áreas da informática e afins.
-</p>
-<p>
-    O evento é aberto para a participação de estudantes, profissionais e acadêmicos internos ou externos a UTFPR.
-</p>
-<p>
-    Quaisquer dúvidas entre em contato com a equipe do evento através da <a target="_blank" href=" https://www.facebook.com/semanaInformaticaUTFPR">fan page do evento</a>.
-</p>
-<p>
-    Organização: DAINF, DAELN
-</p>
-<p>
-    Grupos: DASC, Coders, PET-CoCE, PET-EE, Compute você mesm&#64;.
-</p>
-<p>
-    Realização: UTFPR, Ministério da Educação.
-</p>
