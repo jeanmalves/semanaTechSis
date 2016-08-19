@@ -3,96 +3,65 @@
 @{
     ViewBag.Title = "Participante";
 }
+<h2>@ViewBag.Title</h2>
 
-<div class="form">
-    <h2>Participante</h2>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-
-        <fieldset>
-            <legend>CadastroParticipanteViewModel</legend>
-
-            <br />
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Nome)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Nome)
-                @Html.ValidationMessageFor(model => model.Nome)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Registro)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Registro)
-                @Html.ValidationMessageFor(model => model.Registro)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Matricula)  
-                @Html.CheckBoxFor(model => model.Matricula, new { id = "checkBoxMatricula" })
-            </div>
-            <div class="editor-field">
-                @Html.ValidationMessageFor(model => model.Matricula)
-            </div>
-
-            <br />
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Email)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Email)
-                @Html.ValidationMessageFor(model => model.Email)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.EmailConfirmacao)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.EmailConfirmacao)
-                @Html.ValidationMessageFor(model => model.EmailConfirmacao)
-            </div>
-            <br />
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Senha)
-            </div>
-            <div class="editor-field">
-                @Html.PasswordFor(model => model.Senha)
-                @Html.ValidationMessageFor(model => model.Senha)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SenhaConfirmacao)
-            </div>
-            <div class="editor-field">
-                @Html.PasswordFor(model => model.SenhaConfirmacao)
-                @Html.ValidationMessageFor(model => model.SenhaConfirmacao)
-            </div>
-            <br />
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Telefone)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Telefone)
-                @Html.ValidationMessageFor(model => model.Telefone)
-            </div>
-            <br />
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Universidade)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Universidade)
-                @Html.ValidationMessageFor(model => model.Universidade)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Curso)
-            </div>
-            
-            <div class="dropdown">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>Cadastro de Participantes</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome)
+            @Html.EditorFor(model => model.Nome)
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Registro)
+            @Html.EditorFor(model => model.Registro)
+            @Html.ValidationMessageFor(model => model.Registro, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>
+                É matrícula?
+                @Html.CheckBoxFor(model => model.Matricula, new { @id = "checkBoxMatricula" })
+            </label>
+            @Html.ValidationMessageFor(model => model.Matricula, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email)
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailConfirmacao)
+            @Html.EditorFor(model => model.EmailConfirmacao)
+            @Html.ValidationMessageFor(model => model.EmailConfirmacao, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Senha)
+            @Html.PasswordFor(model => model.Senha)
+            @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SenhaConfirmacao)
+            @Html.PasswordFor(model => model.SenhaConfirmacao)
+            @Html.ValidationMessageFor(model => model.SenhaConfirmacao, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefone)
+            @Html.EditorFor(model => model.Telefone)
+            @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Universidade)
+            @Html.EditorFor(model => model.Universidade)
+            @Html.ValidationMessageFor(model => model.Universidade, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Curso)
+            <div>
                 @Html.DropDownListFor(model => model.Curso,
                 new SelectList(Model.ListaCurso, "Key", "Value"),
                 "- Selecione o curso -",
@@ -102,18 +71,21 @@
                     <option id="width_tmp_option"></option>
                 </select>
             </div>
-            
             <div class="editor-field" id="divTextCurso">
                 @Html.EditorFor(model => model.Curso)
                 @Html.ValidationMessageFor(model => model.Curso)
             </div>
-            <br />
-            <p>
-                <input type="submit" value="Cadastrar" />
-            </p>
-        </fieldset>
-    }
-</div>
+        </div>
+        <div class="form-group text-right">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+}
+    
+
+
 <div>
     @Html.ActionLink("Voltar", "Index", "Home")
 </div>
