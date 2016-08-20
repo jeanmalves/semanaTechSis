@@ -4,125 +4,136 @@
     ViewBag.Title = "Admin - Participantes";
 }
 
-<h2>Admin - Participantes</h2>
-<p>
+
+<div>
+    <h2>@ViewBag.Title</h2>
     @Html.ActionLink("Cadastrar", "Create")
-</p>
+</div>
 
-@using (Html.BeginForm("Index", "Participante", FormMethod.Get))
-{ 
-    <span>Filtro
-        <input type="text" name="filtro" value="@Request.QueryString["filtro"]" />
-        <input type="submit" value="Buscar" />
-    </span>
-}
-
-@if (Model.Count() > 0)
+@using (Html.BeginForm("Index", "Participante", FormMethod.Get, new { @class = "form-inline" }))
 {
-    <table>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Registro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Matricula)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Confirmado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contribuicao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Colaborador)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
+    <h4>Cadastro de Participantes</h4>
+    <hr />
+    <div class="">
+        <label for="filtro">Buscar</label>
+        <input type="text" class="form-control filtro" name="filtro" placeholder="Digite um nome" value="@Request.QueryString["filtro"]" />
+        <button type="submit" class="btn btn-success">Buscar</button>
+    </div>
+}
+<div class="row page-header">
+    <div class="container">
+        @if (Model.Count() > 0)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Registro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Matricula)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Confirmado)
-                </td>
-                <td>
-                    @Html.CheckBoxFor(modelItem => item.Contribuicao, new { pid = item.IdParticipante })
-                    <span id="contrib@{@item.IdParticipante}"></span>
-                </td>
-                @if (SemanaAcademica.Usuario.SessionPersist.IsAdministrador)
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Registro)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Matricula)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Telefone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Confirmado)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contribuicao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Colaborador)
+                    </th>
+                    <th></th>
+                </tr>
+                @{ int i = 1;}
+                @foreach (var item in Model)
                 {
-                    <td>
-                        @Html.CheckBoxFor(modelItem => item.Colaborador, new { pid = item.IdParticipante })
-                        <span id="colab@{@item.IdParticipante}"></span>
-                    </td>
-                }
-                else
-                {
-                
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Colaborador)
-                    </td>
-                }
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.IdParticipante }) |   @Html.ActionLink("Presenças", "Presenca", new { id = item.IdParticipante })
-                </td>
-            </tr>
+                    <tr class="@(i % 2 != 0 ? "active" : "")">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Registro)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Matricula)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Confirmado)
+                        </td>
+                        <td>
+                            @Html.CheckBoxFor(modelItem => item.Contribuicao, new { pid = item.IdParticipante })
+                            <span id="contrib@{@item.IdParticipante}"></span>
+                        </td>
+                        @if (SemanaAcademica.Usuario.SessionPersist.IsAdministrador)
+                        {
+                            <td>
+                                @Html.CheckBoxFor(modelItem => item.Colaborador, new { pid = item.IdParticipante })
+                                <span id="colab@{@item.IdParticipante}"></span>
+                            </td>
+    }
+    else
+    {
+        <td>
+            @Html.DisplayFor(modelItem => item.Colaborador)
+        </td>
+    }
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.IdParticipante }) |   @Html.ActionLink("Presenças", "Presenca", new { id = item.IdParticipante })
+                        </td>
+                    </tr>
+        i = i + 1;
+    }
+            </table>
+    }
+    </div>
+</div>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+
+        @for (int p = 1; p <= ViewBag.Paginas; p++)
+        {
+            <li>@Html.ActionLink(p.ToString(), "Index", new { filtro = Request.QueryString["filtro"], pag = p })</li>
         }
-    </table>
-}
-
-@for (int p = 1; p <= ViewBag.Paginas; p++)
-{ 
-    <span>@Html.ActionLink(p.ToString(), "Index", new { filtro = Request.QueryString["filtro"], pag = p })</span>
-}
+    </ul>
+</nav>
 
 
-@section Scripts {
-    <script type="text/javascript">
+        @section Scripts {
+            <script type="text/javascript">
 
-        $(document).ready(function () {
-            $(':checkbox[id="item_Contribuicao"]').change(function () {
-                var id = $(this).attr("pid");
-                var status = $(this).is(':checked');
-                $("#contrib" + id).html("Gravando...");
-                $.get('/Admin/Participante/Contribuicao/' + id + "?status=" + status, function (data) {
-                    $("#contrib" + id).html(data);
+                $(document).ready(function () {
+                    $(':checkbox[id="item_Contribuicao"]').change(function () {
+                        var id = $(this).attr("pid");
+                        var status = $(this).is(':checked');
+                        $("#contrib" + id).html("Gravando...");
+                        $.get('/Admin/Participante/Contribuicao/' + id + "?status=" + status, function (data) {
+                            $("#contrib" + id).html(data);
+                        });
+                    });
+
+                    $(':checkbox[id="item_Colaborador"]').change(function () {
+                        var id = $(this).attr("pid");
+                        var status = $(this).is(':checked');
+                        $("#colab" + id).html("Gravando...");
+                        $.get('/Admin/Participante/Colaborador/' + id + "?status=" + status, function (data) {
+                            $("#colab" + id).html(data);
+                        });
+                    });
                 });
-            });
 
-            $(':checkbox[id="item_Colaborador"]').change(function () {
-                var id = $(this).attr("pid");
-                var status = $(this).is(':checked');
-                $("#colab" + id).html("Gravando...");
-                $.get('/Admin/Participante/Colaborador/' + id + "?status=" + status, function (data) {
-                    $("#colab" + id).html(data);
-                });
-            });
-        });
-
-    </script>
-}
+            </script>
+        }

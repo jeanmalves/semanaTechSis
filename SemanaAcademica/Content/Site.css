@@ -35,3 +35,12 @@ textarea {
 .navbar-inverse .navbar-brand {
     color: #000;
 }
+
+.container > .navbar-header, .container-fluid > .navbar-header, 
+.container > .navbar-collapse, .container-fluid > .navbar-collapse {
+    margin-left: -15px!important;
+}
+
+.filtro {
+    width:100%!important;
+}
