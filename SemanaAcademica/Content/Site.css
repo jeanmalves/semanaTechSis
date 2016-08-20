@@ -44,3 +44,7 @@ textarea {
 .filtro {
     width:100%!important;
 }
+
+#registro {
+    max-width:100%;
+}

@@ -4,16 +4,14 @@
     ViewBag.Title = "Admin - Participantes";
 }
 
-
-<div>
-    <h2>@ViewBag.Title</h2>
-    @Html.ActionLink("Cadastrar", "Create")
+<h2>@ViewBag.Title</h2>
+<h4>Cadastro de Participantes</h4>
+<hr />
+<div class="col-md-12 text-right">
+   <p> @Html.ActionLink("Cadastrar novo participante", "Create")</p>
 </div>
-
 @using (Html.BeginForm("Index", "Participante", FormMethod.Get, new { @class = "form-inline" }))
 {
-    <h4>Cadastro de Participantes</h4>
-    <hr />
     <div class="">
         <label for="filtro">Buscar</label>
         <input type="text" class="form-control filtro" name="filtro" placeholder="Digite um nome" value="@Request.QueryString["filtro"]" />

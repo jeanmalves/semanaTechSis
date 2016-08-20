@@ -3,22 +3,26 @@
 @{
     ViewBag.Title = "Participação";
 }
-<center>
-    <h2>Selecione um evento</h2>
-    <br />
-    @Html.DropDownList("ddl", Model.Select(e => new SelectListItem { Text = e.Nome, Value = e.IdEvento.ToString() }))
-    <br />
-    <input type="button" value="Selecionar" onclick="Registrar()" />
-</center>
-
+<h2>@ViewBag.Title</h2>
+<h4>Registrar participação no evento</h4>
+<hr />
+<div class="row">
+    <div class="container">
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.DropDownList("ddl", Model.Select(e => new SelectListItem { Text = e.Nome, Value = e.IdEvento.ToString() }), 
+                                    new { @class = "form-control" })
+                <button type="button" class="btn btn-success" onclick="Registrar()">Selecionar</button>
+            </div>   
+        </div>
+    </div>
+</div>
 
 @section Scripts {
     <script type="text/javascript">
-
         function Registrar() {
             var id = $("#ddl").val();
             window.location.href = "/Admin/Participacao/Registrar/" + id;
         }
-
     </script>
 }
