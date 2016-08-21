@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace SemanaAcademica
@@ -11,6 +12,7 @@ namespace SemanaAcademica
 
         public int IdPessoa { get; set; }
         public string Nome { get; set; }
+        public string NomeMenu { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
         public string Senha { get; set; }
@@ -39,6 +41,9 @@ namespace SemanaAcademica
 
                         if (pessoa != null)
                         {
+                            string regexPatternPrimeiroNome = "[\\w]+[^\\s+]";
+                            Regex r = new Regex(regexPatternPrimeiroNome, RegexOptions.IgnoreCase);
+                            Match m = r.Match(pessoa.Nome);
                             _SessionUser = new Usuario
                             {
                                 IdPessoa = pessoa.IdPessoa,
@@ -47,7 +52,8 @@ namespace SemanaAcademica
                                 Senha = pessoa.Senha,
                                 Telefone = pessoa.Telefone,
                                 IsColaborador = colaborador != null,
-                                IsAdministrador = administrador != null
+                                IsAdministrador = administrador != null,
+                                NomeMenu = m.Value
                             };
 
                             HttpContext.Current.Session[String.Format("UsuarioAutenticado.{0}", HttpContext.Current.User.Identity.Name)] = _SessionUser;
