@@ -48,7 +48,7 @@ namespace SemanaAcademica.Controllers
             doc.Open();
 
             // Imagem do certificado
-            var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
+            var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\certificado2016.png"));
 
             using (var g = System.Drawing.Graphics.FromImage(image))
             {

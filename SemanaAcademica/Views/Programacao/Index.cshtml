@@ -5,6 +5,8 @@
 }
 
 <h2>Programação Geral</h2>
+<h4>Confira aqui os horários e locais de palestras e minicursos.</h4>
+<hr />
 @*@Html.ActionLink("Auditório", "Index", new { id = "1" }) | @Html.ActionLink("Miniauditório", "Index", new { id = "2" })*@
 
 @{
@@ -17,7 +19,7 @@
     var menorHora = horarios.OrderBy(h => h.HoraInicio.Hour).First().HoraInicio.Hour;
     var maiorDt = horarios.OrderBy(h => h.HoraInicio).Last().HoraInicio;
     var maiorHora = horarios.OrderBy(h => h.HoraInicio.Hour).Last().HoraInicio.Hour;
-    <table id="tableProgramacao">
+    <table class="table">
         <tr>
             <td style="background-color: #EFEEEF; color: black"></td>
             @for (var dt = menorDt.AddHours(-menorDt.Hour); dt <= maiorDt; dt = dt.AddDays(1))
@@ -33,7 +35,7 @@
                 </td>
                 @for (var dt = menorDt.AddHours(-menorDt.Hour); dt <= maiorDt; dt = dt.AddDays(1))
                 {
-                    <td>
+                    <td style="border: 1px solid #c7c3c3">
                         @Html.Raw(
                             String.Join(
                                 "<br /><br />",

@@ -10,32 +10,34 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Entre com seus dados:</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
+    <div class="form-horizontal">
+        <h4>Entre com seus dados para acessar o sistema.</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Senha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.Senha)
+                @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+            </div>
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Senha)
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                @Html.ActionLink("Esqueci minha senha", "RecuperarSenha")
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.PasswordFor(model => model.Senha)
-            @Html.ValidationMessageFor(model => model.Senha)
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Entrar" class="btn btn-success" />
+            </div>
         </div>
-
-        <p>
-            <input type="submit" value="Entrar" />
-        </p>
-
-        @Html.ActionLink("Esqueci minha senha", "RecuperarSenha")
-    </fieldset>
+    </div>
 }
 
 <div>

@@ -3,39 +3,44 @@
 @{
     ViewBag.Title = "Registrar";
 }
-<center>
-
-    <h2>Registrar Participação</h2>
-    <p>
-    <h3>
+<h2>Registrar Participação</h2>
+<hr />
+<div class="text-center">
+    <h1>
         @Html.DisplayFor(model => model.NomeEvento)
-    </h3>
-    
-        <br />
+    </h1>
+    <p>
         @for (int i = 0; i < Model.HoraFim.Count(); i++)
         {
             var hi = Model.HoraInicio[i];
             var hf = Model.HoraFim[i];
-            <span>@hi.Date.ToShortDateString() @hi.Hour.ToString("00"):@hi.Minute.ToString("00") às @hf.Date.ToShortDateString() @hf.Hour.ToString("00"):@hf.Minute.ToString("00")</span>
-            <br />
+            <strong>
+                @hi.Date.ToShortDateString() @hi.Hour.ToString("00"):@hi.Minute.ToString("00") às @hf.Date.ToShortDateString() @hf.Hour.ToString("00"):@hf.Minute.ToString("00")
+                <br />
+            </strong>
         }
-        </p>
+    </p><br><br>
     @using (Html.BeginForm())
     {
-        <span>Registro: </span>
-        <input name="registro" id="registro" type="text" />
+        <div class="form-group">
+            <label for="registro"><h3>Registrar</h3></label>
+            <div class="col-md-12">
+                <input name="registro" id="registro" type="text" />
+            </div>
+            <div class="text-danger">
+                @Html.ValidationSummary()
+            </div>
+        </div>
     }
-
-    @Html.ValidationSummary()
-
+    <br><br>
+    
     @if (!String.IsNullOrEmpty(Model.UltimaParticipacaoRegistro))
     {
         <div class="display-label">
             Ultimo Registro: @Model.UltimaParticipacaoRegistro - @Model.UltimaParticipacaoNome (@Model.Sentido)
         </div>
     }
-    <br /><br /><br />
-    </center>
+</div>
 
 @section Scripts {
     <script type="text/javascript">
