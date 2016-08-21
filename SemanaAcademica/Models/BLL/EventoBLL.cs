@@ -22,7 +22,7 @@ namespace SemanaAcademica.Models.BLL
                                  IdEvento = e.id_evento,
                                  Nome = e.nome,
                                  Descricao = e.descricao,
-                             }).Distinct();
+                             });
                 return query;
             }
             catch
