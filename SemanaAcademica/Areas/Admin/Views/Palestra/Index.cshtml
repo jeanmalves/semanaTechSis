@@ -35,8 +35,8 @@
                         <td>
                             @Html.ActionLink("Editar", "Edit", new { id = item.IdPalestra }) |
                             @Html.ActionLink("Excluir", "Delete", new { id = item.IdPalestra }) |
-                            @Html.ActionLink("Horario(s)", "Index", "Horario", new { id = item.IdPalestra }, null) |
-                            @Html.ActionLink("Lista Presença", "Listar", "Participacao", new { id = item.IdPalestra }, null)
+                            @Html.ActionLink("Horario(s)", "Index", "Horario", new { id = item.IdEvento }, null) |
+                            @Html.ActionLink("Lista Presença", "Listar", "Participacao", new { id = item.IdEvento }, null)
                         </td>
                     </tr>
                     i = i + 1;
