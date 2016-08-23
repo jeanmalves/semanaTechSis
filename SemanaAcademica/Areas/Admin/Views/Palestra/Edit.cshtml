@@ -1,37 +1,37 @@
-﻿@model SemanaAcademica.Areas.Admin.Models.EditarPalestraModel
+﻿@model SemanaAcademica.Models.DAL.Palestra
 
 @{
     ViewBag.Title = "Editar Palestra";
 }
 
+<h2>@ViewBag.Title</h2>
+<hr />
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <fieldset>
-        <legend>Editar Palestra</legend>
+    @Html.HiddenFor(model => model.id_palestra)
+    @Html.HiddenFor(model => model.id_evento)
+    @Html.HiddenFor(model => model.Evento.id_evento)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nome)
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Evento.nome)
+            @Html.EditorFor(model => model.Evento.nome)
+            @Html.ValidationMessageFor(model => model.Evento.nome, "", new { @class = "text-danger" })
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nome)
-            @Html.ValidationMessageFor(model => model.Nome)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Evento.descricao)
+            @Html.EditorFor(model => model.Evento.descricao)
+            @Html.ValidationMessageFor(model => model.Evento.descricao, "", new { @class = "text-danger" })
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Descricao)
+        <div class="form-group text-right">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-success">Editar</button>
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Descricao)
-            @Html.ValidationMessageFor(model => model.Descricao)
-        </div>
-
-        <p>
-            <input type="submit" value="Salvar" />
-        </p>
-    </fieldset>
+    </div>
 }
 
 @section Scripts {
