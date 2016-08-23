@@ -9,21 +9,43 @@ namespace SemanaAcademica.Models.BLL
 {
     public static class EventoBLL
     {
-        static public IEnumerable<EventoModel> SelectEventosComHorario()
+        static public IEnumerable<DropDownListModel> SelectEventosComHorario()
         {
             try
             {
                 var entities = new SemanaAcademicaEntities();
-                var query = (from e in entities.Evento
-                             join h in entities.Horario on e.id_evento equals h.id_evento
-                             orderby e.nome
-                             select new EventoModel
-                             {
-                                 IdEvento = e.id_evento,
-                                 Nome = e.nome,
-                                 Descricao = e.descricao,
-                             }).Distinct();
-                return query;
+                List<DropDownListModel> list = new List<DropDownListModel>();
+                var palestra = (from e in entities.Evento
+                                join p in entities.Palestra on e.id_evento equals p.id_evento
+                                join h in entities.Horario on e.id_evento equals h.id_evento
+                                orderby e.nome
+
+                                    select new
+                                    {
+                                        p.id_palestra,
+                                        e.id_evento,
+                                        e.nome,
+                                        h.hora_inicio,
+                                        h.hora_fim
+                                    }
+                                );
+                foreach(var item in palestra)
+                {
+                    DropDownListModel comboboxPalestra = new DropDownListModel();
+
+                    string idEvento = item.id_evento.ToString();
+                    string horaInicio = item.hora_inicio.ToShortDateString() +" "+ item.hora_inicio.Hour.ToString("00") + ":" + item.hora_inicio.Minute.ToString("00");
+                    string horaFim = item.hora_fim.ToShortDateString() +" "+ item.hora_fim.Hour.ToString("00") + ":" + item.hora_fim.Minute.ToString("00");
+
+                    string nome = item.nome + "   " + horaInicio + " às " + horaFim;
+
+                    comboboxPalestra.Value = idEvento;
+                    comboboxPalestra.Name = nome;
+
+                    list.Add(comboboxPalestra);
+                }
+
+                return list;
             }
             catch
             {
