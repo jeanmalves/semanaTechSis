@@ -88,23 +88,43 @@ namespace SemanaAcademica.Models.BLL
         }
 
 
-        static public IEnumerable<PalestraModel> SelectPalestras()
+        static public IEnumerable<ListarPalestraModel> SelectPalestras()
         {
             try
             {
                 var entities = new SemanaAcademicaEntities();
-                return entities.Palestra.Select(e => new PalestraModel
-                {
-                    IdEvento = e.id_evento,
-                    IdPalestra = e.id_palestra,
-                    Nome = e.Evento.nome,
-                    Descricao = e.Evento.descricao
-                });
+
+                var palestra = entities.Palestra
+                            .AsEnumerable()    
+                            .Select(e => 
+                                new ListarPalestraModel
+                                {
+                                    IdPalestra = e.id_palestra,
+                                    IdEvento = e.id_evento,
+                                    Nome = e.Evento.nome,
+                                    Descricao = e.Evento.descricao
+                                });
+                return palestra;
+                //return entities.Palestra.Select(e => new PalestraModel
+                //{
+                //    IdEvento = e.id_evento,
+                //    IdPalestra = e.id_palestra,
+                //    Nome = e.Evento.nome,
+                //    Descricao = e.Evento.descricao
+                //});
             }
             catch
             {
                 return null;
             }
+        }
+
+        public static Palestra selectPalestra(int id)
+        {
+            var entities = new SemanaAcademicaEntities();
+
+            Palestra palestra = entities.Palestra.FirstOrDefault(p => p.id_palestra == id);
+            return palestra;
         }
 
         static public IEnumerable<MinicursoModel> SelectMinicursos()
@@ -311,14 +331,16 @@ namespace SemanaAcademica.Models.BLL
             }
         }
 
-        public static bool UpdatePalestra(int id, PalestraModel model)
+        public static bool UpdatePalestra(Palestra model)
         {
             try
             {
                 var entities = new SemanaAcademicaEntities();
-                var palestra = entities.Palestra.FirstOrDefault(p => p.id_palestra == id);
-                palestra.Evento.descricao = model.Descricao;
-                palestra.Evento.nome = model.Nome;
+                var palestra = entities.Palestra.FirstOrDefault(p => p.id_palestra == model.id_palestra);
+
+                palestra.Evento.nome = model.Evento.nome;
+                palestra.Evento.descricao = model.Evento.descricao;
+                
                 entities.SaveChanges();
                 return true;
             }

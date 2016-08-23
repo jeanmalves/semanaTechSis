@@ -1,5 +1,6 @@
 ﻿using SemanaAcademica.Areas.Admin.Models;
 using SemanaAcademica.Models.BLL;
+using SemanaAcademica.Models.DAL;
 using SemanaAcademica.Models.ObjectModel;
 using SemanaAcademica.Utils;
 using System;
@@ -18,13 +19,7 @@ namespace SemanaAcademica.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var palestras = EventoBLL.SelectPalestras().Select(p => new ListarPalestraModel
-            {
-                IdEvento = p.IdEvento,
-                Descricao = p.Descricao,
-                IdPalestra = p.IdPalestra,
-                Nome = p.Nome
-            });
+            var palestras = EventoBLL.SelectPalestras();
             return View(palestras);
         }
 
@@ -68,26 +63,32 @@ namespace SemanaAcademica.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            var palestra = EventoBLL.SelectPalestras().Select(p => new EditarPalestraModel { Descricao = p.Descricao, IdPalestra = p.IdPalestra, Nome = p.Nome }).FirstOrDefault(p => p.IdPalestra == id);
-            return View(palestra);
+            if(id > 0)
+            {
+                var palestra = EventoBLL.selectPalestra(id);
+                if(palestra != null)
+                    return View(palestra);
+            }
+            
+            return RedirectToAction("Index");
         }
 
         //
         // POST: /Admin/Palestra/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, EditarPalestraModel model)
+        public ActionResult Edit(Palestra palestra)
         {
             try
             {
-                if (EventoBLL.UpdatePalestra(id, new PalestraModel { Descricao = model.Descricao, Nome = model.Nome }))
+                if (EventoBLL.UpdatePalestra(palestra))
                     return RedirectToAction("Index");
             }
             catch
             {
             }
-            ModelState.AddModelError("", "Erro atualizando palestra.");
-            return View(model);
+            ModelState.AddModelError("", "Erro atualizando palestra."); 
+            return View(palestra);
         }
 
         //
