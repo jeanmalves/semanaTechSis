@@ -12,6 +12,14 @@ namespace SemanaAcademica.Models.ObjectModel
         public virtual String Descricao { get; set; }
     }
 
+    public class DropDownListModel
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+    }
+
+
+
     public class VisitaModel : EventoModel
     {
         public int IdVisita { get; set; }
