@@ -52,9 +52,9 @@ namespace SemanaAcademica.Controllers
 
             using (var g = System.Drawing.Graphics.FromImage(image))
             {
-                g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 20),
+                g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 30, System.Drawing.FontStyle.Bold),
                 new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                new System.Drawing.Rectangle(500, 300, 1000, 360),
+                new System.Drawing.Rectangle(500, 300, 850, 330),
                 new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                 );
 
@@ -68,9 +68,9 @@ namespace SemanaAcademica.Controllers
                       .Where(p => p.HoraEntrada.HasValue && p.HoraSaida.HasValue)
                       .Sum(p => (p.HoraSaida.Value - p.HoraEntrada.Value).TotalMinutes) / 60
                   )),
-                  new System.Drawing.Font("Arial", 12),
+                  new System.Drawing.Font("Arial", 22),
                   new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                  new System.Drawing.Rectangle(300, 460, 1400, 760),
+                  new System.Drawing.Rectangle(300, 460, 1200, 760),
                   new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                   );
             }
@@ -120,13 +120,13 @@ namespace SemanaAcademica.Controllers
 
             foreach (ParticipacaoModel p in minicursos)
             {
-                var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
+                var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\certificado2016.png"));
 
                 using (var g = System.Drawing.Graphics.FromImage(image))
                 {
-                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 20),
+                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 30, System.Drawing.FontStyle.Bold),
                     new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                    new System.Drawing.Rectangle(500, 300, 1000, 360),
+                    new System.Drawing.Rectangle(500, 300, 850, 330),
                     new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                     );
 
@@ -137,9 +137,9 @@ namespace SemanaAcademica.Controllers
                       Usuario.SessionPersist.Nome,
                       p.NomeEvento,
                       Math.Ceiling((double)(p.HoraSaida.Value - p.HoraEntrada.Value).TotalMinutes / 60)),
-                      new System.Drawing.Font("Arial", 12),
+                      new System.Drawing.Font("Arial", 22),
                       new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                      new System.Drawing.Rectangle(300, 460, 1400, 760),
+                      new System.Drawing.Rectangle(300, 460, 1200, 760),
                       new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                       );
                 }
@@ -191,13 +191,13 @@ namespace SemanaAcademica.Controllers
 
             foreach (ParticipacaoModel p in visitas)
             {
-                var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
+                var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\certificado2016.png"));
 
                 using (var g = System.Drawing.Graphics.FromImage(image))
                 {
-                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 20),
+                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 30, System.Drawing.FontStyle.Bold),
                     new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                    new System.Drawing.Rectangle(500, 300, 1000, 360),
+                    new System.Drawing.Rectangle(500, 300, 850, 330),
                     new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                     );
 
@@ -209,9 +209,9 @@ namespace SemanaAcademica.Controllers
                       p.NomeEvento,
                       String.Format("{0:dd/MM/yyyy}", p.HoraEntrada),
                       Math.Ceiling((double)(p.HoraSaida.Value - p.HoraEntrada.Value).TotalMinutes / 60)),
-                      new System.Drawing.Font("Arial", 12),
+                      new System.Drawing.Font("Arial", 22),
                       new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                      new System.Drawing.Rectangle(300, 460, 1400, 760),
+                      new System.Drawing.Rectangle(300, 460, 1200, 760),
                       new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                       );
                 }
@@ -263,13 +263,13 @@ namespace SemanaAcademica.Controllers
 
             foreach (ParticipacaoModel p in oficinas)
             {
-                var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
+                var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\certificado2016.png"));
 
                 using (var g = System.Drawing.Graphics.FromImage(image))
                 {
-                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 20),
+                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 30, System.Drawing.FontStyle.Bold),
                     new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                    new System.Drawing.Rectangle(500, 300, 1000, 360),
+                    new System.Drawing.Rectangle(500, 300, 850, 330),
                     new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                     );
 
@@ -280,9 +280,9 @@ namespace SemanaAcademica.Controllers
                       Usuario.SessionPersist.Nome,
                       p.NomeEvento,
                       Math.Ceiling((double)(p.HoraSaida.Value - p.HoraEntrada.Value).TotalMinutes / 60)),
-                      new System.Drawing.Font("Arial", 12),
+                      new System.Drawing.Font("Arial", 22),
                       new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                      new System.Drawing.Rectangle(300, 460, 1400, 760),
+                      new System.Drawing.Rectangle(300, 460, 1200, 760),
                       new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                       );
                 }
@@ -381,15 +381,15 @@ namespace SemanaAcademica.Controllers
 
             doc.Open();
 
-            var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
+            var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\certificado2016.png"));
             if (Usuario.SessionPersist.IsAdministrador)
             {
 
                 using (var g = System.Drawing.Graphics.FromImage(image))
                 {
-                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 20),
+                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 30, System.Drawing.FontStyle.Bold),
                     new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                    new System.Drawing.Rectangle(500, 300, 1000, 360),
+                    new System.Drawing.Rectangle(500, 300, 850, 330),
                     new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                     );
 
@@ -397,9 +397,9 @@ namespace SemanaAcademica.Controllers
                       String.Format(
                       ConfigurationManager.AppSettings["Certificado.Administrador"].ToString(),
                       Usuario.SessionPersist.Nome),
-                      new System.Drawing.Font("Arial", 12),
+                      new System.Drawing.Font("Arial", 22),
                       new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                      new System.Drawing.Rectangle(300, 460, 1400, 760),
+                      new System.Drawing.Rectangle(300, 460, 1200, 760),
                       new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                       );
 
@@ -447,13 +447,13 @@ namespace SemanaAcademica.Controllers
 
             foreach (TrabalhoVoluntarioModel t in trabalhos)
             {
-                var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\Fundo.jpg"));
+                var image = System.Drawing.Image.FromFile(Server.MapPath("\\Content\\Templates\\certificado2016.png"));
 
                 using (var g = System.Drawing.Graphics.FromImage(image))
                 {
-                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 20),
+                    g.DrawString("CERTIFICADO", new System.Drawing.Font("Arial", 30, System.Drawing.FontStyle.Bold),
                     new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                    new System.Drawing.Rectangle(500, 300, 1000, 360),
+                    new System.Drawing.Rectangle(500, 300, 850, 330),
                     new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                     );
 
@@ -466,9 +466,9 @@ namespace SemanaAcademica.Controllers
                       String.Format("{0:dd/MM/yyyy}", t.DataFim),
                       t.Horas
                       ),
-                      new System.Drawing.Font("Arial", 12),
+                      new System.Drawing.Font("Arial", 22),
                       new System.Drawing.SolidBrush(System.Drawing.Color.Black),
-                      new System.Drawing.Rectangle(300, 460, 1400, 760),
+                      new System.Drawing.Rectangle(300, 460, 1200, 760),
                       new System.Drawing.StringFormat { Alignment = System.Drawing.StringAlignment.Center, Trimming = System.Drawing.StringTrimming.Word }
                       );
                 }
