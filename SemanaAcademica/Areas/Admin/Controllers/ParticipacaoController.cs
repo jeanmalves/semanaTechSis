@@ -161,7 +161,7 @@ namespace SemanaAcademica.Areas.Admin.Controllers
             ViewBag.idEvento = evento.IdEvento;
             var listaPresenca = ParticipacaoBLL.listarParticipacao(id);
 
-            int paginaTamanho = 4;
+            int paginaTamanho = 10;
             int paginaNumero = (pagina ?? 1);
 
             return View(listaPresenca.ToPagedList(paginaNumero, paginaTamanho));
